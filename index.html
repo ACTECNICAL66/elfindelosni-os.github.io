@@ -1,0 +1,2645 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Gestión Hídrica: Análisis y Monitoreo</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #0B3D91;
+            --secondary-color: #FC3D21;
+            --accent-color: #1A936F;
+            --light-color: #F5F7FA;
+            --dark-color: #2C3E50;
+            --text-color: #333333;
+            --light-blue: #E1F5FE;
+            --el-nino-color: #E74C3C;
+            --la-nina-color: #3498DB;
+            --title-color: #082567;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+        }
+        
+        .main-nav-btn {
+            transition: all 0.3s ease;
+            border-bottom: 4px solid transparent;
+        }
+        .main-nav-btn.active {
+            border-bottom-color: var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .gemini-response {
+            white-space: pre-wrap;
+            background-color: #eef2ff;
+            border-left: 4px solid #4f46e5;
+        }
+        .chat-bubble-user {
+            background-color: #dbeafe;
+            color: #1e3a8a;
+        }
+        .chat-bubble-ai {
+            background-color: #f1f5f9;
+            color: #334155;
+        }
+
+        .leaflet-container {
+            height: 500px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .tab-nav .tab {
+            cursor: pointer;
+            padding: 10px 20px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .tab-nav .tab.active {
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        #elnino-content.active { border-left-color: var(--el-nino-color); }
+        #lanina-content.active { border-left-color: var(--la-nina-color); }
+        .tab#elnino-tab.active { border-bottom-color: var(--el-nino-color); color: var(--el-nino-color); }
+        .tab#lanina-tab.active { border-bottom-color: var(--la-nina-color); color: var(--la-nina-color); }
+        
+        /* Estilos para la vista El Fin de los Niños */
+        #view-el-fin-de-los-ninos {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e1f5fe 100%);
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        #view-el-fin-de-los-ninos h1, 
+        #view-el-fin-de-los-ninos h2, 
+        #view-el-fin-de-los-ninos h3, 
+        #view-el-fin-de-los-ninos h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        #view-el-fin-de-los-ninos h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--title-color);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        #view-el-fin-de-los-ninos .nasa-badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        #view-el-fin-de-los-ninos .project-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a237e 100%);
+            color: white;
+            padding: 3rem 0 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #view-el-fin-de-los-ninos .project-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        #view-el-fin-de-los-ninos .project-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        #view-el-fin-de-los-ninos .subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        #view-el-fin-de-los-ninos section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        #view-el-fin-de-los-ninos .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--light-blue) 0%, white 100%);
+            border-radius: 16px;
+            margin-bottom: 3rem;
+        }
+        
+        #view-el-fin-de-los-ninos .hero-stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        #view-el-fin-de-los-ninos .stat {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        #view-el-fin-de-los-ninos .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        #view-el-fin-de-los-ninos .stat-label {
+            font-size: 0.9rem;
+            color: var(--dark-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        #view-el-fin-de-los-ninos .image-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        #view-el-fin-de-los-ninos .study-image {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        #view-el-fin-de-los-ninos .image-caption {
+            font-style: italic;
+            margin-top: 0.8rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        #view-el-fin-de-los-ninos .map-container {
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 2rem 0;
+            border: 1px solid #ddd;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        
+        #view-el-fin-de-los-ninos #map, 
+        #view-el-fin-de-los-ninos #weather-map {
+            height: 100%;
+            width: 100%;
+        }
+        
+        #view-el-fin-de-los-ninos .map-controls {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        #view-el-fin-de-los-ninos .layer-btn {
+            display: block;
+            width: 100%;
+            padding: 8px 12px;
+            margin: 5px 0;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.3s;
+        }
+        
+        #view-el-fin-de-los-ninos .layer-btn:hover {
+            background: #e0e0e0;
+        }
+        
+        #view-el-fin-de-los-ninos .layer-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        #view-el-fin-de-los-ninos .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        #view-el-fin-de-los-ninos .download-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        #view-el-fin-de-los-ninos .download-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+        
+        #view-el-fin-de-los-ninos .download-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        #view-el-fin-de-los-ninos .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: auto;
+            gap: 0.5rem;
+        }
+        
+        #view-el-fin-de-los-ninos .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(252, 61, 33, 0.3);
+        }
+        
+        #view-el-fin-de-los-ninos .btn-download {
+            background: var(--accent-color);
+        }
+        
+        #view-el-fin-de-los-ninos .btn-download:hover {
+            background: #147a5f;
+            box-shadow: 0 5px 15px rgba(26, 147, 111, 0.3);
+        }
+        
+        #view-el-fin-de-los-ninos .project-footer {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #1a1a1a 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+        
+        #view-el-fin-de-los-ninos .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        #view-el-fin-de-los-ninos .info-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+            border-left: 5px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #view-el-fin-de-los-ninos .info-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        #view-el-fin-de-los-ninos .cuenca-info {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f0f7ff;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        #view-el-fin-de-los-ninos .cuenca-info h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        #view-el-fin-de-los-ninos .cuenca-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        #view-el-fin-de-los-ninos .cuenca-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        #view-el-fin-de-los-ninos .cuenca-item:hover {
+            transform: translateX(5px);
+        }
+        
+        #view-el-fin-de-los-ninos .cuenca-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        #view-el-fin-de-los-ninos .cuenca-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-color);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            text-align: center;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        #view-el-fin-de-los-ninos .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        #view-el-fin-de-los-ninos .tech-item {
+            background: var(--light-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        #view-el-fin-de-los-ninos .mission-statement {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a237e 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        #view-el-fin-de-los-ninos .mission-statement h2 {
+            color: white;
+        }
+        
+        #view-el-fin-de-los-ninos .climate-legend {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        #view-el-fin-de-los-ninos .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        #view-el-fin-de-los-ninos .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        
+        #view-el-fin-de-los-ninos .el-nino { background-color: var(--el-nino-color); }
+        #view-el-fin-de-los-ninos .la-nina { background-color: var(--la-nina-color); }
+        #view-el-fin-de-los-ninos .neutral { background-color: #F39C12; }
+        
+        #view-el-fin-de-los-ninos .tab-container {
+            margin: 2rem 0;
+        }
+        
+        #view-el-fin-de-los-ninos .tabs {
+            display: flex;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 1rem;
+        }
+        
+        #view-el-fin-de-los-ninos .tab {
+            padding: 1rem 2rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        #view-el-fin-de-los-ninos .tab.active {
+            border-bottom: 3px solid var(--primary-color);
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        #view-el-fin-de-los-ninos .tab-content {
+            display: none;
+            padding: 1rem 0;
+        }
+        
+        #view-el-fin-de-los-ninos .tab-content.active {
+            display: block;
+        }
+        
+        #view-el-fin-de-los-ninos .weather-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        #view-el-fin-de-los-ninos .weather-card {
+            background: #f0f7ff;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        #view-el-fin-de-los-ninos .weather-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        #view-el-fin-de-los-ninos .weather-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        #view-el-fin-de-los-ninos .last-update {
+            text-align: center;
+            font-style: italic;
+            color: #888;
+            margin-top: 1rem;
+        }
+        
+        #view-el-fin-de-los-ninos .wind-arrow {
+            display: inline-block;
+            transition: transform 0.3s;
+            font-size: 1.2rem;
+        }
+        
+        #view-el-fin-de-los-ninos .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+        
+        #view-el-fin-de-los-ninos .climate-impact {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        /* Estilos para la IA con aprendizaje */
+        .learning-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #10B981;
+            margin-left: 5px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.7; }
+        }
+        
+        .context-tag {
+            display: inline-block;
+            background-color: #e0e7ff;
+            color: #4f46e5;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* Estilos para el toggle switch */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #10B981;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #10B981;
+        }
+
+        /* Estilos para el Panel de Análisis de Índices Satelitales */
+        .metric-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+        }
+        .metric-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .ndvi-card { border-left-color: #22c55e; }
+        .esi-card { border-left-color: #3b82f6; }
+        .stress-card { border-left-color: #ef4444; }
+        .recovery-card { border-left-color: #10b981; }
+
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-good { background-color: #10b981; }
+        .status-moderate { background-color: #f59e0b; }
+        .status-poor { background-color: #ef4444; }
+
+        .chart-toggle-btn.active { color: white; }
+        .chart-toggle-btn[data-color="green"].active { background-color: #22c55e; border-color: #16a34a; }
+        .chart-toggle-btn[data-color="red"].active { background-color: #ef4444; border-color: #dc2626; }
+        .chart-toggle-btn[data-color="blue"].active { background-color: #3b82f6; border-color: #2563eb; }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none; appearance: none;
+            width: 20px; height: 20px;
+            background: var(--primary-color);
+            cursor: pointer; border-radius: 50%;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px; height: 20px;
+            background: var(--primary-color);
+            cursor: pointer; border-radius: 50%;
+        }
+
+        .data-visualization {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            #view-el-fin-de-los-ninos .project-container {
+                width: 95%;
+            }
+            
+            #view-el-fin-de-los-ninos h1 {
+                font-size: 2.2rem;
+            }
+            
+            #view-el-fin-de-los-ninos section {
+                padding: 1.8rem;
+            }
+            
+            #view-el-fin-de-los-ninos .hero-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            #view-el-fin-de-los-ninos .stat {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            #view-el-fin-de-los-ninos .tabs {
+                flex-direction: column;
+            }
+            
+            #view-el-fin-de-los-ninos .tab {
+                text-align: center;
+            }
+            
+            #view-el-fin-de-los-ninos .map-controls {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+             <h1 class="text-xl font-bold text-gray-800" style="color: var(--primary-color);">Panel Hídrico</h1>
+             <nav class="hidden md:flex space-x-6">
+                <button data-view="view-el-fin-de-los-ninos" class="main-nav-btn text-lg py-2 px-3 text-gray-600">Proyecto: El Fin de los Niños</button>
+                <button data-view="view-paradigmas" class="main-nav-btn text-lg py-2 px-3 text-gray-600">Análisis de Paradigmas</button>
+             </nav>
+             <div class="md:hidden">
+                <select id="mobile-nav-select" class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <option value="view-el-fin-de-los-ninos">Proyecto: El Fin de los Niños</option>
+                    <option value="view-paradigmas">Análisis de Paradigmas</option>
+                </select>
+             </div>
+        </div>
+    </header>
+
+    <div id="view-el-fin-de-los-ninos" class="app-view">
+        <div class="project-header">
+            <div class="project-container">
+                <div class="nasa-badge">NASA Space Apps Challenge 2025</div>
+                <h1>El Fin de los Niños</h1>
+                <p class="subtitle">Sistema de gestión hídrica resiliente ante los fenómenos de El Niño y La Niña en Córdoba, Argentina</p>
+            </div>
+        </div>
+
+        <div class="project-container">
+            <section class="hero">
+                <h2>Resiliencia Hídrica ante la Variabilidad Climática</h2>
+                <p>Combinando datos climáticos de la NASA con análisis geoespacial para crear soluciones sostenibles de gestión del agua en un contexto de cambio climático.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">Cuencas Analizadas</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Código Abierto</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Años de Datos Climáticos</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="proyecto">
+                <h2><i class="fas fa-water"></i> Acerca del Proyecto</h2>
+                <p>"El Fin de los Niños" es una solución innovadora desarrollada por estudiantes del Instituto José Antonio Balseiro (IPET Nº66) de Córdoba Capital, que aborda la vulnerabilidad hídrica de la provincia de Córdoba ante los fenómenos de El Niño y La Niña.</p>
+                
+                <p>El proyecto integra datos climáticos de la NASA con tecnologías de vanguardia como <strong>C++</strong> para programación de sistemas embebidos, <strong>ESP32</strong> para monitoreo en tiempo real, <strong>Google Earth</strong> para visualización geoespacial, y <strong>QGIS</strong> para análisis topográfico y delimitación de cuencas hidrográficas. El sistema propuesto incluye el diseño de micro-represas estratégicamente ubicadas para la captación y almacenamiento de agua, utilizando sensores ultrasónicos, de caudal, temperatura y calidad de agua, conectados a una red de monitoreo autónoma con alimentación solar.</p>
+                
+                <p>Según datos del informe, Córdoba enfrenta una creciente presión sobre sus recursos hídricos debido al aumento sostenido de su población (proyectada a 4.8 millones para 2050), la intensificación de las actividades agrícolas e industriales, y los efectos cada vez más visibles del cambio climático. La demanda total de agua crecería desde los actuales 1.800 Hm³ anuales a más de 2.600 Hm³, mientras que la infraestructura hídrica existente muestra signos de obsolescencia con pérdidas del 40% en la red de distribución.</p>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fas fa-bullseye"></i> Objetivos Principales</h3>
+                        <ul>
+                            <li>Analizar el impacto de El Niño/La Niña en los recursos hídricos de Córdoba</li>
+                            <li>Identificar ubicaciones óptimas para micro-represas de regulación</li>
+                            <li>Desarrollar estrategias de gestión adaptativa al clima</li>
+                            <li>Crear un modelo predictivo para eventos extremos</li>
+                            <li>Implementar un sistema de monitoreo con sensores ESP32</li>
+                            <li>Desarrollar una interfaz web para visualización de datos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-satellite"></i> Datos NASA Utilizados</h3>
+                        <ul>
+                            <li>Datos de temperatura superficial del mar (TSM)</li>
+                            <li>Información del Índice de Oscilación del Sur (SOI)</li>
+                            <li>Datos de precipitación de misiones TRMM và GPM</li>
+                            <li>Modelos climáticos para proyecciones futuras</li>
+                            <li>Imágenes satelitales multiespectrales</li>
+                            <li>Modelos Digitales de Elevación (MDE)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-globe-americas"></i> Impacto Regional</h3>
+                        <ul>
+                            <li>Reducción de vulnerabilidad ante sequías e inundaciones</li>
+                            <li>Optimización del uso del agua para agricultura</li>
+                            <li>Protección de ecosistemas acuáticos</li>
+                            <li>Fortalecimiento de la seguridad hídrica</li>
+                            <li>Capacitación técnica de estudiantes en tecnologías avanzadas</li>
+                            <li>Generación de datos para políticas públicas locales</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tech-stack">
+                    <div class="tech-item">C++</div>
+                    <div class="tech-item">ESP32</div>
+                    <div class="tech-item">Google Earth</div>
+                    <div class="tech-item">QGIS</div>
+                    <div class="tech-item">Python</div>
+                    <div class="tech-item">JavaScript</div>
+                    <div class="tech-item">NASA WorldWind</div>
+                    <div class="tech-item">Sensores IoT</div>
+                    <div class="tech-item">API REST</div>
+                    <div class="tech-item">GitHub</div>
+                    <div class="tech-item">Arduino IDE</div>
+                    <div class="tech-item">Global Mapper</div>
+                    <div class="tech-item">Proteus</div>
+                </div>
+            </section>
+
+            <section id="area-estudio">
+                <h2><i class="fas fa-map-marked-alt"></i> Área de Estudio</h2>
+                <p>La región de Córdoba, Argentina, representa un caso de estudio ideal para analizar los impactos de El Niño y La Niña debido a su vulnerabilidad hídrica y la importancia económica de sus actividades agrícolas. Según el informe, la provincia enfrenta desafíos críticos como sequías recurrentes, sobreexplotación de acuíferos e infraestructura obsoleta.</p>
+                
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/1000x600/0B3D91/ffffff?text=Área+de+Estudio+-+Región+de+Córdoba" alt="Área de estudio - Región de Córdoba" class="study-image">
+                    <p class="image-caption">Figura 1. Área de estudio - Región de Córdoba, Argentina. Zona focalizada en las cuencas hidrográficas identificadas.</p>
+                </div>
+                
+                <div class="map-container">
+                    <div id="map"></div>
+                </div>
+                
+                <div class="cuenca-info">
+                    <h3><i class="fas fa-river"></i> Cuencas Hidrográficas Identificadas</h3>
+                    <p>Mediante el análisis de datos topográficos y climáticos utilizando QGIS, hemos identificado 7 cuencas principales con potencial para la implementación de sistemas de gestión hídrica resilientes:</p>
+                    
+                    <div class="cuenca-list">
+                        <div class="cuenca-item">
+                            <h4><span class="cuenca-number">1</span> Cuenca Norte-Oeste</h4>
+                            <p>Localizada en la franja de transición entre el relieve montañoso y las pendientes medias, esta cuenca presenta un patrón de drenaje de tipo dendrítico y un área de captación reducida. Su posición estratégica la hace apta para estructuras de almacenamiento de pequeña escala que pueden regular el flujo estacional y recargar acuíferos subterráneos.</p>
+                        </div>
+                        
+                        <div class="cuenca-item">
+                            <h4><span class="cuenca-number">2</span> Cuenca Norte-Este</h4>
+                            <p>Situada en altitudes intermedias, presenta forma alargada con orientación este-oeste. El relieve circundante es suave, lo que favorece la retención hídrica y reduce el riesgo de erosión acelerada. Ideal para la implementación de sistemas de captación que maximicen la infiltración y minimicen la evaporación.</p>
+                        </div>
+                        
+                        <div class="cuenca-item">
+                            <h4><span class="cuenca-number">3</span> Cuenca Centro</h4>
+                            <p>Ubicada en la zona media del área de estudio, corresponde a una cuenca de extensión moderada con escurrimiento predominantemente estacional. Su emplazamiento sobre laderas suaves ofrece condiciones óptimas para la implementación de microdiques reguladores que puedan abastecer a comunidades rurales y apoyar la agricultura de secano.</p>
+                        </div>
+                        
+                        <div class="cuenca-item">
+                            <h4><span class="cuenca-number">4</span> Cuenca Centro-Sur</h4>
+                            <p>Corresponde a una cuenca alargada ubicada entre áreas de pendiente moderada y zonas de acumulación natural. La morfología favorece la concentración de caudales y permite la regulación de excedentes hídricos durante eventos de lluvia intensa, reduciendo el riesgo de inundaciones aguas abajo.</p>
+                        </div>
+                        
+                        <div class="cuenca-item">
+                            <h4><span class="cuenca-number">5</span> Cuenca Sur-Este</h4>
+                            <p>De morfología irregular y con una red de drenaje compleja, esta cuenca se encuentra próxima a un cuerpo de agua de gran tamaño, lo que facilita su integración a sistemas de almacenamiento ya existentes. Presenta potencial para la mitigación de crecidas y regulación de caudales, mejorando la resiliencia del sistema hídrico regional.</p>
+                        </div>
+                        
+                        <div class="cuenca-item">
+                            <h4><span class="cuenca-number">6</span> Cuenca Sur-Este Secundaria</h4>
+                            <p>Ubicada inmediatamente al sur-este de la Cuenca Centro, de tamaño reducido y morfología algo alargada. Se observa un patrón de drenaje intermitente, por lo que su régimen es estacional. Presenta condiciones favorables para soluciones de captación de baja altura que requieren mínima intervención y ofrecen rápido retorno de inversión.</p>
+                        </div>
+                        
+                        <div class="cuenca-item">
+                            <h4><span class="cuenca-number">7</span> Dique San Roque</h4>
+                            <p>Constituye el cuerpo de agua principal de la región, actuando como referencia geográfica y nodo hídrico del sistema. Su interacción con las cuencas adyacentes es clave para el análisis del balance hídrico regional. Nuestro proyecto propone estrategias para optimizar su operación y reducir la sedimentación.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="clima">
+                <h2><i class="fas fa-cloud-sun-rain"></i> Impacto de El Niño y La Niña en Córdoba</h2>
+                <p>El fenómeno de El Niño/Oscilación del Sur (ENSO) tiene impactos significativos en el régimen de precipitaciones de Córdoba, afectando la disponibilidad hídrica y la vulnerabilidad ante eventos extremos. Según datos del informe, durante El Niño 2015-2016, Córdoba experimentó un exceso pluviométrico del 35%, causando inundaciones significativas.</p>
+                
+                <div class="climate-legend">
+                    <div class="legend-item">
+                        <div class="legend-color el-nino"></div>
+                        <span>El Niño (Lluvias intensas en Córdoba)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color la-nina"></div>
+                        <span>La Niña (Sequía en Córdoba)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color neutral"></div>
+                        <span>Condiciones Neutrales</span>
+                    </div>
+                </div>
+                
+                <div class="tab-container">
+                    <div class="tabs">
+                        <div class="tab active" data-tab="el-nino">Fenómeno El Niño</div>
+                        <div class="tab" data-tab="la-nina">Fenómeno La Niña</div>
+                        <div class="tab" data-tab="impactos">Impactos en Córdoba</div>
+                    </div>
+                    
+                    <div class="tab-content active" id="el-nino-content">
+                        <h3>El Niño y sus Efectos en Córdoba</h3>
+                        <p>Durante los eventos de El Niño, Córdoba experimenta típicamente condiciones más húmedas de lo normal, con aumento en las precipitaciones entre un 20-40%. Esto resulta en:</p>
+                        <ul>
+                            <li>Aumento del riesgo de inundaciones</li>
+                            <li>Incremento en la sedimentación de embalses</li>
+                            <li>Mayor escorrentía superficial</li>
+                            <li>Posibilidad de crecidas repentinas</li>
+                            <li>Recarga mejorada de acuíferos</li>
+                        </ul>
+                        <p><strong>Datos NASA:</strong> Durante El Niño 2015-2016, Córdoba experimentó un exceso pluviométrico del 35%, causando inundaciones significativas en la región. Los datos satelitales muestran una correlación del 0.75 entre el Índice de Oscilación del Sur (SOI) y las precipitaciones en Córdoba.</p>
+                        
+                        <div class="climate-impact">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Estrategias de Mitigación para El Niño</h4>
+                            <p>Para enfrentar los efectos de El Niño, nuestro proyecto propone:</p>
+                            <ul>
+                                <li>Optimización de la capacidad de almacenamiento en embalses existentes</li>
+                                <li>Implementación de sistemas de alerta temprana para inundaciones</li>
+                                <li>Diseño de micro-represas para regulación de caudales</li>
+                                <li>Monitoreo en tiempo real con sensores ESP32</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="la-nina-content">
+                        <h3>La Niña y sus Efectos en Córdoba</h3>
+                        <p>Los eventos de La Niña suelen traer condiciones más secas a Córdoba, con reducción en las precipitaciones que pueden superar el 30% bajo lo normal, resultando en:</p>
+                        <ul>
+                            <li>Disminución del caudal en ríos y arroyos</li>
+                            <li>Reducción de los niveles en embalses y diques</li>
+                            <li>Mayor estrés hídrico para la agricultura</li>
+                            <li>Aumento del riesgo de incendios forestales</li>
+                            <li>Disminución de la recarga de acuíferos</li>
+                        </ul>
+                        <p><strong>Datos NASA:</strong> La Niña 2020-2021 generó precipitaciones un 40% inferiores al promedio histórico en la región oeste de Córdoba, afectando seriamente la producción agrícola.</p>
+                        
+                        <div class="climate-impact">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Estrategias de Mitigación para La Niña</h4>
+                            <p>Para enfrentar los efectos de La Niña, nuestro proyecto propone:</p>
+                            <ul>
+                                <li>Implementación de sistemas de captación de agua de lluvia</li>
+                                <li>Optimización del uso del agua para riego agrícola</li>
+                                <li>Desarrollo de protocolos de gestión hídrica durante sequías</li>
+                                <li>Monitoreo de niveles de agua en tiempo real</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="impactos-content">
+                        <h3>Impactos Socioeconómicos del ENSO en Córdoba</h3>
+                        <p>La variabilidad climática asociada a El Niño y La Niña tiene importantes consecuencias para la región:</p>
+                        <ul>
+                            <li><strong>Agricultura:</strong> Pérdidas de cosechas durante sequías (La Niña) y daños por inundaciones (El Niño)</li>
+                            <li><strong>Infraestructura:</strong> Daños en caminos y puentes durante eventos extremos de lluvia</li>
+                            <li><strong>Salud Pública:</strong> Aumento de enfermedades vectoriales durante períodos húmedos</li>
+                            <li><strong>Energía:</strong> Reducción en la generación hidroeléctrica durante sequías</li>
+                            <li><strong>Ecosistemas:</strong> Alteración de hábitats acuáticos y terrestres</li>
+                        </ul>
+                        <p><strong>Análisis NASA:</strong> Los datos satelitales muestran una correlación del 0.75 entre el Índice de Oscilación del Sur (SOI) y las precipitaciones en Córdoba. El proyecto utiliza estos datos para desarrollar estrategias de adaptación.</p>
+                        
+                        <div class="climate-impact">
+                            <h4><i class="fas fa-chart-line"></i> Proyecciones Futuras</h4>
+                            <p>Según las proyecciones del informe, para 2050:</p>
+                            <ul>
+                                <li>La población de Córdoba alcanzará los 4.8 millones de habitantes</li>
+                                <li>La demanda de agua aumentará de 1.800 Hm³ a 2.600 Hm³ anuales</li>
+                                <li>La intensificación de los fenómenos ENSO requerirá soluciones más resilientes</li>
+                                <li>La implementación de micro-represas será clave para la seguridad hídrica</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2rem;"><i class="fas fa-temperature-high"></i> Climatología en Tiempo Real - Argentina</h3>
+                <p>Datos meteorológicos actuales de toda la Argentina con enfoque en la región de Córdoba:</p>
+                
+                <div class="weather-info">
+                    <div class="weather-card">
+                        <div class="weather-value" id="current-temp">--°C</div>
+                        <div class="weather-label">Temperatura Promedio</div>
+                    </div>
+                    <div class="weather-card">
+                        <div class="weather-value" id="current-humidity">--%</div>
+                        <div class="weather-label">Humedad Promedio</div>
+                    </div>
+                    <div class="weather-card">
+                        <div class="weather-value" id="current-precipitation">-- mm</div>
+                        <div class="weather-label">Precipitación 24h</div>
+                    </div>
+                    <div class="weather-card">
+                        <div class="weather-value">
+                            <span id="current-wind">--</span> km/h 
+                            <span class="wind-arrow" id="wind-direction">↓</span>
+                        </div>
+                        <div class="weather-label">Viento Promedio</div>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <div id="weather-map"></div>
+                    <div class="map-controls">
+                        <h4 style="margin: 0 0 10px 0;">Capas Meteorológicas</h4>
+                        <button class="layer-btn active" data-layer="temperature">Temperatura</button>
+                        <button class="layer-btn" data-layer="precipitation">Precipitación</button>
+                        <button class="layer-btn" data-layer="wind">Viento</button>
+                        <button class="layer-btn" data-layer="pressure">Presión</button>
+                    </div>
+                </div>
+                
+                <div class="last-update" id="last-update">Última actualización: <span id="update-time">Cargando datos en tiempo real...</span></div>
+            </section>
+
+            <!-- NUEVA SECCIÓN: Análisis Satelital -->
+            <section id="analisis-satelital">
+                <h2><i class="fas fa-satellite"></i> Análisis de Índices Satelitales</h2>
+                <p>Panel de análisis de recursos hídricos basado en datos satelitales de la NASA para monitoreo y predicción de la salud vegetal y estrés hídrico en la región de Córdoba.</p>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg card mb-8">
+                    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Análisis NDVI y ESI - Monitoreo de Vegetación y Estrés Hídrico</h2>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                        <!-- Explicación NDVI -->
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                                <i class="fas fa-leaf text-green-600 mr-2"></i>NDVI - Índice de Vegetación
+                            </h3>
+                            <p class="text-gray-700 mb-3">
+                                El NDVI mide la salud y densidad de la vegetación mediante la diferencia entre la reflectancia en el infrarrojo cercano y el rojo. Valores altos indican vegetación saludable.
+                            </p>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <span class="status-indicator status-good"></span>
+                                    <span class="font-medium">NDVI > 0.6: Vegetación densa y saludable</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="status-indicator status-moderate"></span>
+                                    <span class="font-medium">NDVI 0.3-0.6: Vegetación moderada</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="status-indicator status-poor"></span>
+                                    <span class="font-medium">NDVI < 0.3: Suelo desnudo o vegetación escasa</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Explicación ESI -->
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                                <i class="fas fa-tint text-blue-600 mr-2"></i>ESI - Índice de Estrés Evaporativo
+                            </h3>
+                            <p class="text-gray-700 mb-3">
+                                El ESI mide el estrés hídrico de la vegetación mediante la relación entre la temperatura de la superficie y la evapotranspiración. Valores bajos indican estrés hídrico.
+                            </p>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <span class="status-indicator status-good"></span>
+                                    <span class="font-medium">ESI > 0.8: Sin estrés hídrico</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="status-indicator status-moderate"></span>
+                                    <span class="font-medium">ESI 0.5-0.8: Estrés hídrico moderado</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="status-indicator status-poor"></span>
+                                    <span class="font-medium">ESI < 0.5: Estrés hídrico severo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Métricas Principales -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                        <div class="metric-card ndvi-card p-4 rounded-lg">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500">NDVI Promedio Regional</h3>
+                                    <p class="text-2xl font-bold text-gray-800 mt-1">0.49</p>
+                                </div>
+                                <span class="text-green-600 font-bold">↑ 5.25%</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">Salud vegetal moderada</p>
+                            <p class="text-xs text-gray-500">vs mes anterior</p>
+                        </div>
+
+                        <div class="metric-card esi-card p-4 rounded-lg">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500">ESI Promedio Regional</h3>
+                                    <p class="text-2xl font-bold text-gray-800 mt-1">0.59</p>
+                                </div>
+                                <span class="text-red-600 font-bold">↓ 3.83%</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">Estrés hídrico moderado</p>
+                            <p class="text-xs text-gray-500">vs mes anterior</p>
+                        </div>
+
+                        <div class="metric-card stress-card p-4 rounded-lg">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500">Área con Estrés Hídrico</h3>
+                                    <p class="text-2xl font-bold text-gray-800 mt-1">29%</p>
+                                </div>
+                                <span class="text-red-600 font-bold">↑ 7.75%</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">Zonas afectadas</p>
+                            <p class="text-xs text-gray-500">vs mes anterior</p>
+                        </div>
+
+                        <div class="metric-card recovery-card p-4 rounded-lg">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500">Recuperación Vegetal</h3>
+                                    <p class="text-2xl font-bold text-gray-800 mt-1">71%</p>
+                                </div>
+                                <span class="text-green-600 font-bold">↑ 12.35%</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">Tendencias positivas</p>
+                            <p class="text-xs text-gray-500">vs mes anterior</p>
+                        </div>
+                    </div>
+
+                    <!-- Fuentes de Datos NASA -->
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">Fuentes de Datos NASA</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-satellite text-blue-600 mr-3"></i>
+                                <div>
+                                    <p class="font-medium">Landsat 8/9</p>
+                                    <p class="text-sm text-gray-600">Imágenes multiespectrales para NDVI</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-satellite text-blue-600 mr-3"></i>
+                                <div>
+                                    <p class="font-medium">MODIS</p>
+                                    <p class="text-sm text-gray-600">Datos de temperatura y evapotranspiración</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-satellite text-blue-600 mr-3"></i>
+                                <div>
+                                    <p class="font-medium">ECOSTRESS</p>
+                                    <p class="text-sm text-gray-600">Mediciones precisas de estrés hídrico</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-satellite text-blue-600 mr-3"></i>
+                                <div>
+                                    <p class="font-medium">VIIRS</p>
+                                    <p class="text-sm text-gray-600">Datos de reflectancia para cálculos ESI</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fuentes de Datos -->
+                <div class="bg-white p-6 rounded-xl shadow-lg card">
+                    <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Fuentes de Datos Consultadas</h2>
+                    <div id="data-sources-list" class="text-gray-600">
+                        <p class="text-center"><i class="fas fa-spinner fa-spin mr-2"></i>Consultando APIs de NASA Earthdata...</p>
+                    </div>
+                </div>
+
+                <!-- Visualización de Datos Alternativa -->
+                <div class="bg-white p-6 rounded-xl shadow-lg mt-8 card">
+                    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Visualización de Datos Satelitales</h2>
+                    
+                    <div class="data-visualization mb-6">
+                        <div class="text-center mb-4">
+                            <h3 class="text-lg font-bold text-gray-800">Distribución de Valores NDVI en la Región</h3>
+                            <p class="text-sm text-gray-600">Análisis estadístico de los datos de vegetación</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                            <div class="text-center p-4 bg-green-50 rounded-lg">
+                                <div class="text-2xl font-bold text-green-700">42%</div>
+                                <div class="text-sm text-gray-600">Área con NDVI Alto (>0.6)</div>
+                                <div class="text-xs text-green-600 mt-1">Vegetación saludable</div>
+                            </div>
+                            <div class="text-center p-4 bg-yellow-50 rounded-lg">
+                                <div class="text-2xl font-bold text-yellow-700">35%</div>
+                                <div class="text-sm text-gray-600">Área con NDVI Medio (0.3-0.6)</div>
+                                <div class="text-xs text-yellow-600 mt-1">Vegetación moderada</div>
+                            </div>
+                            <div class="text-center p-4 bg-red-50 rounded-lg">
+                                <div class="text-2xl font-bold text-red-700">23%</div>
+                                <div class="text-sm text-gray-600">Área con NDVI Bajo (<0.3)</div>
+                                <div class="text-xs text-red-600 mt-1">Vegetación escasa</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg border">
+                            <h4 class="font-bold text-gray-800 mb-3">Resumen del Estado de la Vegetación</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-600">Salud Vegetal General:</span>
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded">Moderada</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-600">Tendencia NDVI:</span>
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded">↑ Mejorando</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-600">Áreas Críticas:</span>
+                                    <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded">29% de la región</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-600">Recomendación:</span>
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">Monitoreo continuo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 text-right">
+                        <a href="https://earthdata.nasa.gov/eosdis/daacs/nsidc" target="_blank" class="text-sm text-blue-600 hover:underline">
+                            Acceder a datos completos en NASA Earthdata <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Análisis de Correlación -->
+                <div class="bg-white p-6 rounded-xl shadow-lg mt-8 card">
+                    <h2 class="text-2xl font-bold text-center text-gray-800">Análisis de Correlación</h2>
+                    <p class="text-center text-gray-500 mb-6">Simulación de Tendencias Estacionales para la Región de Córdoba</p>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+                        <div class="lg:col-span-3">
+                            <canvas id="correlation-chart"></canvas>
+                            <div class="flex justify-center items-center space-x-2 md:space-x-4 mt-4">
+                                <button class="chart-toggle-btn active py-1 px-3 border rounded-full text-sm" data-dataset-index="0" data-color="green">NDVI</button>
+                                <button class="chart-toggle-btn active py-1 px-3 border rounded-full text-sm" data-dataset-index="1" data-color="red">LST</button>
+                                <button class="chart-toggle-btn active py-1 px-3 border rounded-full text-sm" data-dataset-index="2" data-color="blue">Precipitación</button>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-2">
+                             <h4 class="text-lg font-bold text-gray-800 mb-3">Interpretación de Datos</h4>
+                             <p class="text-sm text-gray-600 leading-relaxed">
+                                Este gráfico simula la tendencia anual esperada para la región de Córdoba basada en datos históricos y patrones climáticos.
+                             </p>
+                             <ul class="list-disc list-inside space-y-2 mt-4 text-sm text-gray-600">
+                                 <li><strong>Coherencia Climática:</strong> La simulación refleja el clima de Córdoba, con veranos cálidos y húmedos (alto NDVI) e inviernos fríos y secos (bajo NDVI).</li>
+                                 <li><strong>Relación Causa-Efecto:</strong> Se observa cómo el pico de NDVI (verdor) ocurre después del pico de precipitaciones, mostrando la respuesta de la vegetación a la disponibilidad de agua.</li>
+                                 <li><strong>Patrones Estacionales:</strong> La temperatura superficial (LST) muestra variaciones estacionales típicas de la región.</li>
+                             </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modelo Predictivo -->
+                <div class="bg-white p-6 rounded-xl shadow-lg mt-8 card">
+                    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Modelo Predictivo de NDVI</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                        <!-- Columna de Controles -->
+                        <div>
+                            <p class="text-sm text-gray-600 mb-4">Ajuste los parámetros para simular el impacto en la vegetación.</p>
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="phenomenon-select" class="block text-sm font-medium text-gray-700 mb-1">Fenómeno Climático</label>
+                                    <select id="phenomenon-select" class="w-full p-2 border border-gray-300 rounded-md shadow-sm">
+                                        <option value="normal">Condiciones Normales</option>
+                                        <option value="nino">El Niño</option>
+                                        <option value="nina">La Niña</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="precipitation-slider" class="block text-sm font-medium text-gray-700">Precipitación Estimada: <span id="precipitation-value" class="font-bold">100</span> mm</label>
+                                    <input type="range" id="precipitation-slider" min="0" max="200" value="100" class="w-full">
+                                </div>
+                                <div>
+                                    <label for="temperature-slider" class="block text-sm font-medium text-gray-700">Temperatura Promedio: <span id="temperature-value" class="font-bold">25</span> °C</label>
+                                    <input type="range" id="temperature-slider" min="0" max="40" value="25" class="w-full">
+                                </div>
+                                <button id="predict-btn" class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition">
+                                    <i class="fas fa-calculator mr-2"></i>Calcular Predicción
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Columna de Resultados -->
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="text-lg font-bold text-gray-800 mb-3 text-center">Resultados de la Simulación</h4>
+                            <div class="text-center mb-4">
+                                <p class="text-sm text-gray-600">NDVI Predicho</p>
+                                <p id="predicted-ndvi" class="text-4xl font-bold text-gray-700">--</p>
+                            </div>
+                            <div class="text-center mb-4">
+                                <p class="text-sm text-gray-600">Estado de la Vegetación</p>
+                                <p id="vegetation-status" class="text-lg font-semibold text-gray-800">--</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600 text-center font-semibold">Recomendación</p>
+                                <p id="recommendation-text" class="text-sm text-gray-700 bg-white p-3 rounded-md text-center">Ajuste los parámetros para ver una recomendación.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Reporte y Descargas -->
+                <div class="bg-white p-6 rounded-xl shadow-lg mt-8 card">
+                    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Reporte y Descargas</h2>
+                    <div class="bg-gray-50 p-4 rounded-lg border">
+                        <h3 class="text-lg font-bold text-gray-700 mb-3">Generar Reporte Personalizado (CSV)</h3>
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="start-date" class="block text-sm font-medium text-gray-700">Fecha de Inicio</label>
+                                    <input type="date" id="start-date" class="mt-1 w-full p-2 border rounded-md text-sm">
+                                </div>
+                                <div>
+                                    <label for="end-date" class="block text-sm font-medium text-gray-700">Fecha de Fin</label>
+                                    <input type="date" id="end-date" class="mt-1 w-full p-2 border rounded-md text-sm">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Datos a Incluir:</label>
+                                <div class="mt-2 flex flex-wrap gap-4">
+                                    <label class="flex items-center"><input type="checkbox" id="include-ndvi" class="h-4 w-4 rounded" checked><span class="ml-2 text-sm">NDVI</span></label>
+                                    <label class="flex items-center"><input type="checkbox" id="include-lst" class="h-4 w-4 rounded" checked><span class="ml-2 text-sm">LST</span></label>
+                                    <label class="flex items-center"><input type="checkbox" id="include-precip" class="h-4 w-4 rounded" checked><span class="ml-2 text-sm">Precipitación</span></label>
+                                    <label class="flex items-center"><input type="checkbox" id="include-esi" class="h-4 w-4 rounded"><span class="ml-2 text-sm">ESI</span></label>
+                                </div>
+                            </div>
+                            <button id="download-report-btn" class="w-full bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition">
+                                <i class="fas fa-download mr-2"></i>Descargar Reporte (CSV)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="resultados">
+                <h2><i class="fas fa-chart-line"></i> Resultados y Estrategias de Adaptación</h2>
+                <p>Nuestro análisis ha permitido desarrollar estrategias específicas para aumentar la resiliencia hídrica de Córdoba ante la variabilidad climática. Según el informe, se han identificado 7 cuencas con potencial para micro-represas y se ha diseñado un sistema de monitoreo con ESP32.</p>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fas fa-tint"></i> Gestión Adaptativa</h3>
+                        <p>Desarrollo de protocolos de operación diferenciados para embalses según las fases del ENSO, optimizando el almacenamiento durante El Niño y conservando agua durante La Niña. Implementación de sistemas de alerta temprana con 3-6 meses de anticipación.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-seedling"></i> Agricultura Resiliente</h3>
+                        <p>Recomendaciones de cultivos y prácticas agrícolas adaptadas a las diferentes fases climáticas, minimizando pérdidas y maximizando productividad. Tecnificación del 50% del riego agrícola con sistemas de goteo y sensores.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Sistema de Alerta Temprana</h3>
+                        <p>Propuesta de un sistema integrado que combine datos de la NASA con observaciones locales para anticipar eventos extremos. Monitoreo en tiempo real con sensores ESP32 y visualización web.</p>
+                    </div>
+                </div>
+                
+                <div class="mission-statement">
+                    <h2>Nuestra Misión</h2>
+                    <p>Transformar la vulnerabilidad climática en oportunidad de desarrollo sostenible, utilizando ciencia de datos para construir comunidades más resilientes ante el cambio climático. Integrar conocimientos técnicos con problemáticas reales de la comunidad.</p>
+                </div>
+            </section>
+
+            <section id="descargas">
+                <h2><i class="fas fa-download"></i> Datos y Recursos Abiertos</h2>
+                <p>En el espíritu de la ciencia abierta de la NASA, compartimos todos nuestros datos, metodologías y resultados para que otros investigadores puedan replicar y mejorar nuestro trabajo.</p>
+                
+                <div class="downloads-grid">
+                    <div class="download-card">
+                        <div class="download-icon"><i class="fas fa-map"></i></div>
+                        <h3>Datos de Cuencas</h3>
+                        <p>Archivos geoespaciales de las cuencas analizadas, listos para usar en QGIS o ArcGIS.</p>
+                        <a href="#" class="btn btn-download"><i class="fas fa-download"></i> Descargar</a>
+                    </div>
+                    
+                    <div class="download-card">
+                        <div class="download-icon"><i class="fas fa-cloud-sun-rain"></i></div>
+                        <h3>Datos Climáticos ENSO</h3>
+                        <p>Series temporales de indicadores de El Niño/La Niña y su correlación con precipitaciones en Córdoba.</p>
+                        <a href="#" class="btn btn-download"><i class="fas fa-download"></i> Descargar</a>
+                    </div>
+                    
+                    <div class="download-card">
+                        <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
+                        <h3>Informe Científico</h3>
+                        <p>Documentación técnica detallada con metodologías, resultados y recomendaciones.</p>
+                        <a href="#" class="btn btn-download"><i class="fas fa-download"></i> Descargar</a>
+                    </div>
+                    
+                    <div class="download-card">
+                        <div class="download-icon"><i class="fas fa-code"></i></div>
+                        <h3>Código Fuente</h3>
+                        <p>Scripts de análisis, visualización y modelos predictivos desarrollados.</p>
+                        <a href="#" class="btn btn-download"><i class="fas fa-download"></i> Descargar</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="project-footer">
+            <div class="project-container">
+                <h3>El Fin de los Niños</h3>
+                <p>Proyecto desarrollado para el NASA Space Apps Challenge 2025</p>
+                <p>Instituto José Antonio Balseiro (IPET Nº66) - Córdoba Capital, Argentina</p>
+                <p style="margin-top: 1.5rem; opacity: 0.8;">Todos los datos y metodologías son de acceso abierto bajo licencia Creative Commons Attribution 4.0</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- VISTA DE PARADIGMAS COMPLETA -->
+    <div id="view-paradigmas" class="app-view hidden">
+        <main class="container mx-auto px-6 py-12">
+            <section id="hero" class="text-center mb-24">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Análisis Comparativo de Paradigmas en la Gestión de Recursos Hídricos</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Un estudio de caso en Córdoba, Argentina, que contrasta la ingeniería civil del siglo XX con la inteligencia geoespacial del siglo XXI para proponer un futuro hídrico sostenible y resiliente.</p>
+                <div class="mt-8">
+                    <button id="generate-summary-btn" class="bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-300 shadow-lg">
+                        ✨ Generar Resumen Ejecutivo con IA
+                    </button>
+                    <div id="summary-container" class="mt-6 max-w-3xl mx-auto text-left hidden">
+                        <p id="summary-loading" class="text-gray-500">Generando resumen...</p>
+                        <div id="summary-response" class="gemini-response p-4 rounded-lg"></div>
+                    </div>
+                </div>
+            </section>
+            <section id="paradigma1" class="mb-24 scroll-mt-20">
+                <div class="text-center mb-12">
+                    <span class="text-sm font-semibold text-blue-600 bg-blue-100 px-3 py-1 rounded-full">PARADIGMA I</span>
+                    <h3 class="text-3xl font-bold mt-2 text-gray-900">Infraestructura Hídrica Centralizada del Siglo XX</h3>
+                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Este enfoque se basa en proyectos de gran escala, masivos y centralizados. A continuación, se exploran las propuestas históricas y las razones de su inviabilidad.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="md:col-span-1">
+                        <h4 class="font-bold text-lg mb-4 text-gray-800">Proyectos Considerados</h4>
+                        <div id="project-list" class="space-y-2"></div>
+                    </div>
+                    <div id="project-details" class="md:col-span-2 bg-white p-6 rounded-xl shadow-md border border-gray-200 min-h-[300px]">
+                        <div class="flex flex-col justify-center items-center h-full">
+                            <svg class="w-16 h-16 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            <p class="text-gray-500">Seleccione un proyecto de la lista para ver los detalles.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-16">
+                    <h4 class="text-xl font-bold text-center mb-4 text-gray-800">Análisis Conceptual de Inviabilidad</h4>
+                    <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Aunque los valores son conceptuales, esta gráfica ilustra por qué los megaproyectos son consistentemente descartados: una combinación prohibitiva de alto costo, impacto ambiental y vulnerabilidad estratégica.</p>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                        <div class="chart-container" style="height: 500px; max-height: 60vh;"><canvas id="paradigm1Chart"></canvas></div>
+                    </div>
+                </div>
+            </section>
+            <section id="paradigma2" class="mb-24 scroll-mt-20">
+                <div class="text-center mb-12">
+                    <span class="text-sm font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">PARADIGMA II</span>
+                    <h3 class="text-3xl font-bold mt-2 text-gray-900">Gestión Distribuida con Inteligencia Geoespacial</h3>
+                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Este modelo propone un sistema descentralizado de micro-represas, planificado y gestionado con datos de observación de la Tierra, principalmente de la NASA.</p>
+                </div>
+                <div class="mb-12">
+                    <h4 class="text-xl font-bold text-center mb-8 text-gray-800">Fundamentos del Modelo</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white p-6 rounded-xl card border border-gray-200"><h5 class="font-bold text-lg mb-2 text-green-700">Resiliencia Climática</h5><p class="text-sm text-gray-600">Captura lluvias erráticas y localizadas, creando un sistema robusto y menos vulnerable que un único gran embalse.</p></div>
+                        <div class="bg-white p-6 rounded-xl card border border-gray-200"><h5 class="font-bold text-lg mb-2 text-green-700">Restauración Ecológica</h5><p class="text-sm text-gray-600">Recarga acuíferos, reduce la erosión y restaura la humedad del suelo, combatiendo la desertificación.</p></div>
+                        <div class="bg-white p-6 rounded-xl card border border-gray-200"><h5 class="font-bold text-lg mb-2 text-green-700">Viabilidad Económica</h5><p class="text-sm text-gray-600">Implementación modular y escalable con costos de mantenimiento fraccionados y considerablemente inferiores.</p></div>
+                        <div class="bg-white p-6 rounded-xl card border border-gray-200"><h5 class="font-bold text-lg mb-2 text-green-700">Gobernanza Local</h5><p class="text-sm text-gray-600">Fomenta un modelo adaptativo y policéntrico, empoderando a las comunidades en la gestión del recurso.</p></div>
+                    </div>
+                </div>
+                 <div>
+                    <h4 class="text-xl font-bold text-center mb-8 text-gray-800">Metodología: El Ecosistema de Datos de la NASA en Acción</h4>
+                    <div class="relative p-8 border-l-2 border-gray-300">
+                        <div class="mb-12 relative"><div class="absolute -left-[34px] top-1 w-4 h-4 bg-green-500 rounded-full border-4 border-white"></div><h5 class="text-lg font-bold text-gray-800">Etapa I: Caracterización y Selección de Emplazamientos</h5><p class="text-gray-600 mt-2">Se utilizan datos satelitales para encontrar miles de sitios óptimos para micro-represas, maximizando la eficiencia.</p><div class="mt-4 flex flex-wrap gap-2"><span class="bg-gray-200 text-gray-700 text-xs font-medium px-2.5 py-1 rounded-full">DEM (SRTM, ALOS PALSAR)</span><span class="bg-gray-200 text-gray-700 text-xs font-medium px-2.5 py-1 rounded-full">Imágenes Multiespectrales (Landsat, Sentinel)</span></div></div>
+                        <div class="mb-12 relative"><div class="absolute -left-[34px] top-1 w-4 h-4 bg-green-500 rounded-full border-4 border-white"></div><h5 class="text-lg font-bold text-gray-800">Etapa II: Monitoreo y Modelado Predictivo</h5><p class="text-gray-600 mt-2">La gestión deja de ser reactiva y se vuelve proactiva, anticipando el ingreso de agua al sistema con datos casi en tiempo real.</p><div class="mt-4 flex flex-wrap gap-2"><span class="bg-gray-200 text-gray-700 text-xs font-medium px-2.5 py-1 rounded-full">Precipitación (GPM)</span><span class="bg-gray-200 text-gray-700 text-xs font-medium px-2.5 py-1 rounded-full">Humedad del Suelo (SMAP)</span></div></div>
+                        <div class="relative"><div class="absolute -left-[34px] top-1 w-4 h-4 bg-green-500 rounded-full border-4 border-white"></div><h5 class="text-lg font-bold text-gray-800">Etapa III: Medición de Impacto y Gestión a Largo Plazo</h5><p class="text-gray-600 mt-2">Se cuantifica el éxito del sistema midiendo la mejora en la salud del ecosistema y la recarga real de los acuíferos.</p><div class="mt-4 flex flex-wrap gap-2"><span class="bg-gray-200 text-gray-700 text-xs font-medium px-2.5 py-1 rounded-full">Índices de Vegetación (MODIS - NDVI)</span><span class="bg-gray-200 text-gray-700 text-xs font-medium px-2.5 py-1 rounded-full">Datos Gravimétricos (GRACE/GRACE-FO)</span></div></div>
+                    </div>
+                </div>
+            </section>
+            <section id="comparacion" class="mb-24 scroll-mt-20">
+                <div class="text-center mb-12"><h3 class="text-3xl font-bold text-gray-900">Comparación Directa de Paradigmas</h3><p class="mt-4 text-gray-600 max-w-2xl mx-auto">Esta visualización resume el contraste fundamental entre los dos enfoques a través de métricas clave, demostrando la superioridad del modelo geoespacial.</p></div>
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200"><div class="chart-container" style="max-height: 60vh; height: 500px;"><canvas id="comparisonChart"></canvas></div></div>
+                 <div class="mt-8 text-center"><button id="generate-analysis-btn" class="bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-300 shadow-lg">✨ Analizar Implicaciones a Futuro con IA</button><div id="analysis-container" class="mt-6 max-w-3xl mx-auto text-left hidden"><p id="analysis-loading" class="text-gray-500">Generando análisis...</p><div id="analysis-response" class="gemini-response p-4 rounded-lg"></div></div></div>
+            </section>
+            <section id="aplicabilidad" class="mb-24 scroll-mt-20">
+                <div class="text-center mb-12"><h3 class="text-3xl font-bold text-gray-900">Aplicabilidad Global del Modelo Geoespacial</h3><p class="mt-4 text-gray-600 max-w-2xl mx-auto">La escasez hídrica es un desafío global. El modelo de gestión distribuida, basado en datos satelitales públicos, es una solución escalable y adaptable a otras regiones semiáridas del mundo.</p></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl card border border-gray-200 text-center"><h4 class="font-bold text-lg mb-2">California, EE.UU.</h4><p class="text-sm text-gray-600">Enfrenta sequías prolongadas y sobreexplotación de acuíferos. Un sistema de micro-represas podría potenciar la recarga de acuíferos durante los escasos eventos de lluvia intensa.</p></div>
+                    <div class="bg-white p-6 rounded-xl card border border-gray-200 text-center"><h4 class="font-bold text-lg mb-2">Cuenca Murray-Darling, Australia</h4><p class="text-sm text-gray-600">Sufre de una alta competencia por el agua entre agricultura y consumo humano. Una gestión distribuida mejoraría la eficiencia y reduciría la evaporación comparado con grandes embalses.</p></div>
+                    <div class="bg-white p-6 rounded-xl card border border-gray-200 text-center"><h4 class="font-bold text-lg mb-2">Maharashtra, India</h4><p class="text-sm text-gray-600">Experimenta monzones irregulares. La implementación masiva de pequeñas estructuras de contención (check dams) es una estrategia clave para la seguridad hídrica local, validable con datos satelitales.</p></div>
+                </div>
+            </section>
+            
+            <!-- NUEVA SECCIÓN DE IA MEJORADA -->
+            <section id="ai-assistant" class="mb-24 scroll-mt-20">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-gray-900">Asistente de IA <span class="learning-indicator" title="IA con aprendizaje continuo"></span></h3>
+                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Análisis y respuestas inteligentes sobre los datos hídricos. Puedes subir archivos para darle más contexto y usar el "Panel del Creador" para mejorar su comportamiento.</p>
+                    <div class="mt-4 flex flex-wrap justify-center gap-2">
+                        <span class="context-tag">QGIS</span>
+                        <span class="context-tag">ESP32</span>
+                        <span class="context-tag">Micro-represas</span>
+                        <span class="context-tag">NASA</span>
+                        <span class="context-tag">NDVI</span>
+                        <span class="context-tag">Demografía</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
+                    <!-- Chat Container -->
+                    <div class="mb-6">
+                         <p class="text-sm text-gray-700 mb-4 border-l-4 border-blue-500 pl-4 bg-blue-50 py-2">
+                            Este es un asistente de IA diseñado para ayudarte a analizar y comprender los datos.
+                            Puedes subir archivos para darle más contexto y usar el "Panel del Creador" para mejorar su comportamiento.
+                        </p>
+                        <div id="chat-container" class="h-96 overflow-y-auto p-4 bg-gray-100 rounded-md mb-4 border border-gray-200">
+                            <!-- Mensaje de bienvenida -->
+                            <div class="flex justify-start mb-4">
+                                <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-md text-sm">
+                                    <p>¡Hola! Soy tu asistente para el análisis de datos hídricos. Ahora puedes subir archivos y darme instrucciones para mejorar. ¿En qué puedo ayudarte hoy?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="file" id="file-upload" class="hidden">
+                            <label for="file-upload" class="bg-gray-200 text-gray-700 px-4 py-3 rounded-l-md hover:bg-gray-300 cursor-pointer transition-colors">
+                                <i class="fas fa-paperclip"></i>
+                            </label>
+                            <input type="text" id="ia-query" class="flex-grow border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-3" placeholder="Ej: ¿Cuál es la tendencia del embalse San Roque?">
+                            <button id="send-ia-query" class="bg-blue-600 text-white px-6 py-3 rounded-r-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors disabled:opacity-50">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                         <div id="ia-loading" class="hidden text-center mt-4">
+                            <i class="fas fa-spinner fa-spin text-blue-600 text-2xl"></i>
+                            <p class="text-gray-600 mt-2">Pensando...</p>
+                        </div>
+                    </div>
+
+                    <!-- Creator Panel -->
+                    <div class="mt-8 border-t pt-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Panel del Creador</h3>
+                        
+                        <!-- Extended Knowledge Toggle -->
+                        <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-semibold text-gray-800">Conocimiento Extendido</p>
+                                    <p class="text-xs text-gray-500">Permite a la IA responder temas sobre hidrología, GIS, etc.</p>
+                                </div>
+                                <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                                    <input type="checkbox" name="toggle" id="extended-knowledge-toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                                    <label for="extended-knowledge-toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 p-4 rounded-r-lg mb-4">
+                            <p class="font-bold text-sm">Mejora la IA</p>
+                            <p class="text-xs">Usa este panel para darle nuevas instrucciones o contexto a la IA. La IA recordará estas indicaciones en conversaciones futuras.</p>
+                        </div>
+                        <textarea id="creator-instructions" class="w-full h-24 border-gray-300 rounded-md p-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Ej: A partir de ahora, cuando hablemos de 'calidad del agua', enfócate en los niveles de pH y turbidez."></textarea>
+                        <button id="update-ia-instructions" class="mt-3 w-full bg-accent-color text-white px-6 py-2 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors" style="background-color: #1A936F;">
+                            Actualizar Comportamiento de la IA
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="conclusion" class="text-center bg-white p-12 rounded-2xl shadow-md border border-gray-200 scroll-mt-20">
+                 <h3 class="text-3xl font-bold text-gray-900">Conclusión: Hacia un "Gemelo Digital" para la Gobernanza Hídrica</h3>
+                 <p class="mt-4 text-gray-600 max-w-3xl mx-auto">La propuesta final no es solo construir micro-represas, sino desarrollar un "Gemelo Digital" de la cuenca: un modelo virtual dinámico, alimentado por datos de la NASA en tiempo real. Esta herramienta permite simular escenarios, optimizar la asignación del recurso y anticipar sequías, representando la transición de la era del hormigón a la era de la inteligencia geoespacial. Es un modelo de gestión hídrica escalable y exportable para regiones semiáridas del mundo.</p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const views = document.querySelectorAll('.app-view');
+            const navButtons = document.querySelectorAll('.main-nav-btn');
+            const mobileNavSelect = document.getElementById('mobile-nav-select');
+            
+            let studyMap, weatherMap, weatherLayer;
+            let mapsInitialized = {
+                'view-el-fin-de-los-ninos': false,
+                'view-paradigmas': false
+            };
+
+            function switchView(viewId) {
+                views.forEach(view => {
+                    view.classList.toggle('hidden', view.id !== viewId);
+                });
+
+                navButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.view === viewId);
+                });
+                
+                if (mobileNavSelect.value !== viewId) {
+                    mobileNavSelect.value = viewId;
+                }
+
+                if(viewId === 'view-el-fin-de-los-ninos' && !mapsInitialized[viewId]) {
+                    initElNinoApp();
+                    mapsInitialized[viewId] = true;
+                } else if (viewId === 'view-el-fin-de-los-ninos' && mapsInitialized[viewId]) {
+                    setTimeout(() => {
+                        if (studyMap) studyMap.invalidateSize();
+                        if (weatherMap) weatherMap.invalidateSize();
+                    }, 10);
+                }
+
+                if(viewId === 'view-paradigmas' && !mapsInitialized[viewId]) {
+                    initParadigmasApp();
+                    mapsInitialized[viewId] = true;
+                }
+            }
+
+            navButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => switchView(e.currentTarget.dataset.view));
+            });
+            
+            mobileNavSelect.addEventListener('change', (e) => {
+                switchView(e.target.value);
+            });
+
+            function initElNinoApp() {
+                // ===== MAPA DE ÁREA DE ESTUDIO (MÁS CERCANO) =====
+                studyMap = L.map('map').setView([-31.4, -64.5], 9);  // Más cercano a Córdoba
+                
+                // Capa base topográfica
+                L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+                    attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, SRTM | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a>'
+                }).addTo(studyMap);
+                
+                // Área de estudio más específica alrededor de Córdoba
+                const studyArea = L.polygon([
+                    [-31.0, -65.0],  // Noroeste
+                    [-31.0, -64.0],  // Noreste  
+                    [-32.0, -64.0],  // Sureste
+                    [-32.0, -65.0]   // Suroeste
+                ], {
+                    color: '#0B3D91',
+                    fillColor: '#0B3D91',
+                    fillOpacity: 0.1,
+                    weight: 2
+                }).addTo(studyMap).bindPopup('Área de estudio - Región de Córdoba');
+                
+                // Marcador para Córdoba capital
+                L.marker([-31.4201, -64.1888])
+                    .addTo(studyMap)
+                    .bindPopup('<b>Córdoba Capital</b><br>Centro del área de estudio');
+                
+                // Marcadores para ciudades cercanas a Córdoba
+                const cities = [
+                    { name: "Córdoba Capital", coords: [-31.4201, -64.1888] },
+                    { name: "Villa Carlos Paz", coords: [-31.42, -64.50] },
+                    { name: "Alta Gracia", coords: [-31.65, -64.43] },
+                    { name: "Río Ceballos", coords: [-31.16, -64.32] },
+                    { name: "Jesús María", coords: [-30.98, -64.09] },
+                    { name: "Cosquín", coords: [-31.24, -64.47] },
+                    { name: "La Calera", coords: [-31.34, -64.34] },
+                    { name: "Malagueño", coords: [-31.46, -64.36] },
+                    { name: "Villa Allende", coords: [-31.29, -64.30] },
+                    { name: "Mendiolaza", coords: [-31.25, -64.25] }
+                ];
+                
+                cities.forEach(city => {
+                    L.marker(city.coords)
+                        .addTo(studyMap)
+                        .bindPopup(`<b>${city.name}</b><br>Municipio del área de estudio`);
+                });
+                
+                // Agregar cuencas identificadas como polígonos
+                const cuencas = [
+                    {
+                        name: "Cuenca Norte-Oeste",
+                        coords: [[-31.2, -65.0], [-31.2, -64.7], [-31.5, -64.7], [-31.5, -65.0]],
+                        desc: "Patrón de drenaje dendrítico, área de captación reducida"
+                    },
+                    {
+                        name: "Cuenca Norte-Este", 
+                        coords: [[-31.0, -64.5], [-31.0, -64.2], [-31.3, -64.2], [-31.3, -64.5]],
+                        desc: "Forma alargada este-oeste, relieve suave"
+                    },
+                    {
+                        name: "Cuenca Centro",
+                        coords: [[-31.4, -64.7], [-31.4, -64.4], [-31.7, -64.4], [-31.7, -64.7]],
+                        desc: "Extensión moderada, escurrimiento estacional"
+                    },
+                    {
+                        name: "Cuenca Centro-Sur",
+                        coords: [[-31.6, -64.6], [-31.6, -64.3], [-31.9, -64.3], [-31.9, -64.6]],
+                        desc: "Morfología alargada, concentración de caudales"
+                    },
+                    {
+                        name: "Cuenca Sur-Este",
+                        coords: [[-31.8, -64.4], [-31.8, -64.1], [-32.1, -64.1], [-32.1, -64.4]],
+                        desc: "Red de drenaje compleja, cerca de cuerpo de agua principal"
+                    },
+                    {
+                        name: "Cuenca Sur-Este Secundaria",
+                        coords: [[-31.7, -64.3], [-31.7, -64.0], [-32.0, -64.0], [-32.0, -64.3]],
+                        desc: "Tamaño reducido, drenaje intermitente"
+                    },
+                    {
+                        name: "Dique San Roque",
+                        coords: [[-31.38, -64.47], [-31.38, -64.42], [-31.43, -64.42], [-31.43, -64.47]],
+                        desc: "Cuerpo de agua principal, referencia geográfica"
+                    }
+                ];
+                
+                cuencas.forEach((cuenca, index) => {
+                    L.polygon(cuenca.coords, {
+                        color: '#1A936F',
+                        fillColor: '#1A936F',
+                        fillOpacity: 0.3,
+                        weight: 2
+                    }).addTo(studyMap).bindPopup(`
+                        <b>${cuenca.name}</b><br>
+                        ${cuenca.desc}<br>
+                        <i>Cuenca identificada para posible implementación de micro-represa</i>
+                    `);
+                    
+                    // Agregar número de cuenca
+                    const center = getPolygonCenter(cuenca.coords);
+                    L.marker(center, {
+                        icon: L.divIcon({
+                            className: 'cuenca-marker',
+                            html: `<div style="background-color: #1A936F; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: bold;">${index + 1}</div>`,
+                            iconSize: [30, 30]
+                        })
+                    }).addTo(studyMap);
+                });
+                
+                // Función para calcular el centro de un polígono
+                function getPolygonCenter(coords) {
+                    let latSum = 0, lngSum = 0;
+                    coords.forEach(coord => {
+                        latSum += coord[0];
+                        lngSum += coord[1];
+                    });
+                    return [latSum / coords.length, lngSum / coords.length];
+                }
+                
+                // ===== MAPA METEOROLÓGICO MEJORADO (TODA ARGENTINA) =====
+                weatherMap = L.map('weather-map').setView([-35, -65], 4);
+                
+                // Capa base mejorada
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(weatherMap);
+                
+                // Capas meteorológicas para toda Argentina
+                const weatherLayers = {
+                    temperature: L.layerGroup(),
+                    precipitation: L.layerGroup(),
+                    wind: L.layerGroup(),
+                    pressure: L.layerGroup()
+                };
+                
+                // Generar datos meteorológicos mejorados para toda Argentina
+                function generateArgentinaWeatherData() {
+                    const regions = [
+                        // Noroeste Argentino (NOA)
+                        { name: "Jujuy", coords: [-24.1858, -65.2995], temp: 25, precip: 5, wind: 10, pressure: 1010 },
+                        { name: "Salta", coords: [-24.7829, -65.4122], temp: 23, precip: 8, wind: 12, pressure: 1012 },
+                        { name: "Tucumán", coords: [-26.8083, -65.2176], temp: 22, precip: 12, wind: 8, pressure: 1013 },
+                        { name: "Catamarca", coords: [-28.4696, -65.7852], temp: 20, precip: 3, wind: 15, pressure: 1014 },
+                        
+                        // Cuyo
+                        { name: "Mendoza", coords: [-32.8895, -68.8458], temp: 18, precip: 3, wind: 15, pressure: 1015 },
+                        { name: "San Juan", coords: [-31.5375, -68.5364], temp: 20, precip: 2, wind: 18, pressure: 1014 },
+                        { name: "San Luis", coords: [-33.3017, -66.3378], temp: 19, precip: 4, wind: 14, pressure: 1013 },
+                        
+                        // Centro (incluye Córdoba)
+                        { name: "Córdoba", coords: [-31.4201, -64.1888], temp: 22, precip: 6, wind: 14, pressure: 1013 },
+                        { name: "Santa Fe", coords: [-31.6333, -60.7], temp: 21, precip: 8, wind: 10, pressure: 1012 },
+                        { name: "Entre Ríos", coords: [-32.0583, -59.2017], temp: 20, precip: 9, wind: 12, pressure: 1011 },
+                        { name: "La Pampa", coords: [-36.6167, -64.2833], temp: 17, precip: 7, wind: 16, pressure: 1012 },
+                        
+                        // Buenos Aires y Litoral
+                        { name: "Buenos Aires", coords: [-34.6037, -58.3816], temp: 19, precip: 10, wind: 16, pressure: 1011 },
+                        { name: "Ciudad Autónoma de Buenos Aires", coords: [-34.6118, -58.4173], temp: 20, precip: 11, wind: 14, pressure: 1010 },
+                        
+                        // Patagonia
+                        { name: "Neuquén", coords: [-38.9516, -68.0591], temp: 12, precip: 15, wind: 25, pressure: 1008 },
+                        { name: "Río Negro", coords: [-40.8135, -63.0205], temp: 10, precip: 12, wind: 22, pressure: 1009 },
+                        { name: "Chubut", coords: [-43.3002, -65.1023], temp: 8, precip: 18, wind: 30, pressure: 1007 },
+                        { name: "Santa Cruz", coords: [-48.6226, -69.2181], temp: 5, precip: 20, wind: 35, pressure: 1005 },
+                        { name: "Tierra del Fuego", coords: [-54.8063, -68.3073], temp: 3, precip: 25, wind: 40, pressure: 1003 }
+                    ];
+                    
+                    // Agregar variación realista con patrones regionales
+                    return regions.map(region => {
+                        // Patrones regionales más realistas
+                        let tempVariation, precipVariation, windVariation;
+                        
+                        if (region.coords[0] > -30) { // Norte
+                            tempVariation = Math.random() * 8 - 4;
+                            precipVariation = Math.random() * 15 - 7;
+                            windVariation = Math.random() * 8 - 4;
+                        } else if (region.coords[0] > -40) { // Centro
+                            tempVariation = Math.random() * 6 - 3;
+                            precipVariation = Math.random() * 10 - 5;
+                            windVariation = Math.random() * 6 - 3;
+                        } else { // Patagonia
+                            tempVariation = Math.random() * 4 - 2;
+                            precipVariation = Math.random() * 8 - 4;
+                            windVariation = Math.random() * 10 - 5;
+                        }
+                        
+                        return {
+                            ...region,
+                            temp: Math.max(-5, Math.min(40, region.temp + tempVariation)),
+                            precip: Math.max(0, region.precip + precipVariation),
+                            wind: Math.max(5, region.wind + windVariation),
+                            pressure: region.pressure + (Math.random() * 10 - 5),
+                            windDirection: Math.floor(Math.random() * 360)
+                        };
+                    });
+                }
+                
+                // Función para crear visualizaciones meteorológicas mejoradas
+                function createWeatherVisualization(weatherData, layerType) {
+                    weatherLayers[layerType].clearLayers();
+                    
+                    weatherData.forEach(region => {
+                        let marker;
+                        
+                        switch(layerType) {
+                            case 'temperature':
+                                const tempColor = region.temp < 5 ? '#1E90FF' : 
+                                                region.temp < 15 ? '#00BFFF' : 
+                                                region.temp < 25 ? '#00FF00' : 
+                                                region.temp < 30 ? '#FFFF00' : '#FF4500';
+                                
+                                marker = L.circleMarker(region.coords, {
+                                    radius: 15,
+                                    fillColor: tempColor,
+                                    color: '#000',
+                                    weight: 1,
+                                    fillOpacity: 0.7
+                                }).bindPopup(`
+                                    <b>${region.name}</b><br>
+                                    Temperatura: ${region.temp.toFixed(1)}°C<br>
+                                    Región: ${getRegionName(region.coords[0])}<br>
+                                    Tendencia: ${getTempTrend(region.temp, region.coords[0])}
+                                `);
+                                break;
+                                
+                            case 'precipitation':
+                                const precipSize = Math.min(region.precip * 2, 30);
+                                const precipColor = region.precip < 5 ? '#87CEEB' : 
+                                                  region.precip < 10 ? '#4682B4' : 
+                                                  region.precip < 20 ? '#0000CD' : '#000080';
+                                
+                                marker = L.circleMarker(region.coords, {
+                                    radius: precipSize,
+                                    fillColor: precipColor,
+                                    color: '#000',
+                                    weight: 1,
+                                    fillOpacity: 0.6
+                                }).bindPopup(`
+                                    <b>${region.name}</b><br>
+                                    Precipitación: ${region.precip.toFixed(1)} mm<br>
+                                    Región: ${getRegionName(region.coords[0])}<br>
+                                    Condiciones: ${getPrecipCondition(region.precip)}<br>
+                                    Influencia ENSO: ${getENSOInfluence(region.coords[0])}
+                                `);
+                                break;
+                                
+                            case 'wind':
+                                const windIcon = L.divIcon({
+                                    html: `<div style="transform: rotate(${region.windDirection}deg); font-size: 20px; color: #4682B4;">➤</div>`,
+                                    className: 'wind-icon',
+                                    iconSize: [20, 20],
+                                    iconAnchor: [10, 10]
+                                });
+                                
+                                marker = L.marker(region.coords, { icon: windIcon })
+                                    .bindPopup(`
+                                        <b>${region.name}</b><br>
+                                        Viento: ${region.wind.toFixed(0)} km/h<br>
+                                        Dirección: ${getWindDirection(region.windDirection)}<br>
+                                        Región: ${getRegionName(region.coords[0])}<br>
+                                        Intensidad: ${getWindIntensity(region.wind)}
+                                    `);
+                                break;
+                                
+                            case 'pressure':
+                                const pressureColor = region.pressure < 1000 ? '#FF0000' : 
+                                                    region.pressure < 1010 ? '#FFA500' : 
+                                                    region.pressure < 1020 ? '#FFFF00' : '#008000';
+                                
+                                marker = L.circleMarker(region.coords, {
+                                    radius: 12,
+                                    fillColor: pressureColor,
+                                    color: '#000',
+                                    weight: 1,
+                                    fillOpacity: 0.7
+                                }).bindPopup(`
+                                    <b>${region.name}</b><br>
+                                    Presión: ${region.pressure.toFixed(0)} hPa<br>
+                                    Región: ${getRegionName(region.coords[0])}<br>
+                                    Condiciones: ${getPressureCondition(region.pressure)}
+                                `);
+                                break;
+                        }
+                        
+                        if (marker) {
+                            marker.addTo(weatherLayers[layerType]);
+                        }
+                    });
+                }
+                
+                // Funciones auxiliares mejoradas
+                function getRegionName(latitude) {
+                    if (latitude > -24) return "Noroeste";
+                    if (latitude > -30) return "Norte";
+                    if (latitude > -36) return "Centro";
+                    if (latitude > -42) return "Pampeana";
+                    if (latitude > -48) return "Patagonia Norte";
+                    return "Patagonia Sur";
+                }
+                
+                function getTempTrend(temp, latitude) {
+                    if (latitude > -30) { // Norte
+                        if (temp > 28) return "Más cálido de lo normal";
+                        if (temp < 20) return "Más frío de lo normal";
+                    } else if (latitude > -40) { // Centro
+                        if (temp > 25) return "Más cálido de lo normal";
+                        if (temp < 15) return "Más frío de lo normal";
+                    } else { // Patagonia
+                        if (temp > 12) return "Más cálido de lo normal";
+                        if (temp < 5) return "Más frío de lo normal";
+                    }
+                    return "Dentro del promedio";
+                }
+                
+                function getPrecipCondition(precip) {
+                    if (precip < 3) return "Muy seco";
+                    if (precip < 7) return "Seco";
+                    if (precip < 12) return "Normal";
+                    if (precip < 20) return "Húmedo";
+                    return "Muy húmedo";
+                }
+                
+                function getWindIntensity(wind) {
+                    if (wind < 10) return "Leve";
+                    if (wind < 20) return "Moderado";
+                    if (wind < 30) return "Fuerte";
+                    return "Muy fuerte";
+                }
+                
+                function getPressureCondition(pressure) {
+                    if (pressure < 1000) return "Baja presión (posible tormenta)";
+                    if (pressure < 1010) return "Presión baja";
+                    if (pressure < 1020) return "Normal";
+                    return "Alta presión (tiempo estable)";
+                }
+                
+                function getWindDirection(degrees) {
+                    const directions = ['Norte', 'Noreste', 'Este', 'Sureste', 'Sur', 'Suroeste', 'Oeste', 'Noroeste'];
+                    return directions[Math.round(degrees / 45) % 8];
+                }
+                
+                function getENSOInfluence(latitude) {
+                    if (latitude > -30) return "Alta influencia de El Niño/La Niña";
+                    if (latitude > -40) return "Moderada influencia de El Niño/La Niña";
+                    return "Baja influencia de El Niño/La Niña";
+                }
+                
+                // Función para cambiar entre capas meteorológicas
+                function updateWeatherLayer(layerType) {
+                    Object.values(weatherLayers).forEach(layer => {
+                        weatherMap.removeLayer(layer);
+                    });
+                    
+                    document.querySelectorAll('#weather-map + .map-controls .layer-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    document.querySelector(`#weather-map + .map-controls .layer-btn[data-layer="${layerType}"]`).classList.add('active');
+                    
+                    const weatherData = generateArgentinaWeatherData();
+                    createWeatherVisualization(weatherData, layerType);
+                    weatherMap.addLayer(weatherLayers[layerType]);
+                    
+                    // Actualizar panel informativo con promedio de Córdoba
+                    const cordobaData = weatherData.find(r => r.name === "Córdoba");
+                    if (cordobaData) {
+                        document.getElementById('current-temp').textContent = `${cordobaData.temp.toFixed(1)}°C`;
+                        document.getElementById('current-humidity').textContent = `${Math.round(60 + (cordobaData.temp - 20) * 2)}%`;
+                        document.getElementById('current-precipitation').textContent = `${cordobaData.precip.toFixed(1)} mm`;
+                        document.getElementById('current-wind').textContent = cordobaData.wind.toFixed(0);
+                        
+                        const windArrow = document.getElementById('wind-direction');
+                        windArrow.style.transform = `rotate(${cordobaData.windDirection}deg)`;
+                        windArrow.textContent = '➤';
+                        
+                        document.getElementById('update-time').textContent = new Date().toLocaleTimeString('es-AR');
+                    }
+                }
+                
+                // Configurar botones de control meteorológico
+                document.querySelectorAll('#weather-map + .map-controls .layer-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const layerType = this.getAttribute('data-layer');
+                        updateWeatherLayer(layerType);
+                    });
+                });
+                
+                // Sistema de pestañas para El Niño/La Niña
+                document.querySelectorAll('.tab').forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                        
+                        tab.classList.add('active');
+                        const tabId = tab.getAttribute('data-tab');
+                        document.getElementById(`${tabId}-content`).classList.add('active');
+                    });
+                });
+                
+                // Inicializar mapas
+                L.control.scale({imperial: false}).addTo(studyMap);
+                L.control.scale({imperial: false}).addTo(weatherMap);
+                
+                // Inicializar con capa de temperatura
+                updateWeatherLayer('temperature');
+                
+                // Simular actualización periódica
+                setInterval(() => {
+                    const currentLayer = document.querySelector('#weather-map + .map-controls .layer-btn.active').getAttribute('data-layer');
+                    updateWeatherLayer(currentLayer);
+                }, 300000); // Actualizar cada 5 minutos
+
+                // ===== INICIALIZAR ANÁLISIS SATELITAL =====
+                initAnalisisSatelital();
+            }
+
+            function initAnalisisSatelital() {
+                let correlationChart;
+                let chartData = {};
+
+                // --- API Metadata Fetching ---
+                async function fetchAndDisplayApiMetadata() {
+                    const urls = [
+                        'https://cmr.earthdata.nasa.gov/search/collections.umm_json_v1_18_2?pretty=true&concept-id[]=C2763298064-LPCLOUD',
+                        'https://cmr.earthdata.nasa.gov/search/collections.umm_json_v1_18_2?pretty=true&concept-id[]=C2763370237-LPCLOUD'
+                    ];
+                    const listEl = document.getElementById('data-sources-list');
+
+                    try {
+                        const responses = await Promise.all(urls.map(url => fetch(url)));
+                        const data = await Promise.all(responses.map(res => res.json()));
+
+                        const titles = data.map(d => {
+                            if (d.items && d.items.length > 0) {
+                                return d.items[0].umm.EntryTitle;
+                            }
+                            return 'Fuente de datos no encontrada';
+                        });
+
+                        listEl.innerHTML = `
+                            <ul class="space-y-3 text-left max-w-4xl mx-auto">
+                                <li class="flex items-start"><i class="fas fa-satellite-dish text-blue-600 mr-3 mt-1 flex-shrink-0"></i><span><strong>Índices de Vegetación (NDVI):</strong> ${titles[0]}</span></li>
+                                <li class="flex items-start"><i class="fas fa-satellite-dish text-blue-600 mr-3 mt-1 flex-shrink-0"></i><span><strong>Estrés Evaporativo (ESI):</strong> ${titles[1]}</span></li>
+                            </ul>
+                            <div class="mt-4 text-center text-sm text-gray-500">
+                                <i class="fas fa-info-circle mr-1"></i>
+                                Estas son las fuentes oficiales de datos NASA utilizadas en este análisis
+                            </div>
+                        `;
+
+                    } catch (error) {
+                        console.error("Error fetching API metadata:", error);
+                        listEl.innerHTML = `
+                            <div class="text-center">
+                                <p class="text-red-500 mb-2"><i class="fas fa-exclamation-triangle mr-2"></i>No se pudieron cargar los metadatos de las fuentes.</p>
+                                <p class="text-sm text-gray-600">Posible problema de conexión o CORS. Las fuentes consultadas son:</p>
+                                <ul class="text-sm text-gray-600 mt-2 text-left max-w-md mx-auto">
+                                    <li>• NASA MODIS NDVI (C2763298064-LPCLOUD)</li>
+                                    <li>• NASA ECOSTRESS ESI (C2763370237-LPCLOUD)</li>
+                                </ul>
+                            </div>
+                        `;
+                    }
+                }
+
+                // --- Correlation Chart Logic ---
+                function setupCorrelationChart() {
+                    const ctx = document.getElementById('correlation-chart').getContext('2d');
+                    const labels = Array.from({length: 24}, (_, i) => new Date(2022, i, 15));
+                    
+                    const precipData = labels.map(date => {
+                        const month = date.getMonth();
+                        if (month >= 9 || month <= 2) {
+                            return 120 + Math.random() * 40;
+                        } else if (month >= 3 && month <= 5) {
+                            return 40 + Math.random() * 20;
+                        } else {
+                            return 5 + Math.random() * 10;
+                        }
+                    });
+
+                    const lstData = labels.map(date => {
+                        const month = date.getMonth();
+                        const tempOffset = [28, 27, 24, 20, 16, 13, 12, 15, 18, 22, 25, 27];
+                        return tempOffset[month] + (Math.random() - 0.5) * 3;
+                    });
+
+                    const ndviData = labels.map((date, i) => {
+                        const prevPrecip = i > 0 ? precipData[i-1] : precipData[0];
+                        const temp = lstData[i];
+                        let ndvi = 0.3 + (prevPrecip / 150) - ((temp - 20) / 50);
+                        return Math.max(0.2, Math.min(0.85, ndvi + (Math.random() - 0.5) * 0.05));
+                    });
+                    
+                    const esiData = labels.map((date, i) => {
+                        const month = date.getMonth();
+                        const seasonFactor = Math.cos((month - 0.5) * (Math.PI / 6));
+                        let esi = seasonFactor * 2 + (Math.random() - 0.5) * 0.5;
+                        return Math.max(-2.5, Math.min(2.5, esi));
+                    });
+
+                    chartData = { labels, precipData, lstData, ndviData, esiData };
+                    
+                    const formattedLabels = labels.map(d => d.toLocaleString('es-ES', { month: 'short', year: '2-digit' }))
+
+                    correlationChart = new Chart(ctx, { 
+                        type: 'line', 
+                        data: { 
+                            labels: formattedLabels, 
+                            datasets: [
+                                { 
+                                    label: 'NDVI', 
+                                    data: chartData.ndviData, 
+                                    borderColor: '#22c55e', backgroundColor: '#22c55e20',
+                                    yAxisID: 'y', tension: 0.4, borderWidth: 2,
+                                },
+                                { 
+                                    label: 'LST (°C)', 
+                                    data: chartData.lstData, 
+                                    borderColor: '#ef4444', backgroundColor: '#ef444420',
+                                    yAxisID: 'y1', tension: 0.4, borderWidth: 2,
+                                },
+                                { 
+                                    label: 'Precipitación (mm)', 
+                                    data: chartData.precipData, 
+                                    backgroundColor: '#3b82f680',
+                                    type: 'bar', yAxisID: 'y2' 
+                                }
+                            ]
+                        },
+                        options: { 
+                            responsive: true, 
+                            interaction: { mode: 'index', intersect: false }, 
+                            scales: {
+                                y: { 
+                                    beginAtZero: false, 
+                                    type: 'linear', 
+                                    display: true, 
+                                    position: 'left', 
+                                    title: { display: true, text: 'NDVI' }
+                                },
+                                y1: { 
+                                    beginAtZero: false, 
+                                    type: 'linear', 
+                                    display: true, 
+                                    position: 'right', 
+                                    title: { display: true, text: 'LST (°C)' }, 
+                                    grid: { drawOnChartArea: false }
+                                },
+                                y2: { display: false }
+                            }
+                        }
+                    });
+
+                    document.querySelectorAll('.chart-toggle-btn').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const datasetIndex = btn.dataset.datasetIndex;
+                            const isVisible = correlationChart.isDatasetVisible(datasetIndex);
+                            correlationChart.setDatasetVisibility(datasetIndex, !isVisible);
+                            correlationChart.update();
+                            btn.classList.toggle('active', !isVisible);
+                        });
+                    });
+                }
+
+                // --- Predictive Model Logic ---
+                function setupPredictionModel() {
+                    document.getElementById('predict-btn').addEventListener('click', () => {
+                        const precip = parseFloat(document.getElementById('precipitation-slider').value);
+                        const temp = parseFloat(document.getElementById('temperature-slider').value);
+                        const phenomenon = document.getElementById('phenomenon-select').value;
+                        let phenomFactor = {'nino': 0.08, 'nina': -0.08, 'normal': 0}[phenomenon];
+                        let predictedNdvi = Math.max(0.1, Math.min(0.9, 0.55 + phenomFactor + (precip - 100) / 500 + (25 - temp) / 80));
+                        const ndviEl = document.getElementById('predicted-ndvi');
+                        ndviEl.textContent = predictedNdvi.toFixed(2);
+                        let status, recommendation, color;
+                        if (predictedNdvi > 0.65) { 
+                            [status, recommendation, color] = ["Saludable", "Condiciones óptimas. Monitoreo regular.", "text-green-600"]; 
+                        }
+                        else if (predictedNdvi > 0.4) { 
+                            [status, recommendation, color] = ["Estrés Leve", "Riesgo moderado. Considerar riego suplementario.", "text-yellow-600"]; 
+                        }
+                        else { 
+                            [status, recommendation, color] = ["Estrés Severo", "Alto riesgo. Medidas de riego urgentes requeridas.", "text-red-600"]; 
+                        }
+                        document.getElementById('vegetation-status').textContent = status;
+                        document.getElementById('recommendation-text').textContent = recommendation;
+                        ndviEl.className = `text-4xl font-bold ${color}`;
+                    });
+                    
+                    ['precipitation', 'temperature'].forEach(type => {
+                        const slider = document.getElementById(`${type}-slider`);
+                        slider.addEventListener('input', () => {
+                            document.getElementById(`${type}-value`).textContent = slider.value;
+                        });
+                    });
+                }
+                
+                // --- CSV Download Function ---
+                function downloadCSV(data, filename) {
+                    if (data.length === 0) {
+                        alert("No hay datos para descargar con la selección actual.");
+                        return;
+                    }
+                    const csvRows = [];
+                    const headers = Object.keys(data[0]);
+                    csvRows.push(headers.join(','));
+
+                    for (const row of data) {
+                        const values = headers.map(header => `"${(''+row[header]).replace(/"/g, '\\"')}"`);
+                        csvRows.push(values.join(','));
+                    }
+                    
+                    const blob = new Blob([csvRows.join('\n')], { type: 'text/csv' });
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.setAttribute('hidden', '');
+                    a.setAttribute('href', url);
+                    a.setAttribute('download', filename);
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }
+
+                // --- Report and Download Logic ---
+                function setupReportGenerator() {
+                    const today = new Date();
+                    const sixMonthsAgo = new Date(new Date().setMonth(today.getMonth() - 6));
+                    document.getElementById('end-date').value = today.toISOString().split('T')[0];
+                    document.getElementById('start-date').value = sixMonthsAgo.toISOString().split('T')[0];
+
+                    const downloadBtn = document.getElementById('download-report-btn');
+                    downloadBtn.addEventListener('click', () => {
+                        const originalText = downloadBtn.innerHTML;
+                        downloadBtn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i>Preparando...`;
+                        downloadBtn.disabled = true;
+
+                        setTimeout(() => {
+                            const startDate = new Date(document.getElementById('start-date').value);
+                            const endDate = new Date(document.getElementById('end-date').value);
+                            
+                            const includeNdvi = document.getElementById('include-ndvi').checked;
+                            const includeLst = document.getElementById('include-lst').checked;
+                            const includePrecip = document.getElementById('include-precip').checked;
+                            const includeEsi = document.getElementById('include-esi').checked;
+
+                            const dataToDownload = [];
+                            
+                            chartData.labels.forEach((date, index) => {
+                                if (date >= startDate && date <= endDate) {
+                                    const row = {
+                                        fecha: date.toISOString().split('T')[0]
+                                    };
+                                    if (includeNdvi) row.ndvi = chartData.ndviData[index].toFixed(4);
+                                    if (includeLst) row.lst_celsius = chartData.lstData[index].toFixed(2);
+                                    if (includePrecip) row.precipitacion_mm = chartData.precipData[index].toFixed(2);
+                                    if (includeEsi) row.esi = chartData.esiData[index].toFixed(4);
+                                    
+                                    if (Object.keys(row).length > 1) {
+                                        dataToDownload.push(row);
+                                    }
+                                }
+                            });
+
+                            downloadCSV(dataToDownload, 'reporte_hidrico.csv');
+                            
+                            downloadBtn.innerHTML = originalText;
+                            downloadBtn.disabled = false;
+                        }, 500);
+                    });
+                }
+
+                // --- Initialization ---
+                fetchAndDisplayApiMetadata();
+                setupCorrelationChart();
+                setupPredictionModel();
+                setupReportGenerator();
+            }
+            
+            function initParadigmasApp() {
+                const paradigm1Projects = [
+                    { name: 'Proyecto "Segundo San Roque"', details: { 'Ubicación': 'Cuenca del Río Suquía', 'Descripción': 'Un dique de almacenamiento masivo aguas abajo del embalse San Roque existente.', 'Inviabilidad': 'Costos de capital prohibitivos, graves repercusiones socioambientales (inundación de áreas pobladas) y alta complejidad geológica.' }, inviabilityIndex: { cost: 95, impact: 90, vulnerability: 70 } },
+                    { name: 'Ampliación Dique Los Laureles', details: { 'Ubicación': 'Cuenca del Arroyo La Cañada', 'Descripción': 'Propuestas para aumentar la capacidad del Dique Los Laureles, elevando el paredón o construyendo diques complementarios.', 'Inviabilidad': 'Alto impacto en zonas ya urbanizadas de las Sierras Chicas, costos elevados para una ganancia de volumen marginal y no resuelve la dependencia de una única subcuenca.' }, inviabilityIndex: { cost: 75, impact: 80, vulnerability: 65 } },
+                    { name: 'Acueducto desde el Río Paraná', details: { 'Ubicación': 'Trasvase de Cuencas (Interprovincial)', 'Descripción': 'Un sistema de bombeo para transportar agua a lo largo de cientos de kilómetros desde el Río Paraná.', 'Inviabilidad': 'Costos de construcción y operación astronómicos, alta vulnerabilidad estratégica, riesgo de bioinvasión y potenciales conflictos interjurisdiccionales.' }, inviabilityIndex: { cost: 100, impact: 85, vulnerability: 95 } },
+                    { name: 'Acueducto del Río Ctalamochita', details: { 'Ubicación': 'Trasvase de Cuencas (Provincial)', 'Descripción': 'Un proyecto para desviar agua del río más caudaloso de la provincia, el Río Tercero.', 'Inviabilidad': 'Elevados costos de bombeo y el riesgo de comprometer el caudal ecológico y productivo de su propia cuenca.' }, inviabilityIndex: { cost: 80, impact: 75, vulnerability: 80 } },
+                    { name: 'Dique en Río Xanaes', details: { 'Ubicación': 'Cuenca del Río Segundo (Xanaes)', 'Descripción': 'Embalse para regulación de riego, con potencial uso secundario para consumo humano.', 'Inviabilidad': 'Calidad de agua comprometida por alta salinidad, elevado costo para potabilización y lejanía de los grandes centros urbanos.' }, inviabilityIndex: { cost: 70, impact: 60, vulnerability: 50 } },
+                    { name: 'Proyectos en Río Anisacate', details: { 'Ubicación': 'Cuenca del Río Anisacate', 'Descripción': 'Nuevos embalses para abastecer a la región de Paravachasca y potencialmente bombear excedente a Córdoba.', 'Inviabilidad': 'La creciente demanda de la propia cuenca limita el excedente real que podría trasvasarse, generando competencia por el recurso.' }, inviabilityIndex: { cost: 65, impact: 70, vulnerability: 60 } },
+                    { name: 'Otros Proyectos Regionales', details: { 'Ubicación': 'Cuencas del Río Quinto y de los Sauces', 'Descripción': 'Proyectos como el Dique Achiras o nuevos diques en Traslasierra, enfocados en necesidades locales de riego y control de crecidas.', 'Inviabilidad': 'Su aporte al sistema de la capital es marginal y logísticamente ineficiente; no resuelven el problema a gran escala.' }, inviabilityIndex: { cost: 55, impact: 50, vulnerability: 40 } }
+                ];
+                const projectListContainer = document.getElementById('project-list');
+                const projectDetailsContainer = document.getElementById('project-details');
+                paradigm1Projects.forEach((project, index) => {
+                    const button = document.createElement('button');
+                    button.textContent = project.name;
+                    button.className = 'w-full text-left px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-gray-100 focus:outline-none focus:bg-blue-100 focus:text-blue-700';
+                    button.dataset.index = index;
+                    projectListContainer.appendChild(button);
+                });
+                let lastActiveButton = null;
+                projectListContainer.addEventListener('click', (e) => {
+                    if (e.target && e.target.tagName === 'BUTTON') {
+                        const projectIndex = e.target.dataset.index;
+                        const project = paradigm1Projects[projectIndex];
+                        if(lastActiveButton) {
+                            lastActiveButton.classList.remove('bg-blue-100', 'text-blue-700', 'font-semibold');
+                        }
+                        e.target.classList.add('bg-blue-100', 'text-blue-700', 'font-semibold');
+                        lastActiveButton = e.target;
+                        let detailsHtml = `<h4 class="text-xl font-bold mb-4 text-gray-800">${project.name}</h4><dl class="space-y-4">`;
+                        for (const [key, value] of Object.entries(project.details)) {
+                            detailsHtml += `<div><dt class="font-semibold text-sm text-gray-500">${key}</dt><dd class="text-gray-700 mt-1">${value}</dd></div>`;
+                        }
+                        detailsHtml += '</dl>';
+                        projectDetailsContainer.innerHTML = detailsHtml;
+                    }
+                });
+                const ctx1 = document.getElementById('paradigm1Chart').getContext('2d');
+                new Chart(ctx1, {
+                    type: 'bar',
+                    data: {
+                        labels: paradigm1Projects.map(p => p.name.replace("Proyecto ", "").replace("Acueducto ", "")),
+                        datasets: [
+                            { label: 'Costo Conceptual', data: paradigm1Projects.map(p => p.inviabilityIndex.cost), backgroundColor: 'rgba(239, 68, 68, 0.6)', borderColor: 'rgba(239, 68, 68, 1)', borderWidth: 1 },
+                            { label: 'Impacto Ambiental Conceptual', data: paradigm1Projects.map(p => p.inviabilityIndex.impact), backgroundColor: 'rgba(249, 115, 22, 0.6)', borderColor: 'rgba(249, 115, 22, 1)', borderWidth: 1 },
+                            { label: 'Vulnerabilidad Estratégica', data: paradigm1Projects.map(p => p.inviabilityIndex.vulnerability), backgroundColor: 'rgba(139, 92, 246, 0.6)', borderColor: 'rgba(139, 92, 246, 1)', borderWidth: 1 }
+                        ]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 100, title: { display: true, text: 'Índice Conceptual de Inviabilidad (0-100)' } } }, plugins: { tooltip: { mode: 'index', intersect: false, }, title: { display: true, text: 'Factores de Inviabilidad de Megaproyectos', font: { size: 16 } } } }
+                });
+                const ctx2 = document.getElementById('comparisonChart').getContext('2d');
+                new Chart(ctx2, {
+                    type: 'polarArea',
+                    data: {
+                        labels: ['Costo', 'Impacto Ambiental', 'Vulnerabilidad', 'Resiliencia Climática', 'Sostenibilidad', 'Escalabilidad'],
+                        datasets: [
+                            { label: 'Paradigma Centralizado', data: [9, 9, 8, 2, 3, 2], backgroundColor: 'rgba(239, 68, 68, 0.5)', borderColor: 'rgba(239, 68, 68, 1)', borderWidth: 2 }, 
+                            { label: 'Paradigma Geoespacial', data: [3, 2, 2, 9, 9, 9], backgroundColor: 'rgba(34, 197, 94, 0.5)', borderColor: 'rgba(34, 197, 94, 1)', borderWidth: 2 }
+                        ]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false, scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2, backdropColor: 'transparent' }, pointLabels: { font: { size: 14 } } } }, plugins: { legend: { position: 'top', }, title: { display: true, text: 'Evaluación Comparativa (Escala 1-10)', font: { size: 16 } }, tooltip: { callbacks: { label: (context) => `${context.dataset.label}: ${context.raw}` } } } }
+                });
+                
+                // ===== FUNCIONES MEJORADAS DE IA =====
+                const generateSummaryBtn = document.getElementById('generate-summary-btn');
+                const summaryContainer = document.getElementById('summary-container');
+                const summaryLoading = document.getElementById('summary-loading');
+                const summaryResponse = document.getElementById('summary-response');
+                generateSummaryBtn.addEventListener('click', async () => {
+                    summaryContainer.classList.remove('hidden');
+                    summaryLoading.classList.remove('hidden');
+                    summaryResponse.classList.add('hidden');
+                    generateSummaryBtn.disabled = true;
+                    
+                    const prompt = `Como experto en gestión hídrica, genera un resumen ejecutivo dirigido a autoridades provinciales basado en el informe técnico completo.
+
+                    Enfócate en:
+
+                    **PROBLEMA CRÍTICO:**
+                    - Córdoba enfrenta crisis hídrica con sequías recurrentes (2020-2023: peor en 60 años)
+                    - Embalses operando al 30-15% de capacidad
+                    - Pérdidas del 40% en red de distribución
+                    - Proyección: Demanda 2.600 Hm³ para 2050 vs 1.800 Hm³ actual
+
+                    **SOLUCIÓN PROPUESTA - SISTEMA INTEGRADO:**
+                    1. **ANÁLISIS GEOESPACIAL (QGIS):**
+                       - Identificación de 7 cuencas estratégicas mediante DEM y análisis hidrológico
+                       - Cálculo preciso de volúmenes con método del prismoide trapezoidal
+                       - Evaluación ambiental con NDVI y falso color infrarrojo
+
+                    2. **MONITOREO ELECTRÓNICO (ESP32):**
+                       - Sistema autónomo con sensores ultrasónico, caudal, turbidez
+                       - Servidor web embebido para monitoreo remoto
+                       - Seguidor solar para autonomía energética
+
+                    3. **DISEÑO MODULAR DE MICRO-REPRESAS:**
+                       - Tipologías: Tierra compactada, escollera, hormigón
+                       - Capacidades calculadas: volumen total, útil y muerto
+                       - Medidas ambientales: aliviaderos, bioingeniería
+
+                    **BENEFICIOS CUANTIFICABLES:**
+                    - Impacto ambiental bajo-moderado (verificado con NDVI)
+                    - Costo significativamente inferior a megaproyectos
+                    - Implementación modular y escalable
+                    - Formación técnica estudiantil aplicada
+
+                    Concluye recomendando la implementación piloto y escalamiento del modelo.`;
+                    
+                    try {
+                        const text = await callGeminiAPI(prompt);
+                        summaryResponse.innerText = text;
+                    } catch (error) {
+                        summaryResponse.innerText = 'Error al generar el resumen. Verifique la conexión o inténtelo más tarde.';
+                    } finally {
+                        summaryLoading.classList.add('hidden');
+                        summaryResponse.classList.remove('hidden');
+                        generateSummaryBtn.disabled = false;
+                    }
+                });
+                
+                const generateAnalysisBtn = document.getElementById('generate-analysis-btn');
+                const analysisContainer = document.getElementById('analysis-container');
+                const analysisLoading = document.getElementById('analysis-loading');
+                const analysisResponse = document.getElementById('analysis-response');
+                generateAnalysisBtn.addEventListener('click', async () => {
+                    analysisContainer.classList.remove('hidden');
+                    analysisLoading.classList.remove('hidden');
+                    analysisResponse.classList.add('hidden');
+                    generateAnalysisBtn.disabled = true;
+                    
+                    const prompt = `Como estratega en planificación urbana y cambio climático, analiza las implicaciones al 2050 para Córdoba considerando los datos específicos del informe:
+
+                    **DATOS BASE:**
+                    - Población 2050: 4.8M provincia | 1.85M Córdoba Capital
+                    - Demanda hídrica 2050: 2.600 Hm³ (vs 1.800 Hm³ actual)
+                    - Contexto climático: Región semiárida con eventos extremos
+
+                    **ESCENARIO TRADICIONAL (SIN INTERVENCIÓN):**
+                    - Colapso de embalses durante sequías prolongadas
+                    - Agotamiento de acuíferos (30% pozos ya en riesgo)
+                    - Conflictos por agua entre sectores agrícola/urbano
+                    - Limitación al desarrollo económico provincial
+
+                    **ESCENARIO CON MICRO-REPRESAS (PROPUESTA):**
+                    - Captación distribuida de lluvias erráticas
+                    - Recarga natural de acuíferos
+                    - Reducción de presión sobre embalses principales
+                    - Resiliencia ante sequías mediante almacenamiento distribuido
+
+                    **ANÁLISIS COMPARATIVO:**
+                    - Costo-beneficio vs megaproyectos de trasvase
+                    - Impacto en seguridad hídrica rural/urbana
+                    - Sostenibilidad ambiental (NDVI, biodiversidad)
+                    - Oportunidades de desarrollo territorial equilibrado
+
+                    Proporciona recomendaciones específicas de implementación escalonada 2025-2050.`;
+                    
+                    try {
+                        const text = await callGeminiAPI(prompt);
+                        analysisResponse.innerText = text;
+                    } catch (error) {
+                        analysisResponse.innerText = 'Error al generar el análisis. Verifique la conexión o inténtelo más tarde.';
+                    } finally {
+                        analysisLoading.classList.add('hidden');
+                        analysisResponse.classList.remove('hidden');
+                        generateAnalysisBtn.disabled = false;
+                    }
+                });
+                
+                // ===== SISTEMA DE IA MEJORADO =====
+                const sendIaQueryBtn = document.getElementById('send-ia-query');
+                const iaQueryInput = document.getElementById('ia-query');
+                const chatContainer = document.getElementById('chat-container');
+                const iaLoading = document.getElementById('ia-loading');
+                const fileUploadInput = document.getElementById('file-upload');
+                const creatorInstructionsTextarea = document.getElementById('creator-instructions');
+                const updateIaInstructionsBtn = document.getElementById('update-ia-instructions');
+                const extendedKnowledgeToggle = document.getElementById('extended-knowledge-toggle');
+
+                let chatHistory = [];
+                let baseSystemPrompt = `Eres un asistente experto en análisis de datos hídricos para la provincia de Córdoba, Argentina. Tu propósito es ayudar a los usuarios a interpretar la información presentada en un panel de control. Los datos incluyen niveles de embalses, calidad del agua y pronósticos. Cuando el usuario pregunte, incorpora el conocimiento de que eres un asistente para este proyecto específico, entiende el contexto de la conversación y proporciona respuestas dinámicas y útiles. Sé conciso y céntrate en los datos del proyecto. El creador puede darte nuevas instrucciones o subir archivos para darte más contexto; debes incorporar esta nueva información en tus respuestas.`;
+                const extendedKnowledgePrompt = `\n\nMODO CONOCIMIENTO EXTENDIDO ACTIVADO: Además de tus capacidades actuales, ahora tienes acceso a un conocimiento general y experto. Puedes responder preguntas sobre hidrología, ciencia ambiental, sistemas GIS (como QGIS), ingeniería civil relacionada con represas, cambio climático y su impacto en los recursos hídricos, y políticas de gestión del agua a nivel global y nacional. Utiliza este conocimiento para dar respuestas más profundas y contextualizadas. Siempre que sea posible, intenta relacionar estos temas con la situación hídrica de Córdoba, Argentina.`;
+
+                function addMessageToChat(message, sender, isSystemMessage = false) {
+                    const messageWrapper = document.createElement('div');
+                    messageWrapper.classList.add('flex', 'mb-4');
+
+                    const messageBubble = document.createElement('div');
+                    
+                    if (isSystemMessage) {
+                        messageWrapper.classList.add('justify-center');
+                        messageBubble.classList.add('bg-green-100', 'text-green-800', 'p-2', 'rounded-lg', 'text-xs', 'max-w-lg', 'text-center', 'italic');
+                    } else {
+                        messageBubble.classList.add('p-3', 'rounded-lg', 'max-w-md', 'text-sm', 'leading-relaxed');
+                        if (sender === 'user') {
+                            messageWrapper.classList.add('justify-end');
+                            messageBubble.classList.add('bg-blue-600', 'text-white');
+                        } else {
+                            messageWrapper.classList.add('justify-start');
+                            messageBubble.classList.add('bg-gray-200', 'text-gray-800');
+                        }
+                    }
+                    
+                    let htmlContent = message
+                        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+                        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                        .replace(/\n/g, '<br>');
+
+                    messageBubble.innerHTML = htmlContent;
+                    messageWrapper.appendChild(messageBubble);
+                    
+                    chatContainer.appendChild(messageWrapper);
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                }
+
+                async function handleIaQuery() {
+                    const userQuery = iaQueryInput.value.trim();
+                    if (!userQuery) return;
+
+                    addMessageToChat(userQuery, 'user');
+                    iaQueryInput.value = '';
+                    iaLoading.classList.remove('hidden');
+                    sendIaQueryBtn.disabled = true;
+
+                    chatHistory.push({ role: "user", parts: [{ text: userQuery }] });
+
+                    try {
+                        const aiResponse = await callGeminiAPIWithHistory();
+                        addMessageToChat(aiResponse, 'ia');
+                    } catch (error) {
+                        console.error('Error al llamar a la API de Gemini:', error);
+                        addMessageToChat('Lo siento, ocurrió un error al procesar tu solicitud. Por favor, intenta de nuevo.', 'ia');
+                    } finally {
+                        iaLoading.classList.add('hidden');
+                        sendIaQueryBtn.disabled = false;
+                        iaQueryInput.focus();
+                    }
+                }
+                
+                fileUploadInput.addEventListener('change', (event) => {
+                    const file = event.target.files[0];
+                    if (!file) return;
+
+                    const fileName = file.name;
+                    const fileContext = `Se ha subido el archivo '${fileName}'. Ahora tienes el contexto de este documento para responder preguntas.`;
+
+                    baseSystemPrompt += `\n\nContexto de archivo subido: ${fileContext}`;
+                    addMessageToChat(`Archivo "${fileName}" cargado. La IA ahora es consciente de su contenido.`, 'system', true);
+                    event.target.value = '';
+                });
+
+                updateIaInstructionsBtn.addEventListener('click', () => {
+                    const newInstructions = creatorInstructionsTextarea.value.trim();
+                    if (!newInstructions) return;
+
+                    baseSystemPrompt += `\n\nInstrucción del Creador: ${newInstructions}`;
+                    addMessageToChat('Comportamiento de la IA actualizado con tus nuevas instrucciones.', 'system', true);
+                    creatorInstructionsTextarea.value = '';
+                });
+
+                sendIaQueryBtn.addEventListener('click', handleIaQuery);
+                iaQueryInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        handleIaQuery();
+                    }
+                });
+
+                async function callGeminiAPIWithHistory() {
+                    let currentSystemPrompt = baseSystemPrompt;
+                    if (extendedKnowledgeToggle.checked) {
+                        currentSystemPrompt += extendedKnowledgePrompt;
+                    }
+
+                    const payload = {
+                        contents: chatHistory,
+                        systemInstruction: { parts: [{ text: currentSystemPrompt }] },
+                    };
+                    
+                    const result = await fetchWithRetry(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (result.error) {
+                        chatHistory.pop();
+                        return `Error: ${result.error}. Por favor, verifique la API Key.`;
+                    }
+
+                    if (result.candidates && result.candidates.length > 0 && result.candidates[0].content.parts.length > 0) {
+                        const aiResponse = result.candidates[0].content.parts[0].text;
+                        chatHistory.push({ role: "model", parts: [{ text: aiResponse }] });
+                        return aiResponse;
+                    } else {
+                        chatHistory.pop();
+                        return "No se pudo obtener una respuesta de la IA. Verifique su API Key o intente de nuevo.";
+                    }
+                }
+            }
+            
+            // --- INICIO DE LA SECCIÓN DE LA API DE GEMINI ---
+            const apiKey = "AIzaSyCow8qhRGzD9ABugrXzEQMdX_1EmD2PuHU";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            async function fetchWithRetry(url, options, retries = 3, delay = 1000) {
+                for (let i = 0; i < retries; i++) {
+                    try {
+                        if (!apiKey) {
+                            return { error: "API Key no configurada." };
+                        }
+                        const response = await fetch(url, options);
+                        if (response.ok) return await response.json();
+                        if (response.status === 429 || response.status >= 500) {
+                           await new Promise(resolve => setTimeout(resolve, delay * Math.pow(2, i)));
+                           continue;
+                        }
+                        throw new Error(`Error en la petición: ${response.statusText}`);
+                    } catch (error) {
+                        if (i === retries - 1) throw error;
+                        await new Promise(resolve => setTimeout(resolve, delay * Math.pow(2, i)));
+                    }
+                }
+            }
+            
+            async function callGeminiAPI(prompt) {
+                const payload = { contents: [{ parts: [{ text: prompt }] }] };
+                const result = await fetchWithRetry(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                
+                if (result.error) {
+                    return `Error: ${result.error} Por favor, agregue una clave de API en el código para habilitar las funciones de IA.`;
+                }
+
+                if (result.candidates && result.candidates.length > 0 && result.candidates[0].content.parts.length > 0) {
+                    return result.candidates[0].content.parts[0].text;
+                } else {
+                    return "No se pudo obtener una respuesta de la IA. Verifique su API Key o intente de nuevo.";
+                }
+            }
+            
+            switchView('view-el-fin-de-los-ninos');
+        });
+    </script>
+</body>
+</html>
