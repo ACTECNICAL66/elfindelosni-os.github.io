@@ -1,0 +1,15 @@
+node_modules/
+dist/
+dist-ssr/
+*.local
+.env
+.env.*
+.env.local
+.env.*.local
+.DS_Store
+*.log
+*.pdf
+
+# Large PDFs (add manually if needed)
+frontend/public/Proyecto_El_Fin_de_los_Ninos.pdf
+docs/
