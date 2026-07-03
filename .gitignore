@@ -1,0 +1,34 @@
+# Imágenes y rasters
+*.tif
+*.tif.aux.xml
+*.tfw
+*.png
+*.jpg
+*.jpeg
+*.tar
+
+# Archivos temporales de Office
+~$*
+
+# Archivos grandes (>100 MB - GitHub limit)
+QGIS/Mapas/CurvasNivelV10.gpkg
+QGIS/Mapas/Vectorizado.gpkg
+QGIS/Mapas/1mCurvasNivelV10.gpkg
+QGIS/Complementos/perc_edif_2022.kml
+
+# Descargas/archivos no relacionados
+QGIS/Mapas/Downloads/
+
+# Archivos temporales de bases de datos
+*.gpkg-journal
+*.gpkg.tmp_rtree_*.db
+
+# DEMs de cuencas
+**/Dem*.tif
+**/DEM*.tif
+
+# Archivos auxiliares de QGIS
+*.aux.xml
+
+# Node
+node_modules/

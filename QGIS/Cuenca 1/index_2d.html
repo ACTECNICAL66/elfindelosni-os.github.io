@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulación de Llenado - Cuenca 1</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="data/data.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #1a1a2e; color: #e0e0e0; overflow: hidden; }
+#app { display: flex; height: 100vh; }
+#sidebar {
+  width: 380px; min-width: 380px; background: #16213e; padding: 20px;
+  display: flex; flex-direction: column; border-right: 2px solid #0f3460; overflow-y: auto;
+}
+#sidebar h1 { font-size: 18px; margin-bottom: 4px; color: #e94560; }
+#sidebar .subtitle { font-size: 12px; color: #888; margin-bottom: 16px; }
+#map { flex: 1; background: #0a0a23; }
+.control-group { margin-bottom: 16px; }
+.control-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: #aaa; }
+input[type="range"] { width: 100%; accent-color: #e94560; cursor: pointer; }
+.value-display { display: flex; justify-content: space-between; font-size: 13px; margin-top: 4px; }
+.val { color: #e94560; font-weight: bold; }
+.info-card {
+  background: #0f3460; border-radius: 8px; padding: 12px; margin-bottom: 8px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.info-card .label { font-size: 11px; color: #888; text-transform: uppercase; }
+.info-card .value { font-size: 20px; font-weight: bold; color: #fff; }
+.info-card .unit { font-size: 11px; color: #888; margin-left: 4px; }
+.btn {
+  background: #e94560; color: #fff; border: none; border-radius: 6px;
+  padding: 10px 16px; font-size: 14px; font-weight: 600; cursor: pointer;
+  transition: all 0.2s; width: 100%;
+}
+.btn:hover { background: #d63851; }
+.btn-secondary { background: #0f3460; }
+.btn-secondary:hover { background: #1a4a7a; }
+.btn-group { display: flex; gap: 8px; }
+.btn-group .btn { flex: 1; }
+#chart-container { margin-top: auto; height: 160px; position: relative; }
+#chart-container canvas { width: 100% !important; height: 100% !important; }
+.info-row { display: flex; gap: 8px; }
+.info-row .info-card { flex: 1; }
+#legend { margin-top: 8px; display: flex; align-items: center; gap: 8px; font-size: 12px; }
+#legend .swatch { width: 20px; height: 12px; border-radius: 3px; }
+@media (max-width: 768px) {
+  #app { flex-direction: column; }
+  #sidebar { width: 100%; min-width: unset; max-height: 50vh; border-right: none; border-bottom: 2px solid #0f3460; }
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="sidebar">
+    <h1>Simulaci&oacute;n de Llenado</h1>
+    <div class="subtitle">Cuenca 1 - Proyecto de MicroDiques</div>
+
+    <div class="control-group">
+      <label>Cota de agua: <span id="elevDisplay" class="val">900</span> m</label>
+      <input type="range" id="elevSlider" min="800" max="1300" value="900" step="25">
+      <div class="value-display">
+        <span>800 m</span>
+        <span>1300 m</span>
+      </div>
+    </div>
+
+    <div class="info-row">
+      <div class="info-card">
+        <div class="label">Volumen</div>
+        <div><span class="value" id="volDisplay">0</span><span class="unit">hm&sup3;</span></div>
+      </div>
+      <div class="info-card">
+        <div class="label">Superficie</div>
+        <div><span class="value" id="areaDisplay">0</span><span class="unit">km&sup2;</span></div>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn" id="playBtn">&#9654; Animar</button>
+      <button class="btn btn-secondary" id="resetViewBtn">&#8982; Encuadrar</button>
+    </div>
+
+    <div id="legend">
+      <span class="swatch" style="background:#2266cc;opacity:0.5"></span>
+      <span id="legendText">Inundaci&oacute;n a cota 900 m</span>
+    </div>
+
+    <div id="chart-container">
+      <canvas id="profileChart"></canvas>
+    </div>
+  </div>
+  <div id="map"></div>
+</div>
+
+<script>
+const ELEV_MIN = 800, ELEV_MAX = 1300;
+
+// Validate data loaded correctly
+if (typeof FLOOD_SCENARIOS === 'undefined' || typeof CONFIG === 'undefined') {
+  document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#1a1a2e;color:#e94560;font-family:sans-serif;flex-direction:column;gap:12px;">'
+    + '<h2>Error: Datos no cargados</h2>'
+    + '<p style="color:#888;font-size:14px;">Asegurate de abrir con el servidor HTTP (no directo con file://)</p>'
+    + '<p style="color:#888;font-size:13px;">Ejecut&aacute;: <code>python servidor.py</code> y abr&iacute; http://localhost:8080/index_2d.html</p>'
+    + '</div>';
+  throw new Error('Data not loaded');
+}
+
+const scenarios = FLOOD_SCENARIOS.features;
+const evaData = EVA_DATA;
+const config = CONFIG;
+
+let map, floodLayer, watershedLayer;
+let animating = false, animTimer = null;
+let chart = null;
+
+function showError(msg) {
+  const el = document.createElement('div');
+  el.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#16213e;color:#e94560;padding:20px;border-radius:8px;z-index:9999;text-align:center;max-width:400px;';
+  el.innerHTML = '<h3>Error</h3><p style="color:#aaa;font-size:13px;margin-top:8px;">' + msg + '</p>';
+  document.getElementById('app').appendChild(el);
+}
+
+function init() {
+  const bounds = config.bounds;
+  const southWest = [bounds[3], bounds[0]];
+  const northEast = [bounds[1], bounds[2]];
+
+  try {
+    map = L.map('map', { zoomControl: true, attributionControl: true });
+  } catch(e) {
+    showError('No se pudo cargar Leaflet. Verifica tu conexi&oacute;n a internet.');
+    return;
+  }
+
+  var tileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="#">OpenStreetMap</a> &copy; <a href="#">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19,
+  }).addTo(map);
+
+  map.fitBounds([southWest, northEast], { padding: [30, 30] });
+
+  // Watershed boundary
+  if (typeof WATERSHED_BOUNDARY !== 'undefined') {
+    watershedLayer = L.geoJSON(WATERSHED_BOUNDARY, {
+      style: { color: '#ff6b35', weight: 2, fill: false, dashArray: '4 4' }
+    }).addTo(map);
+  }
+
+  // Fallback tile layers
+  var tileIndex = 0;
+  var tileUrls = [
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
+  ];
+  map.on('tileerror', function() {
+    if (tileIndex < tileUrls.length) {
+      tileLayer = L.tileLayer(tileUrls[tileIndex], {
+        attribution: '&copy; OpenStreetMap',
+        maxZoom: 17,
+      }).addTo(map);
+      tileIndex++;
+    }
+  });
+
+  initChart();
+  updateScenario(900);
+}
+
+function getScenario(elev) {
+  return scenarios.find(s => s.properties.elevation === elev);
+}
+
+function updateScenario(elev) {
+  const scen = getScenario(elev);
+  if (!scen) return;
+
+  document.getElementById('elevDisplay').textContent = elev;
+  document.getElementById('volDisplay').textContent = scen.properties.volume_hm3.toLocaleString();
+  document.getElementById('areaDisplay').textContent = scen.properties.area_km2.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+  document.getElementById('legendText').textContent = 'Inundaci\u00f3n a cota ' + elev + ' m';
+
+  if (floodLayer) map.removeLayer(floodLayer);
+  floodLayer = L.geoJSON(scen.geometry, {
+    style: { color: '#4488ff', weight: 1, fillColor: '#2266cc', fillOpacity: 0.35 }
+  }).addTo(map);
+
+  updateChart(elev);
+}
+
+function initChart() {
+  const ctx = document.getElementById('profileChart').getContext('2d');
+  const filtered = evaData.filter(d => d.elevation >= ELEV_MIN);
+  const elevations = filtered.map(d => d.elevation);
+  const volumes = filtered.map(d => d.cum_vol_hm3);
+
+  chart = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        label: 'Volumen',
+        data: elevations.map((e, i) => ({ x: e, y: volumes[i] })),
+        backgroundColor: '#4488ff',
+        borderColor: '#4488ff',
+        pointRadius: 0,
+        showLine: true,
+        tension: 0.3,
+      }, {
+        label: 'Actual',
+        data: [],
+        backgroundColor: '#e94560',
+        borderColor: '#e94560',
+        pointRadius: 6,
+        pointStyle: 'rectRot',
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ctx.parsed.x + ' m: ' + ctx.parsed.y.toFixed(1) + ' hm\u00B3'
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Cota (m)', color: '#888' },
+          ticks: { color: '#888', maxTicksLimit: 6 },
+          grid: { color: '#ffffff11' },
+          min: ELEV_MIN, max: ELEV_MAX,
+        },
+        y: {
+          title: { display: true, text: 'Vol (hm\u00B3)', color: '#888' },
+          ticks: { color: '#888' },
+          grid: { color: '#ffffff11' },
+          beginAtZero: true,
+        }
+      }
+    }
+  });
+}
+
+function updateChart(elev) {
+  if (!chart) return;
+  const data = evaData.find(d => d.elevation === elev);
+  if (data) {
+    chart.data.datasets[1].data = [{ x: elev, y: data.cum_vol_hm3 }];
+    chart.update();
+  }
+}
+
+function animate() {
+  if (animating) {
+    const slider = document.getElementById('elevSlider');
+    let val = parseInt(slider.value) + 25;
+    if (val > ELEV_MAX) val = ELEV_MIN;
+    slider.value = val;
+    updateScenario(val);
+  }
+}
+
+document.getElementById('elevSlider').addEventListener('input', function() {
+  const elev = parseInt(this.value);
+  updateScenario(elev);
+  if (animating) {
+    animating = false;
+    document.getElementById('playBtn').innerHTML = '\u25B6 Animar';
+    clearInterval(animTimer);
+  }
+});
+
+document.getElementById('playBtn').addEventListener('click', function() {
+  animating = !animating;
+  this.innerHTML = animating ? '\u23F8 Pausar' : '\u25B6 Animar';
+  if (animating) {
+    const slider = document.getElementById('elevSlider');
+    if (parseInt(slider.value) >= ELEV_MAX) slider.value = ELEV_MIN;
+    updateScenario(parseInt(slider.value));
+    animTimer = setInterval(animate, 600);
+  } else {
+    clearInterval(animTimer);
+  }
+});
+
+document.getElementById('resetViewBtn').addEventListener('click', function() {
+  const bounds = config.bounds;
+  map.fitBounds([[bounds[3], bounds[0]], [bounds[1], bounds[2]]], { padding: [30, 30] });
+});
+
+init();
+</script>
+</body>
+</html>

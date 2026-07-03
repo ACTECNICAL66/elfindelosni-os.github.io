@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulación 3D - Cuenca 1</title>
+<script src="data/data.js" async></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #000; color: #e0e0e0; overflow: hidden; }
+#canvas-container { width: 100vw; height: 100vh; display: block; }
+#controls {
+  position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+  background: rgba(22,33,62,0.92); backdrop-filter: blur(8px);
+  border-radius: 12px; padding: 12px 18px; z-index: 1000;
+  min-width: 380px; max-width: 520px; border: 1px solid rgba(233,69,96,0.3);
+  pointer-events: auto;
+}
+.slider-row { display: flex; align-items: center; gap: 10px; }
+.slider-row input[type="range"] { flex:1; accent-color:#e94560; cursor:pointer; height:4px; }
+.slider-row .value { font-size:20px; font-weight:bold; color:#e94560; min-width:70px; text-align:center; }
+.slider-row .unit { font-size:11px; color:#888; }
+.info-row { display:flex; gap:12px; margin-top:6px; font-size:12px; align-items:center; }
+.info-row .item { color:#aaa; }
+.info-row strong { color:#fff; }
+.btn-group { display:flex; gap:6px; margin-left:auto; }
+.btn {
+  background:#e94560; border:none; color:#fff; border-radius:6px;
+  padding:5px 12px; font-size:16px; cursor:pointer; line-height:1;
+  min-width:32px; text-align:center;
+}
+.btn:hover { background:#d63851; }
+.btn-secondary { background:rgba(255,255,255,0.1); }
+.btn-secondary:hover { background:rgba(255,255,255,0.2); }
+#loading {
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; background:#1a1a2e; z-index:2000;
+  color:#e94560; font-size:14px; gap:12px;
+}
+.spinner { width:36px; height:36px; border:3px solid #0f3460; border-top-color:#e94560; border-radius:50%; animation:spin 0.8s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+#top-bar {
+  position:absolute; top:12px; left:12px; z-index:1000;
+  background:rgba(22,33,62,0.85); backdrop-filter:blur(8px);
+  border-radius:8px; padding:8px 12px; border:1px solid rgba(233,69,96,0.2);
+  font-size:12px;
+}
+#top-bar h1 { font-size:13px; color:#e94560; }
+#top-bar small { color:#888; }
+</style>
+</head>
+<body>
+<div id="loading">
+  <div class="spinner"></div>
+  <span id="loadStatus">Cargando escena 3D...</span>
+</div>
+<div id="top-bar"><h1>Cuenca 1</h1><small>Sim. llenado 3D</small></div>
+<div id="canvas-container"></div>
+<div id="controls">
+  <div class="slider-row">
+    <span style="font-size:11px;color:#888;">800</span>
+    <input type="range" id="elevSlider" min="800" max="1300" value="950" step="25">
+    <span style="font-size:11px;color:#888;">1300</span>
+    <span class="value" id="elevDisplay">950</span>
+    <span class="unit">m</span>
+  </div>
+  <div class="info-row">
+    <span class="item">Vol: <strong id="volDisplay">0</strong> hm&sup3;</span>
+    <span class="item">&Aacute;rea: <strong id="areaDisplay">0</strong> km&sup2;</span>
+    <div class="btn-group">
+      <button class="btn-secondary btn" id="resetBtn">&#8982;</button>
+      <button class="btn" id="playBtn">&#9654;</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+<script>
+const EXAG = 2;
+const ELEV_MIN = 800, ELEV_MAX = 1300;
+const loadingEl = document.getElementById('loading');
+const loadStatus = document.getElementById('loadStatus');
+
+const container = document.getElementById('canvas-container');
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0a0a23);
+
+const camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 50000);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.2;
+container.appendChild(renderer.domElement);
+
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.minDistance = 300;
+controls.maxDistance = 20000;
+
+scene.add(new THREE.AmbientLight(0x445577, 0.6));
+const sun = new THREE.DirectionalLight(0xffeedd, 2.5);
+sun.position.set(5000, 8000, 3000);
+scene.add(sun);
+const fill = new THREE.DirectionalLight(0x8899ff, 0.6);
+fill.position.set(-3000, 4000, -2000);
+scene.add(fill);
+scene.add(new THREE.HemisphereLight(0x4488cc, 0x224422, 0.5));
+
+let terrain = null;
+let waterGroup = null;
+let sceneData = null;
+let sceneCenter = new THREE.Vector3(0, 0, 0);
+let waterCache = {};
+
+function makeMesh(flatVerts, flatIndices, material) {
+  const pos = [];
+  for (let i = 0; i < flatVerts.length; i += 3) {
+    const x = flatVerts[i];
+    const y = flatVerts[i + 2] * EXAG;
+    const z = -flatVerts[i + 1];
+    pos.push(x, y, z);
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  geo.setIndex(new THREE.Uint32BufferAttribute(flatIndices, 1));
+  geo.computeVertexNormals();
+  return new THREE.Mesh(geo, material);
+}
+
+function disposeGroup(group) {
+  if (!group) return;
+  scene.remove(group);
+  group.traverse(child => {
+    if (child.isMesh) {
+      child.geometry.dispose();
+      if (Array.isArray(child.material)) child.material.forEach(m => m.dispose());
+      else child.material.dispose();
+    }
+  });
+}
+
+async function loadScene() {
+  loadStatus.textContent = 'Cargando escena 3D...';
+  const resp = await fetch('data/escena_3d.json');
+  if (!resp.ok) throw new Error('HTTP ' + resp.status);
+  sceneData = await resp.json();
+  buildScene();
+}
+
+function buildScene() {
+  const d = sceneData;
+  terrain = makeMesh(d.terrain.v, d.terrain.t, new THREE.MeshPhongMaterial({
+    color: 0x4a7a3a, flatShading: true, side: THREE.DoubleSide
+  }));
+  scene.add(terrain);
+
+  const bbox = new THREE.Box3().setFromObject(terrain);
+  const center = bbox.getCenter(new THREE.Vector3());
+  sceneCenter.copy(center);
+  const sz = bbox.getSize(new THREE.Vector3());
+  const dist = Math.max(sz.x, sz.z) * 1.0;
+  camera.position.set(center.x - dist * 0.7, center.y + dist * 0.6, center.z + dist * 0.8);
+  controls.target.copy(center);
+  controls.update();
+
+  loadingEl.style.display = 'none';
+  updateWater(950);
+}
+
+function makeShapeFromRing(flatRing) {
+  const pts = [];
+  for (let i = 0; i < flatRing.length; i += 2) {
+    pts.push(new THREE.Vector2(flatRing[i], flatRing[i + 1]));
+  }
+  return new THREE.Shape(pts);
+}
+
+function createWaterMesh(elev) {
+  const key = String(elev);
+  const wdata = sceneData.water[key];
+  if (!wdata || wdata.length === 0) return null;
+
+  const group = new THREE.Group();
+
+  for (const poly of wdata) {
+    const shape = makeShapeFromRing(poly.e);
+    if (poly.h) {
+      for (const holeRing of poly.h) {
+        const holePts = [];
+        for (let i = 0; i < holeRing.length; i += 2) {
+          holePts.push(new THREE.Vector2(holeRing[i], holeRing[i + 1]));
+        }
+        const path = new THREE.Path(holePts);
+        shape.holes.push(path);
+      }
+    }
+
+    const geo = new THREE.ShapeGeometry(shape);
+    geo.rotateX(-Math.PI / 2);
+
+    const mat = new THREE.MeshPhongMaterial({
+      color: 0x2288dd,
+      transparent: true,
+      opacity: 0.55,
+      specular: 0x4488ff,
+      shininess: 60,
+      side: THREE.DoubleSide,
+      depthWrite: false,
+    });
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.y = elev * EXAG;
+    group.add(mesh);
+  }
+
+  return group;
+}
+
+function updateWater(elev) {
+  if (waterGroup) {
+    disposeGroup(waterGroup);
+    waterGroup = null;
+  }
+
+  const key = String(elev);
+  if (!sceneData.water[key]) {
+    updateInfo(elev);
+    return;
+  }
+
+  waterGroup = createWaterMesh(elev);
+  if (waterGroup) scene.add(waterGroup);
+  updateInfo(elev);
+}
+
+function updateInfo(elev) {
+  const fs = (typeof FLOOD_SCENARIOS !== 'undefined') ? FLOOD_SCENARIOS.features : [];
+  const scen = fs.find(s => s.properties.elevation === elev);
+  if (scen) {
+    document.getElementById('volDisplay').textContent = scen.properties.volume_hm3.toLocaleString();
+    document.getElementById('areaDisplay').textContent = scen.properties.area_km2.toFixed(2);
+  }
+  document.getElementById('elevDisplay').textContent = elev;
+  document.getElementById('elevSlider').value = elev;
+}
+
+document.getElementById('elevSlider').addEventListener('input', function() {
+  if (animating) return;
+  updateWater(parseInt(this.value));
+});
+
+let animTimer = null, animating = false;
+const animElevs = [800, 825, 850, 875, 900, 925, 950, 975, 1000, 1025, 1050, 1075, 1100, 1125, 1150, 1175, 1200, 1225, 1250, 1275, 1300];
+let animIdx = 6;
+
+document.getElementById('playBtn').addEventListener('click', function() {
+  animating = !animating;
+  this.innerHTML = animating ? '\u23F8' : '\u25B6';
+  if (animating) {
+    animIdx = animElevs.indexOf(parseInt(document.getElementById('elevSlider').value));
+    if (animIdx < 0) animIdx = 0;
+    animTimer = setInterval(() => {
+      animIdx = (animIdx + 1) % animElevs.length;
+      updateWater(animElevs[animIdx]);
+    }, 300);
+  } else {
+    clearInterval(animTimer);
+  }
+});
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  if (!terrain) return;
+  const bbox = new THREE.Box3().setFromObject(terrain);
+  const c = bbox.getCenter(new THREE.Vector3());
+  const s = bbox.getSize(new THREE.Vector3());
+  const d = Math.max(s.x, s.z) * 1.0;
+  camera.position.set(c.x - d * 0.7, c.y + d * 0.6, c.z + d * 0.8);
+  controls.target.copy(c); controls.update();
+});
+
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  renderer.render(scene, camera);
+}
+animate();
+
+loadScene().catch(err => {
+  console.error(err);
+  loadingEl.style.display = 'none';
+  document.getElementById('canvas-container').innerHTML =
+    '<div style="display:flex;align-items:center;justify-content:center;height:100vh;color:#e94560;font-family:sans-serif;flex-direction:column;gap:12px;padding:20px;text-align:center;">'
+    + '<h2>Error cargando escena 3D</h2>'
+    + '<p style="color:#888;font-size:14px;">Asegurate de abrir con el servidor HTTP</p>'
+    + '<p style="color:#888;font-size:13px;">Ejecut&aacute;: <code style="background:#333;padding:4px 8px;border-radius:4px;">python servidor.py</code></p>'
+    + '<p style="color:#888;font-size:13px;">Luego abr&iacute; <code style="background:#333;padding:4px 8px;border-radius:4px;">http://localhost:8080/index_3d.html</code></p>'
+    + '</div>';
+});
+</script>
+</body>
+</html>

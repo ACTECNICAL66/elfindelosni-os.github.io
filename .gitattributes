@@ -1,0 +1,32 @@
+# Binary files - no CRLF conversion
+*.gpkg binary
+*.gltf binary
+*.qgz binary
+*.xlsx binary
+*.tif binary
+*.kmz binary
+*.zip binary
+*.tar binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.geojson binary
+*.glb binary
+*.docx binary
+*.pdf binary
+
+# Text files
+*.text text
+*.md text
+*.py text
+*.html text
+*.ino text
+*.js text
+*.ts text
+*.json text
+*.css text
+*.cfg text
+*.txt text
+*.xml text
+*.qml text
+*.kml text

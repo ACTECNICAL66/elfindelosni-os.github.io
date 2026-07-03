@@ -1,0 +1,4817 @@
+[
+  {
+    "elevation": 767,
+    "slice_area_m2": 610.98,
+    "surface_area_m2": 610.98,
+    "partial_vol_m3": 305.49,
+    "cum_vol_m3": 305.49,
+    "cum_vol_hm3": 0.00030549,
+    "cum_vol_L": 305490.0
+  },
+  {
+    "elevation": 768,
+    "slice_area_m2": 908.37,
+    "surface_area_m2": 1519.35,
+    "partial_vol_m3": 1065.165,
+    "cum_vol_m3": 1370.655,
+    "cum_vol_hm3": 0.001370655,
+    "cum_vol_L": 1370655.0
+  },
+  {
+    "elevation": 769,
+    "slice_area_m2": 737.1,
+    "surface_area_m2": 2256.45,
+    "partial_vol_m3": 1887.8999999999999,
+    "cum_vol_m3": 3258.555,
+    "cum_vol_hm3": 0.003258555,
+    "cum_vol_L": 3258555.0
+  },
+  {
+    "elevation": 770,
+    "slice_area_m2": 717.02,
+    "surface_area_m2": 2973.47,
+    "partial_vol_m3": 2614.96,
+    "cum_vol_m3": 5873.514999999999,
+    "cum_vol_hm3": 0.005873514999999999,
+    "cum_vol_L": 5873514.999999999
+  },
+  {
+    "elevation": 771,
+    "slice_area_m2": 946.2,
+    "surface_area_m2": 3919.67,
+    "partial_vol_m3": 3446.5699999999997,
+    "cum_vol_m3": 9320.085,
+    "cum_vol_hm3": 0.009320084999999999,
+    "cum_vol_L": 9320085.0
+  },
+  {
+    "elevation": 772,
+    "slice_area_m2": 1168.63,
+    "surface_area_m2": 5088.3,
+    "partial_vol_m3": 4503.985000000001,
+    "cum_vol_m3": 13824.07,
+    "cum_vol_hm3": 0.013824069999999999,
+    "cum_vol_L": 13824070.0
+  },
+  {
+    "elevation": 773,
+    "slice_area_m2": 885.42,
+    "surface_area_m2": 5973.72,
+    "partial_vol_m3": 5531.01,
+    "cum_vol_m3": 19355.08,
+    "cum_vol_hm3": 0.01935508,
+    "cum_vol_L": 19355080.0
+  },
+  {
+    "elevation": 774,
+    "slice_area_m2": 843.35,
+    "surface_area_m2": 6817.070000000001,
+    "partial_vol_m3": 6395.395,
+    "cum_vol_m3": 25750.475000000002,
+    "cum_vol_hm3": 0.025750475000000002,
+    "cum_vol_L": 25750475.000000004
+  },
+  {
+    "elevation": 775,
+    "slice_area_m2": 949.06,
+    "surface_area_m2": 7766.130000000001,
+    "partial_vol_m3": 7291.6,
+    "cum_vol_m3": 33042.075000000004,
+    "cum_vol_hm3": 0.033042075000000004,
+    "cum_vol_L": 33042075.000000004
+  },
+  {
+    "elevation": 776,
+    "slice_area_m2": 1023.65,
+    "surface_area_m2": 8789.78,
+    "partial_vol_m3": 8277.955000000002,
+    "cum_vol_m3": 41320.030000000006,
+    "cum_vol_hm3": 0.04132003000000001,
+    "cum_vol_L": 41320030.00000001
+  },
+  {
+    "elevation": 777,
+    "slice_area_m2": 1265.56,
+    "surface_area_m2": 10055.34,
+    "partial_vol_m3": 9422.560000000001,
+    "cum_vol_m3": 50742.59000000001,
+    "cum_vol_hm3": 0.05074259000000001,
+    "cum_vol_L": 50742590.00000001
+  },
+  {
+    "elevation": 778,
+    "slice_area_m2": 1422.52,
+    "surface_area_m2": 11477.86,
+    "partial_vol_m3": 10766.6,
+    "cum_vol_m3": 61509.19000000001,
+    "cum_vol_hm3": 0.06150919000000001,
+    "cum_vol_L": 61509190.00000001
+  },
+  {
+    "elevation": 779,
+    "slice_area_m2": 1301.16,
+    "surface_area_m2": 12779.02,
+    "partial_vol_m3": 12128.44,
+    "cum_vol_m3": 73637.63,
+    "cum_vol_hm3": 0.07363763000000001,
+    "cum_vol_L": 73637630.0
+  },
+  {
+    "elevation": 780,
+    "slice_area_m2": 1033.99,
+    "surface_area_m2": 13813.01,
+    "partial_vol_m3": 13296.015,
+    "cum_vol_m3": 86933.645,
+    "cum_vol_hm3": 0.086933645,
+    "cum_vol_L": 86933645.0
+  },
+  {
+    "elevation": 781,
+    "slice_area_m2": 960.62,
+    "surface_area_m2": 14773.630000000001,
+    "partial_vol_m3": 14293.32,
+    "cum_vol_m3": 101226.965,
+    "cum_vol_hm3": 0.101226965,
+    "cum_vol_L": 101226965.0
+  },
+  {
+    "elevation": 782,
+    "slice_area_m2": 1072.05,
+    "surface_area_m2": 15845.68,
+    "partial_vol_m3": 15309.655,
+    "cum_vol_m3": 116536.62,
+    "cum_vol_hm3": 0.11653662,
+    "cum_vol_L": 116536620.0
+  },
+  {
+    "elevation": 783,
+    "slice_area_m2": 892.03,
+    "surface_area_m2": 16737.71,
+    "partial_vol_m3": 16291.695,
+    "cum_vol_m3": 132828.315,
+    "cum_vol_hm3": 0.132828315,
+    "cum_vol_L": 132828315.0
+  },
+  {
+    "elevation": 784,
+    "slice_area_m2": 908.62,
+    "surface_area_m2": 17646.329999999998,
+    "partial_vol_m3": 17192.019999999997,
+    "cum_vol_m3": 150020.335,
+    "cum_vol_hm3": 0.150020335,
+    "cum_vol_L": 150020335.0
+  },
+  {
+    "elevation": 785,
+    "slice_area_m2": 872.07,
+    "surface_area_m2": 18518.399999999998,
+    "partial_vol_m3": 18082.364999999998,
+    "cum_vol_m3": 168102.69999999998,
+    "cum_vol_hm3": 0.1681027,
+    "cum_vol_L": 168102699.99999997
+  },
+  {
+    "elevation": 786,
+    "slice_area_m2": 977.59,
+    "surface_area_m2": 19495.989999999998,
+    "partial_vol_m3": 19007.195,
+    "cum_vol_m3": 187109.895,
+    "cum_vol_hm3": 0.187109895,
+    "cum_vol_L": 187109895.0
+  },
+  {
+    "elevation": 787,
+    "slice_area_m2": 1284.72,
+    "surface_area_m2": 20780.71,
+    "partial_vol_m3": 20138.35,
+    "cum_vol_m3": 207248.245,
+    "cum_vol_hm3": 0.207248245,
+    "cum_vol_L": 207248245.0
+  },
+  {
+    "elevation": 788,
+    "slice_area_m2": 1194.95,
+    "surface_area_m2": 21975.66,
+    "partial_vol_m3": 21378.184999999998,
+    "cum_vol_m3": 228626.43,
+    "cum_vol_hm3": 0.22862643,
+    "cum_vol_L": 228626430.0
+  },
+  {
+    "elevation": 789,
+    "slice_area_m2": 1218.91,
+    "surface_area_m2": 23194.57,
+    "partial_vol_m3": 22585.114999999998,
+    "cum_vol_m3": 251211.54499999998,
+    "cum_vol_hm3": 0.251211545,
+    "cum_vol_L": 251211544.99999997
+  },
+  {
+    "elevation": 790,
+    "slice_area_m2": 1304.54,
+    "surface_area_m2": 24499.11,
+    "partial_vol_m3": 23846.84,
+    "cum_vol_m3": 275058.385,
+    "cum_vol_hm3": 0.275058385,
+    "cum_vol_L": 275058385.0
+  },
+  {
+    "elevation": 791,
+    "slice_area_m2": 1195.41,
+    "surface_area_m2": 25694.52,
+    "partial_vol_m3": 25096.815000000002,
+    "cum_vol_m3": 300155.2,
+    "cum_vol_hm3": 0.3001552,
+    "cum_vol_L": 300155200.0
+  },
+  {
+    "elevation": 792,
+    "slice_area_m2": 1236.26,
+    "surface_area_m2": 26930.78,
+    "partial_vol_m3": 26312.65,
+    "cum_vol_m3": 326467.85000000003,
+    "cum_vol_hm3": 0.32646785000000006,
+    "cum_vol_L": 326467850.00000006
+  },
+  {
+    "elevation": 793,
+    "slice_area_m2": 1585.02,
+    "surface_area_m2": 28515.8,
+    "partial_vol_m3": 27723.29,
+    "cum_vol_m3": 354191.14,
+    "cum_vol_hm3": 0.35419114,
+    "cum_vol_L": 354191140.0
+  },
+  {
+    "elevation": 794,
+    "slice_area_m2": 1505.74,
+    "surface_area_m2": 30021.54,
+    "partial_vol_m3": 29268.67,
+    "cum_vol_m3": 383459.81,
+    "cum_vol_hm3": 0.38345981,
+    "cum_vol_L": 383459810.0
+  },
+  {
+    "elevation": 795,
+    "slice_area_m2": 1699.0,
+    "surface_area_m2": 31720.54,
+    "partial_vol_m3": 30871.04,
+    "cum_vol_m3": 414330.85,
+    "cum_vol_hm3": 0.41433085,
+    "cum_vol_L": 414330850.0
+  },
+  {
+    "elevation": 796,
+    "slice_area_m2": 2335.4,
+    "surface_area_m2": 34055.94,
+    "partial_vol_m3": 32888.240000000005,
+    "cum_vol_m3": 447219.08999999997,
+    "cum_vol_hm3": 0.44721909,
+    "cum_vol_L": 447219089.99999994
+  },
+  {
+    "elevation": 797,
+    "slice_area_m2": 2508.49,
+    "surface_area_m2": 36564.43,
+    "partial_vol_m3": 35310.185,
+    "cum_vol_m3": 482529.27499999997,
+    "cum_vol_hm3": 0.482529275,
+    "cum_vol_L": 482529274.99999994
+  },
+  {
+    "elevation": 798,
+    "slice_area_m2": 2335.29,
+    "surface_area_m2": 38899.72,
+    "partial_vol_m3": 37732.075,
+    "cum_vol_m3": 520261.35,
+    "cum_vol_hm3": 0.52026135,
+    "cum_vol_L": 520261350.0
+  },
+  {
+    "elevation": 799,
+    "slice_area_m2": 2261.42,
+    "surface_area_m2": 41161.14,
+    "partial_vol_m3": 40030.43,
+    "cum_vol_m3": 560291.78,
+    "cum_vol_hm3": 0.56029178,
+    "cum_vol_L": 560291780.0
+  },
+  {
+    "elevation": 800,
+    "slice_area_m2": 2294.89,
+    "surface_area_m2": 43456.03,
+    "partial_vol_m3": 42308.585,
+    "cum_vol_m3": 602600.365,
+    "cum_vol_hm3": 0.602600365,
+    "cum_vol_L": 602600365.0
+  },
+  {
+    "elevation": 801,
+    "slice_area_m2": 2404.25,
+    "surface_area_m2": 45860.28,
+    "partial_vol_m3": 44658.155,
+    "cum_vol_m3": 647258.52,
+    "cum_vol_hm3": 0.6472585200000001,
+    "cum_vol_L": 647258520.0
+  },
+  {
+    "elevation": 802,
+    "slice_area_m2": 2667.8,
+    "surface_area_m2": 48528.08,
+    "partial_vol_m3": 47194.18,
+    "cum_vol_m3": 694452.7000000001,
+    "cum_vol_hm3": 0.6944527,
+    "cum_vol_L": 694452700.0000001
+  },
+  {
+    "elevation": 803,
+    "slice_area_m2": 3566.73,
+    "surface_area_m2": 52094.810000000005,
+    "partial_vol_m3": 50311.44500000001,
+    "cum_vol_m3": 744764.145,
+    "cum_vol_hm3": 0.744764145,
+    "cum_vol_L": 744764145.0
+  },
+  {
+    "elevation": 804,
+    "slice_area_m2": 2905.69,
+    "surface_area_m2": 55000.50000000001,
+    "partial_vol_m3": 53547.655000000006,
+    "cum_vol_m3": 798311.8,
+    "cum_vol_hm3": 0.7983118,
+    "cum_vol_L": 798311800.0
+  },
+  {
+    "elevation": 805,
+    "slice_area_m2": 2701.98,
+    "surface_area_m2": 57702.48000000001,
+    "partial_vol_m3": 56351.490000000005,
+    "cum_vol_m3": 854663.29,
+    "cum_vol_hm3": 0.8546632900000001,
+    "cum_vol_L": 854663290.0
+  },
+  {
+    "elevation": 806,
+    "slice_area_m2": 2710.06,
+    "surface_area_m2": 60412.54000000001,
+    "partial_vol_m3": 59057.51000000001,
+    "cum_vol_m3": 913720.8,
+    "cum_vol_hm3": 0.9137208,
+    "cum_vol_L": 913720800.0
+  },
+  {
+    "elevation": 807,
+    "slice_area_m2": 2819.03,
+    "surface_area_m2": 63231.57000000001,
+    "partial_vol_m3": 61822.05500000001,
+    "cum_vol_m3": 975542.8550000001,
+    "cum_vol_hm3": 0.9755428550000002,
+    "cum_vol_L": 975542855.0000001
+  },
+  {
+    "elevation": 808,
+    "slice_area_m2": 2942.47,
+    "surface_area_m2": 66174.04000000001,
+    "partial_vol_m3": 64702.80500000001,
+    "cum_vol_m3": 1040245.6600000001,
+    "cum_vol_hm3": 1.04024566,
+    "cum_vol_L": 1040245660.0000001
+  },
+  {
+    "elevation": 809,
+    "slice_area_m2": 3031.68,
+    "surface_area_m2": 69205.72,
+    "partial_vol_m3": 67689.88,
+    "cum_vol_m3": 1107935.54,
+    "cum_vol_hm3": 1.10793554,
+    "cum_vol_L": 1107935540.0
+  },
+  {
+    "elevation": 810,
+    "slice_area_m2": 3247.25,
+    "surface_area_m2": 72452.97,
+    "partial_vol_m3": 70829.345,
+    "cum_vol_m3": 1178764.885,
+    "cum_vol_hm3": 1.178764885,
+    "cum_vol_L": 1178764885.0
+  },
+  {
+    "elevation": 811,
+    "slice_area_m2": 3573.56,
+    "surface_area_m2": 76026.53,
+    "partial_vol_m3": 74239.75,
+    "cum_vol_m3": 1253004.635,
+    "cum_vol_hm3": 1.253004635,
+    "cum_vol_L": 1253004635.0
+  },
+  {
+    "elevation": 812,
+    "slice_area_m2": 3489.52,
+    "surface_area_m2": 79516.05,
+    "partial_vol_m3": 77771.29000000001,
+    "cum_vol_m3": 1330775.925,
+    "cum_vol_hm3": 1.330775925,
+    "cum_vol_L": 1330775925.0
+  },
+  {
+    "elevation": 813,
+    "slice_area_m2": 3710.68,
+    "surface_area_m2": 83226.73,
+    "partial_vol_m3": 81371.39,
+    "cum_vol_m3": 1412147.315,
+    "cum_vol_hm3": 1.412147315,
+    "cum_vol_L": 1412147315.0
+  },
+  {
+    "elevation": 814,
+    "slice_area_m2": 3426.99,
+    "surface_area_m2": 86653.72,
+    "partial_vol_m3": 84940.225,
+    "cum_vol_m3": 1497087.54,
+    "cum_vol_hm3": 1.49708754,
+    "cum_vol_L": 1497087540.0
+  },
+  {
+    "elevation": 815,
+    "slice_area_m2": 3286.02,
+    "surface_area_m2": 89939.74,
+    "partial_vol_m3": 88296.73000000001,
+    "cum_vol_m3": 1585384.27,
+    "cum_vol_hm3": 1.58538427,
+    "cum_vol_L": 1585384270.0
+  },
+  {
+    "elevation": 816,
+    "slice_area_m2": 2936.11,
+    "surface_area_m2": 92875.85,
+    "partial_vol_m3": 91407.79500000001,
+    "cum_vol_m3": 1676792.065,
+    "cum_vol_hm3": 1.6767920649999999,
+    "cum_vol_L": 1676792065.0
+  },
+  {
+    "elevation": 817,
+    "slice_area_m2": 2897.81,
+    "surface_area_m2": 95773.66,
+    "partial_vol_m3": 94324.755,
+    "cum_vol_m3": 1771116.8199999998,
+    "cum_vol_hm3": 1.7711168199999998,
+    "cum_vol_L": 1771116819.9999998
+  },
+  {
+    "elevation": 818,
+    "slice_area_m2": 3195.55,
+    "surface_area_m2": 98969.21,
+    "partial_vol_m3": 97371.435,
+    "cum_vol_m3": 1868488.255,
+    "cum_vol_hm3": 1.868488255,
+    "cum_vol_L": 1868488255.0
+  },
+  {
+    "elevation": 819,
+    "slice_area_m2": 3489.79,
+    "surface_area_m2": 102459.0,
+    "partial_vol_m3": 100714.10500000001,
+    "cum_vol_m3": 1969202.3599999999,
+    "cum_vol_hm3": 1.96920236,
+    "cum_vol_L": 1969202359.9999998
+  },
+  {
+    "elevation": 820,
+    "slice_area_m2": 3451.24,
+    "surface_area_m2": 105910.24,
+    "partial_vol_m3": 104184.62,
+    "cum_vol_m3": 2073386.98,
+    "cum_vol_hm3": 2.07338698,
+    "cum_vol_L": 2073386980.0
+  },
+  {
+    "elevation": 821,
+    "slice_area_m2": 3570.61,
+    "surface_area_m2": 109480.85,
+    "partial_vol_m3": 107695.54500000001,
+    "cum_vol_m3": 2181082.525,
+    "cum_vol_hm3": 2.181082525,
+    "cum_vol_L": 2181082525.0
+  },
+  {
+    "elevation": 822,
+    "slice_area_m2": 3347.63,
+    "surface_area_m2": 112828.48000000001,
+    "partial_vol_m3": 111154.66500000001,
+    "cum_vol_m3": 2292237.19,
+    "cum_vol_hm3": 2.29223719,
+    "cum_vol_L": 2292237190.0
+  },
+  {
+    "elevation": 823,
+    "slice_area_m2": 3402.21,
+    "surface_area_m2": 116230.69000000002,
+    "partial_vol_m3": 114529.58500000002,
+    "cum_vol_m3": 2406766.775,
+    "cum_vol_hm3": 2.406766775,
+    "cum_vol_L": 2406766775.0
+  },
+  {
+    "elevation": 824,
+    "slice_area_m2": 4172.46,
+    "surface_area_m2": 120403.15000000002,
+    "partial_vol_m3": 118316.92000000001,
+    "cum_vol_m3": 2525083.695,
+    "cum_vol_hm3": 2.5250836949999997,
+    "cum_vol_L": 2525083695.0
+  },
+  {
+    "elevation": 825,
+    "slice_area_m2": 3861.56,
+    "surface_area_m2": 124264.71000000002,
+    "partial_vol_m3": 122333.93000000002,
+    "cum_vol_m3": 2647417.625,
+    "cum_vol_hm3": 2.647417625,
+    "cum_vol_L": 2647417625.0
+  },
+  {
+    "elevation": 826,
+    "slice_area_m2": 3996.78,
+    "surface_area_m2": 128261.49000000002,
+    "partial_vol_m3": 126263.10000000002,
+    "cum_vol_m3": 2773680.725,
+    "cum_vol_hm3": 2.773680725,
+    "cum_vol_L": 2773680725.0
+  },
+  {
+    "elevation": 827,
+    "slice_area_m2": 4366.75,
+    "surface_area_m2": 132628.24000000002,
+    "partial_vol_m3": 130444.86500000002,
+    "cum_vol_m3": 2904125.5900000003,
+    "cum_vol_hm3": 2.9041255900000005,
+    "cum_vol_L": 2904125590.0000005
+  },
+  {
+    "elevation": 828,
+    "slice_area_m2": 4559.59,
+    "surface_area_m2": 137187.83000000002,
+    "partial_vol_m3": 134908.03500000003,
+    "cum_vol_m3": 3039033.6250000005,
+    "cum_vol_hm3": 3.0390336250000005,
+    "cum_vol_L": 3039033625.0000005
+  },
+  {
+    "elevation": 829,
+    "slice_area_m2": 4926.24,
+    "surface_area_m2": 142114.07,
+    "partial_vol_m3": 139650.95,
+    "cum_vol_m3": 3178684.5750000007,
+    "cum_vol_hm3": 3.1786845750000006,
+    "cum_vol_L": 3178684575.0000005
+  },
+  {
+    "elevation": 830,
+    "slice_area_m2": 4748.38,
+    "surface_area_m2": 146862.45,
+    "partial_vol_m3": 144488.26,
+    "cum_vol_m3": 3323172.835000001,
+    "cum_vol_hm3": 3.3231728350000007,
+    "cum_vol_L": 3323172835.000001
+  },
+  {
+    "elevation": 831,
+    "slice_area_m2": 4438.39,
+    "surface_area_m2": 151300.84000000003,
+    "partial_vol_m3": 149081.64500000002,
+    "cum_vol_m3": 3472254.480000001,
+    "cum_vol_hm3": 3.472254480000001,
+    "cum_vol_L": 3472254480.000001
+  },
+  {
+    "elevation": 832,
+    "slice_area_m2": 4454.42,
+    "surface_area_m2": 155755.26000000004,
+    "partial_vol_m3": 153528.05000000005,
+    "cum_vol_m3": 3625782.530000001,
+    "cum_vol_hm3": 3.6257825300000013,
+    "cum_vol_L": 3625782530.000001
+  },
+  {
+    "elevation": 833,
+    "slice_area_m2": 4455.85,
+    "surface_area_m2": 160211.11000000004,
+    "partial_vol_m3": 157983.18500000006,
+    "cum_vol_m3": 3783765.7150000012,
+    "cum_vol_hm3": 3.7837657150000013,
+    "cum_vol_L": 3783765715.0000014
+  },
+  {
+    "elevation": 834,
+    "slice_area_m2": 4847.76,
+    "surface_area_m2": 165058.87000000005,
+    "partial_vol_m3": 162634.99000000005,
+    "cum_vol_m3": 3946400.7050000015,
+    "cum_vol_hm3": 3.9464007050000016,
+    "cum_vol_L": 3946400705.0000014
+  },
+  {
+    "elevation": 835,
+    "slice_area_m2": 4441.28,
+    "surface_area_m2": 169500.15000000005,
+    "partial_vol_m3": 167279.51000000007,
+    "cum_vol_m3": 4113680.2150000017,
+    "cum_vol_hm3": 4.113680215000001,
+    "cum_vol_L": 4113680215.000002
+  },
+  {
+    "elevation": 836,
+    "slice_area_m2": 4336.17,
+    "surface_area_m2": 173836.32000000007,
+    "partial_vol_m3": 171668.23500000004,
+    "cum_vol_m3": 4285348.450000002,
+    "cum_vol_hm3": 4.285348450000002,
+    "cum_vol_L": 4285348450.000002
+  },
+  {
+    "elevation": 837,
+    "slice_area_m2": 4331.54,
+    "surface_area_m2": 178167.86000000007,
+    "partial_vol_m3": 176002.09000000008,
+    "cum_vol_m3": 4461350.540000002,
+    "cum_vol_hm3": 4.4613505400000015,
+    "cum_vol_L": 4461350540.000002
+  },
+  {
+    "elevation": 838,
+    "slice_area_m2": 4194.29,
+    "surface_area_m2": 182362.15000000008,
+    "partial_vol_m3": 180265.00500000006,
+    "cum_vol_m3": 4641615.545000002,
+    "cum_vol_hm3": 4.641615545000001,
+    "cum_vol_L": 4641615545.000002
+  },
+  {
+    "elevation": 839,
+    "slice_area_m2": 4110.96,
+    "surface_area_m2": 186473.11000000007,
+    "partial_vol_m3": 184417.63000000006,
+    "cum_vol_m3": 4826033.175000002,
+    "cum_vol_hm3": 4.826033175000002,
+    "cum_vol_L": 4826033175.000002
+  },
+  {
+    "elevation": 840,
+    "slice_area_m2": 4184.53,
+    "surface_area_m2": 190657.64000000007,
+    "partial_vol_m3": 188565.37500000006,
+    "cum_vol_m3": 5014598.550000002,
+    "cum_vol_hm3": 5.014598550000001,
+    "cum_vol_L": 5014598550.000002
+  },
+  {
+    "elevation": 841,
+    "slice_area_m2": 4518.75,
+    "surface_area_m2": 195176.39000000007,
+    "partial_vol_m3": 192917.01500000007,
+    "cum_vol_m3": 5207515.565000001,
+    "cum_vol_hm3": 5.207515565000001,
+    "cum_vol_L": 5207515565.000001
+  },
+  {
+    "elevation": 842,
+    "slice_area_m2": 4719.07,
+    "surface_area_m2": 199895.46000000008,
+    "partial_vol_m3": 197535.92500000008,
+    "cum_vol_m3": 5405051.490000001,
+    "cum_vol_hm3": 5.405051490000001,
+    "cum_vol_L": 5405051490.000001
+  },
+  {
+    "elevation": 843,
+    "slice_area_m2": 4940.8,
+    "surface_area_m2": 204836.26000000007,
+    "partial_vol_m3": 202365.86000000007,
+    "cum_vol_m3": 5607417.3500000015,
+    "cum_vol_hm3": 5.607417350000001,
+    "cum_vol_L": 5607417350.000002
+  },
+  {
+    "elevation": 844,
+    "slice_area_m2": 5313.45,
+    "surface_area_m2": 210149.71000000008,
+    "partial_vol_m3": 207492.98500000007,
+    "cum_vol_m3": 5814910.335000002,
+    "cum_vol_hm3": 5.814910335000002,
+    "cum_vol_L": 5814910335.000002
+  },
+  {
+    "elevation": 845,
+    "slice_area_m2": 5228.16,
+    "surface_area_m2": 215377.87000000008,
+    "partial_vol_m3": 212763.7900000001,
+    "cum_vol_m3": 6027674.125000002,
+    "cum_vol_hm3": 6.027674125000002,
+    "cum_vol_L": 6027674125.000002
+  },
+  {
+    "elevation": 846,
+    "slice_area_m2": 5023.82,
+    "surface_area_m2": 220401.6900000001,
+    "partial_vol_m3": 217889.7800000001,
+    "cum_vol_m3": 6245563.905000002,
+    "cum_vol_hm3": 6.245563905000002,
+    "cum_vol_L": 6245563905.000002
+  },
+  {
+    "elevation": 847,
+    "slice_area_m2": 5196.11,
+    "surface_area_m2": 225597.80000000008,
+    "partial_vol_m3": 222999.74500000008,
+    "cum_vol_m3": 6468563.650000002,
+    "cum_vol_hm3": 6.468563650000002,
+    "cum_vol_L": 6468563650.000002
+  },
+  {
+    "elevation": 848,
+    "slice_area_m2": 5436.34,
+    "surface_area_m2": 231034.14000000007,
+    "partial_vol_m3": 228315.9700000001,
+    "cum_vol_m3": 6696879.620000002,
+    "cum_vol_hm3": 6.696879620000002,
+    "cum_vol_L": 6696879620.000002
+  },
+  {
+    "elevation": 849,
+    "slice_area_m2": 5463.56,
+    "surface_area_m2": 236497.70000000007,
+    "partial_vol_m3": 233765.92000000007,
+    "cum_vol_m3": 6930645.540000002,
+    "cum_vol_hm3": 6.930645540000002,
+    "cum_vol_L": 6930645540.000002
+  },
+  {
+    "elevation": 850,
+    "slice_area_m2": 5271.03,
+    "surface_area_m2": 241768.73000000007,
+    "partial_vol_m3": 239133.21500000008,
+    "cum_vol_m3": 7169778.755000002,
+    "cum_vol_hm3": 7.169778755000002,
+    "cum_vol_L": 7169778755.000002
+  },
+  {
+    "elevation": 851,
+    "slice_area_m2": 5474.94,
+    "surface_area_m2": 247243.67000000007,
+    "partial_vol_m3": 244506.20000000007,
+    "cum_vol_m3": 7414284.955000002,
+    "cum_vol_hm3": 7.414284955000002,
+    "cum_vol_L": 7414284955.000002
+  },
+  {
+    "elevation": 852,
+    "slice_area_m2": 5388.38,
+    "surface_area_m2": 252632.05000000008,
+    "partial_vol_m3": 249937.86000000007,
+    "cum_vol_m3": 7664222.815000002,
+    "cum_vol_hm3": 7.664222815000002,
+    "cum_vol_L": 7664222815.000002
+  },
+  {
+    "elevation": 853,
+    "slice_area_m2": 5567.37,
+    "surface_area_m2": 258199.42000000007,
+    "partial_vol_m3": 255415.73500000007,
+    "cum_vol_m3": 7919638.550000003,
+    "cum_vol_hm3": 7.919638550000003,
+    "cum_vol_L": 7919638550.000003
+  },
+  {
+    "elevation": 854,
+    "slice_area_m2": 5682.49,
+    "surface_area_m2": 263881.9100000001,
+    "partial_vol_m3": 261040.6650000001,
+    "cum_vol_m3": 8180679.215000003,
+    "cum_vol_hm3": 8.180679215000003,
+    "cum_vol_L": 8180679215.000003
+  },
+  {
+    "elevation": 855,
+    "slice_area_m2": 5891.01,
+    "surface_area_m2": 269772.9200000001,
+    "partial_vol_m3": 266827.4150000001,
+    "cum_vol_m3": 8447506.630000003,
+    "cum_vol_hm3": 8.447506630000003,
+    "cum_vol_L": 8447506630.000003
+  },
+  {
+    "elevation": 856,
+    "slice_area_m2": 6238.78,
+    "surface_area_m2": 276011.7000000001,
+    "partial_vol_m3": 272892.3100000001,
+    "cum_vol_m3": 8720398.940000003,
+    "cum_vol_hm3": 8.720398940000003,
+    "cum_vol_L": 8720398940.000004
+  },
+  {
+    "elevation": 857,
+    "slice_area_m2": 5927.96,
+    "surface_area_m2": 281939.66000000015,
+    "partial_vol_m3": 278975.68000000017,
+    "cum_vol_m3": 8999374.620000003,
+    "cum_vol_hm3": 8.999374620000003,
+    "cum_vol_L": 8999374620.000004
+  },
+  {
+    "elevation": 858,
+    "slice_area_m2": 6195.3,
+    "surface_area_m2": 288134.96000000014,
+    "partial_vol_m3": 285037.3100000002,
+    "cum_vol_m3": 9284411.930000003,
+    "cum_vol_hm3": 9.284411930000003,
+    "cum_vol_L": 9284411930.000004
+  },
+  {
+    "elevation": 859,
+    "slice_area_m2": 5985.48,
+    "surface_area_m2": 294120.4400000001,
+    "partial_vol_m3": 291127.7000000001,
+    "cum_vol_m3": 9575539.630000003,
+    "cum_vol_hm3": 9.575539630000003,
+    "cum_vol_L": 9575539630.000002
+  },
+  {
+    "elevation": 860,
+    "slice_area_m2": 6567.08,
+    "surface_area_m2": 300687.52000000014,
+    "partial_vol_m3": 297403.9800000001,
+    "cum_vol_m3": 9872943.610000003,
+    "cum_vol_hm3": 9.872943610000004,
+    "cum_vol_L": 9872943610.000004
+  },
+  {
+    "elevation": 861,
+    "slice_area_m2": 6295.93,
+    "surface_area_m2": 306983.4500000001,
+    "partial_vol_m3": 303835.4850000001,
+    "cum_vol_m3": 10176779.095000003,
+    "cum_vol_hm3": 10.176779095000002,
+    "cum_vol_L": 10176779095.000002
+  },
+  {
+    "elevation": 862,
+    "slice_area_m2": 6818.31,
+    "surface_area_m2": 313801.7600000001,
+    "partial_vol_m3": 310392.6050000001,
+    "cum_vol_m3": 10487171.700000003,
+    "cum_vol_hm3": 10.487171700000003,
+    "cum_vol_L": 10487171700.000004
+  },
+  {
+    "elevation": 863,
+    "slice_area_m2": 6240.45,
+    "surface_area_m2": 320042.21000000014,
+    "partial_vol_m3": 316921.9850000001,
+    "cum_vol_m3": 10804093.685000002,
+    "cum_vol_hm3": 10.804093685000002,
+    "cum_vol_L": 10804093685.000002
+  },
+  {
+    "elevation": 864,
+    "slice_area_m2": 6126.76,
+    "surface_area_m2": 326168.97000000015,
+    "partial_vol_m3": 323105.59000000014,
+    "cum_vol_m3": 11127199.275000002,
+    "cum_vol_hm3": 11.127199275000002,
+    "cum_vol_L": 11127199275.000002
+  },
+  {
+    "elevation": 865,
+    "slice_area_m2": 6049.58,
+    "surface_area_m2": 332218.55000000016,
+    "partial_vol_m3": 329193.7600000001,
+    "cum_vol_m3": 11456393.035000002,
+    "cum_vol_hm3": 11.456393035000001,
+    "cum_vol_L": 11456393035.000002
+  },
+  {
+    "elevation": 866,
+    "slice_area_m2": 5998.51,
+    "surface_area_m2": 338217.0600000002,
+    "partial_vol_m3": 335217.80500000017,
+    "cum_vol_m3": 11791610.840000002,
+    "cum_vol_hm3": 11.791610840000002,
+    "cum_vol_L": 11791610840.000002
+  },
+  {
+    "elevation": 867,
+    "slice_area_m2": 6043.41,
+    "surface_area_m2": 344260.47000000015,
+    "partial_vol_m3": 341238.76500000013,
+    "cum_vol_m3": 12132849.605000002,
+    "cum_vol_hm3": 12.132849605000002,
+    "cum_vol_L": 12132849605.000002
+  },
+  {
+    "elevation": 868,
+    "slice_area_m2": 6073.32,
+    "surface_area_m2": 350333.79000000015,
+    "partial_vol_m3": 347297.1300000001,
+    "cum_vol_m3": 12480146.735000003,
+    "cum_vol_hm3": 12.480146735000003,
+    "cum_vol_L": 12480146735.000004
+  },
+  {
+    "elevation": 869,
+    "slice_area_m2": 5864.3,
+    "surface_area_m2": 356198.09000000014,
+    "partial_vol_m3": 353265.9400000002,
+    "cum_vol_m3": 12833412.675000003,
+    "cum_vol_hm3": 12.833412675000003,
+    "cum_vol_L": 12833412675.000002
+  },
+  {
+    "elevation": 870,
+    "slice_area_m2": 5665.65,
+    "surface_area_m2": 361863.74000000017,
+    "partial_vol_m3": 359030.91500000015,
+    "cum_vol_m3": 13192443.590000004,
+    "cum_vol_hm3": 13.192443590000003,
+    "cum_vol_L": 13192443590.000004
+  },
+  {
+    "elevation": 871,
+    "slice_area_m2": 5659.33,
+    "surface_area_m2": 367523.0700000002,
+    "partial_vol_m3": 364693.40500000014,
+    "cum_vol_m3": 13557136.995000003,
+    "cum_vol_hm3": 13.557136995000002,
+    "cum_vol_L": 13557136995.000004
+  },
+  {
+    "elevation": 872,
+    "slice_area_m2": 5745.22,
+    "surface_area_m2": 373268.29000000015,
+    "partial_vol_m3": 370395.68000000017,
+    "cum_vol_m3": 13927532.675000003,
+    "cum_vol_hm3": 13.927532675000002,
+    "cum_vol_L": 13927532675.000002
+  },
+  {
+    "elevation": 873,
+    "slice_area_m2": 5933.76,
+    "surface_area_m2": 379202.05000000016,
+    "partial_vol_m3": 376235.17000000016,
+    "cum_vol_m3": 14303767.845000003,
+    "cum_vol_hm3": 14.303767845000003,
+    "cum_vol_L": 14303767845.000002
+  },
+  {
+    "elevation": 874,
+    "slice_area_m2": 5904.53,
+    "surface_area_m2": 385106.5800000002,
+    "partial_vol_m3": 382154.3150000002,
+    "cum_vol_m3": 14685922.160000002,
+    "cum_vol_hm3": 14.685922160000002,
+    "cum_vol_L": 14685922160.000002
+  },
+  {
+    "elevation": 875,
+    "slice_area_m2": 6641.47,
+    "surface_area_m2": 391748.05000000016,
+    "partial_vol_m3": 388427.3150000002,
+    "cum_vol_m3": 15074349.475000001,
+    "cum_vol_hm3": 15.074349475000002,
+    "cum_vol_L": 15074349475.000002
+  },
+  {
+    "elevation": 876,
+    "slice_area_m2": 6706.42,
+    "surface_area_m2": 398454.47000000015,
+    "partial_vol_m3": 395101.2600000001,
+    "cum_vol_m3": 15469450.735000001,
+    "cum_vol_hm3": 15.469450735,
+    "cum_vol_L": 15469450735.000002
+  },
+  {
+    "elevation": 877,
+    "slice_area_m2": 6922.28,
+    "surface_area_m2": 405376.7500000002,
+    "partial_vol_m3": 401915.61000000016,
+    "cum_vol_m3": 15871366.345,
+    "cum_vol_hm3": 15.871366345,
+    "cum_vol_L": 15871366345.0
+  },
+  {
+    "elevation": 878,
+    "slice_area_m2": 6705.51,
+    "surface_area_m2": 412082.2600000002,
+    "partial_vol_m3": 408729.5050000002,
+    "cum_vol_m3": 16280095.850000001,
+    "cum_vol_hm3": 16.280095850000002,
+    "cum_vol_L": 16280095850.000002
+  },
+  {
+    "elevation": 879,
+    "slice_area_m2": 7265.04,
+    "surface_area_m2": 419347.30000000016,
+    "partial_vol_m3": 415714.78000000014,
+    "cum_vol_m3": 16695810.63,
+    "cum_vol_hm3": 16.69581063,
+    "cum_vol_L": 16695810630.0
+  },
+  {
+    "elevation": 880,
+    "slice_area_m2": 7518.67,
+    "surface_area_m2": 426865.97000000015,
+    "partial_vol_m3": 423106.6350000001,
+    "cum_vol_m3": 17118917.265,
+    "cum_vol_hm3": 17.118917265,
+    "cum_vol_L": 17118917265.0
+  },
+  {
+    "elevation": 881,
+    "slice_area_m2": 7577.17,
+    "surface_area_m2": 434443.14000000013,
+    "partial_vol_m3": 430654.55500000017,
+    "cum_vol_m3": 17549571.82,
+    "cum_vol_hm3": 17.54957182,
+    "cum_vol_L": 17549571820.0
+  },
+  {
+    "elevation": 882,
+    "slice_area_m2": 7991.61,
+    "surface_area_m2": 442434.7500000001,
+    "partial_vol_m3": 438438.9450000001,
+    "cum_vol_m3": 17988010.765,
+    "cum_vol_hm3": 17.988010765000002,
+    "cum_vol_L": 17988010765.0
+  },
+  {
+    "elevation": 883,
+    "slice_area_m2": 7681.63,
+    "surface_area_m2": 450116.3800000001,
+    "partial_vol_m3": 446275.5650000001,
+    "cum_vol_m3": 18434286.330000002,
+    "cum_vol_hm3": 18.434286330000003,
+    "cum_vol_L": 18434286330.000004
+  },
+  {
+    "elevation": 884,
+    "slice_area_m2": 7771.22,
+    "surface_area_m2": 457887.6000000001,
+    "partial_vol_m3": 454001.9900000001,
+    "cum_vol_m3": 18888288.32,
+    "cum_vol_hm3": 18.88828832,
+    "cum_vol_L": 18888288320.0
+  },
+  {
+    "elevation": 885,
+    "slice_area_m2": 7833.38,
+    "surface_area_m2": 465720.9800000001,
+    "partial_vol_m3": 461804.2900000001,
+    "cum_vol_m3": 19350092.61,
+    "cum_vol_hm3": 19.35009261,
+    "cum_vol_L": 19350092610.0
+  },
+  {
+    "elevation": 886,
+    "slice_area_m2": 7607.44,
+    "surface_area_m2": 473328.4200000001,
+    "partial_vol_m3": 469524.70000000007,
+    "cum_vol_m3": 19819617.31,
+    "cum_vol_hm3": 19.819617309999998,
+    "cum_vol_L": 19819617310.0
+  },
+  {
+    "elevation": 887,
+    "slice_area_m2": 7571.44,
+    "surface_area_m2": 480899.8600000001,
+    "partial_vol_m3": 477114.14000000013,
+    "cum_vol_m3": 20296731.45,
+    "cum_vol_hm3": 20.29673145,
+    "cum_vol_L": 20296731450.0
+  },
+  {
+    "elevation": 888,
+    "slice_area_m2": 7193.71,
+    "surface_area_m2": 488093.5700000001,
+    "partial_vol_m3": 484496.7150000001,
+    "cum_vol_m3": 20781228.165,
+    "cum_vol_hm3": 20.781228164999998,
+    "cum_vol_L": 20781228165.0
+  },
+  {
+    "elevation": 889,
+    "slice_area_m2": 7061.89,
+    "surface_area_m2": 495155.46000000014,
+    "partial_vol_m3": 491624.51500000013,
+    "cum_vol_m3": 21272852.68,
+    "cum_vol_hm3": 21.27285268,
+    "cum_vol_L": 21272852680.0
+  },
+  {
+    "elevation": 890,
+    "slice_area_m2": 7494.33,
+    "surface_area_m2": 502649.79000000015,
+    "partial_vol_m3": 498902.6250000001,
+    "cum_vol_m3": 21771755.305,
+    "cum_vol_hm3": 21.771755305,
+    "cum_vol_L": 21771755305.0
+  },
+  {
+    "elevation": 891,
+    "slice_area_m2": 7411.38,
+    "surface_area_m2": 510061.17000000016,
+    "partial_vol_m3": 506355.48000000016,
+    "cum_vol_m3": 22278110.785,
+    "cum_vol_hm3": 22.278110785,
+    "cum_vol_L": 22278110785.0
+  },
+  {
+    "elevation": 892,
+    "slice_area_m2": 7370.56,
+    "surface_area_m2": 517431.73000000016,
+    "partial_vol_m3": 513746.4500000002,
+    "cum_vol_m3": 22791857.235,
+    "cum_vol_hm3": 22.791857235,
+    "cum_vol_L": 22791857235.0
+  },
+  {
+    "elevation": 893,
+    "slice_area_m2": 7294.88,
+    "surface_area_m2": 524726.6100000001,
+    "partial_vol_m3": 521079.17000000016,
+    "cum_vol_m3": 23312936.405,
+    "cum_vol_hm3": 23.312936405000002,
+    "cum_vol_L": 23312936405.0
+  },
+  {
+    "elevation": 894,
+    "slice_area_m2": 7429.19,
+    "surface_area_m2": 532155.8,
+    "partial_vol_m3": 528441.2050000001,
+    "cum_vol_m3": 23841377.61,
+    "cum_vol_hm3": 23.84137761,
+    "cum_vol_L": 23841377610.0
+  },
+  {
+    "elevation": 895,
+    "slice_area_m2": 7894.06,
+    "surface_area_m2": 540049.8600000001,
+    "partial_vol_m3": 536102.8300000001,
+    "cum_vol_m3": 24377480.439999998,
+    "cum_vol_hm3": 24.37748044,
+    "cum_vol_L": 24377480439.999996
+  },
+  {
+    "elevation": 896,
+    "slice_area_m2": 8035.78,
+    "surface_area_m2": 548085.6400000001,
+    "partial_vol_m3": 544067.7500000001,
+    "cum_vol_m3": 24921548.189999998,
+    "cum_vol_hm3": 24.92154819,
+    "cum_vol_L": 24921548189.999996
+  },
+  {
+    "elevation": 897,
+    "slice_area_m2": 8348.85,
+    "surface_area_m2": 556434.4900000001,
+    "partial_vol_m3": 552260.0650000002,
+    "cum_vol_m3": 25473808.255,
+    "cum_vol_hm3": 25.473808254999998,
+    "cum_vol_L": 25473808255.0
+  },
+  {
+    "elevation": 898,
+    "slice_area_m2": 8333.06,
+    "surface_area_m2": 564767.5500000002,
+    "partial_vol_m3": 560601.0200000001,
+    "cum_vol_m3": 26034409.275,
+    "cum_vol_hm3": 26.034409274999998,
+    "cum_vol_L": 26034409275.0
+  },
+  {
+    "elevation": 899,
+    "slice_area_m2": 8606.42,
+    "surface_area_m2": 573373.9700000002,
+    "partial_vol_m3": 569070.7600000002,
+    "cum_vol_m3": 26603480.035,
+    "cum_vol_hm3": 26.603480035,
+    "cum_vol_L": 26603480035.0
+  },
+  {
+    "elevation": 900,
+    "slice_area_m2": 9035.29,
+    "surface_area_m2": 582409.2600000002,
+    "partial_vol_m3": 577891.6150000002,
+    "cum_vol_m3": 27181371.65,
+    "cum_vol_hm3": 27.18137165,
+    "cum_vol_L": 27181371650.0
+  },
+  {
+    "elevation": 901,
+    "slice_area_m2": 9033.94,
+    "surface_area_m2": 591443.2000000002,
+    "partial_vol_m3": 586926.2300000002,
+    "cum_vol_m3": 27768297.88,
+    "cum_vol_hm3": 27.76829788,
+    "cum_vol_L": 27768297880.0
+  },
+  {
+    "elevation": 902,
+    "slice_area_m2": 9104.8,
+    "surface_area_m2": 600548.0000000002,
+    "partial_vol_m3": 595995.6000000002,
+    "cum_vol_m3": 28364293.48,
+    "cum_vol_hm3": 28.36429348,
+    "cum_vol_L": 28364293480.0
+  },
+  {
+    "elevation": 903,
+    "slice_area_m2": 8799.75,
+    "surface_area_m2": 609347.7500000002,
+    "partial_vol_m3": 604947.8750000002,
+    "cum_vol_m3": 28969241.355,
+    "cum_vol_hm3": 28.969241355,
+    "cum_vol_L": 28969241355.0
+  },
+  {
+    "elevation": 904,
+    "slice_area_m2": 8837.9,
+    "surface_area_m2": 618185.6500000003,
+    "partial_vol_m3": 613766.7000000002,
+    "cum_vol_m3": 29583008.055,
+    "cum_vol_hm3": 29.583008055,
+    "cum_vol_L": 29583008055.0
+  },
+  {
+    "elevation": 905,
+    "slice_area_m2": 8843.04,
+    "surface_area_m2": 627028.6900000003,
+    "partial_vol_m3": 622607.1700000003,
+    "cum_vol_m3": 30205615.225,
+    "cum_vol_hm3": 30.205615225000003,
+    "cum_vol_L": 30205615225.0
+  },
+  {
+    "elevation": 906,
+    "slice_area_m2": 8674.52,
+    "surface_area_m2": 635703.2100000003,
+    "partial_vol_m3": 631365.9500000003,
+    "cum_vol_m3": 30836981.175,
+    "cum_vol_hm3": 30.836981175000002,
+    "cum_vol_L": 30836981175.0
+  },
+  {
+    "elevation": 907,
+    "slice_area_m2": 8701.78,
+    "surface_area_m2": 644404.9900000003,
+    "partial_vol_m3": 640054.1000000003,
+    "cum_vol_m3": 31477035.275000002,
+    "cum_vol_hm3": 31.477035275000002,
+    "cum_vol_L": 31477035275.000004
+  },
+  {
+    "elevation": 908,
+    "slice_area_m2": 8745.66,
+    "surface_area_m2": 653150.6500000004,
+    "partial_vol_m3": 648777.8200000003,
+    "cum_vol_m3": 32125813.095000003,
+    "cum_vol_hm3": 32.125813095000005,
+    "cum_vol_L": 32125813095.000004
+  },
+  {
+    "elevation": 909,
+    "slice_area_m2": 8626.84,
+    "surface_area_m2": 661777.4900000003,
+    "partial_vol_m3": 657464.0700000003,
+    "cum_vol_m3": 32783277.165000003,
+    "cum_vol_hm3": 32.783277165,
+    "cum_vol_L": 32783277165.000004
+  },
+  {
+    "elevation": 910,
+    "slice_area_m2": 8647.22,
+    "surface_area_m2": 670424.7100000003,
+    "partial_vol_m3": 666101.1000000003,
+    "cum_vol_m3": 33449378.265000004,
+    "cum_vol_hm3": 33.44937826500001,
+    "cum_vol_L": 33449378265.000004
+  },
+  {
+    "elevation": 911,
+    "slice_area_m2": 8875.5,
+    "surface_area_m2": 679300.2100000003,
+    "partial_vol_m3": 674862.4600000003,
+    "cum_vol_m3": 34124240.725,
+    "cum_vol_hm3": 34.124240725,
+    "cum_vol_L": 34124240725.0
+  },
+  {
+    "elevation": 912,
+    "slice_area_m2": 9063.81,
+    "surface_area_m2": 688364.0200000004,
+    "partial_vol_m3": 683832.1150000003,
+    "cum_vol_m3": 34808072.84,
+    "cum_vol_hm3": 34.80807284,
+    "cum_vol_L": 34808072840.0
+  },
+  {
+    "elevation": 913,
+    "slice_area_m2": 9457.89,
+    "surface_area_m2": 697821.9100000004,
+    "partial_vol_m3": 693092.9650000003,
+    "cum_vol_m3": 35501165.80500001,
+    "cum_vol_hm3": 35.50116580500001,
+    "cum_vol_L": 35501165805.00001
+  },
+  {
+    "elevation": 914,
+    "slice_area_m2": 9414.64,
+    "surface_area_m2": 707236.5500000004,
+    "partial_vol_m3": 702529.2300000004,
+    "cum_vol_m3": 36203695.03500001,
+    "cum_vol_hm3": 36.20369503500001,
+    "cum_vol_L": 36203695035.00001
+  },
+  {
+    "elevation": 915,
+    "slice_area_m2": 9251.35,
+    "surface_area_m2": 716487.9000000004,
+    "partial_vol_m3": 711862.2250000003,
+    "cum_vol_m3": 36915557.26000001,
+    "cum_vol_hm3": 36.915557260000014,
+    "cum_vol_L": 36915557260.000015
+  },
+  {
+    "elevation": 916,
+    "slice_area_m2": 9413.67,
+    "surface_area_m2": 725901.5700000004,
+    "partial_vol_m3": 721194.7350000003,
+    "cum_vol_m3": 37636751.99500001,
+    "cum_vol_hm3": 37.63675199500001,
+    "cum_vol_L": 37636751995.000015
+  },
+  {
+    "elevation": 917,
+    "slice_area_m2": 9374.29,
+    "surface_area_m2": 735275.8600000005,
+    "partial_vol_m3": 730588.7150000004,
+    "cum_vol_m3": 38367340.710000016,
+    "cum_vol_hm3": 38.367340710000015,
+    "cum_vol_L": 38367340710.000015
+  },
+  {
+    "elevation": 918,
+    "slice_area_m2": 9725.54,
+    "surface_area_m2": 745001.4000000005,
+    "partial_vol_m3": 740138.6300000005,
+    "cum_vol_m3": 39107479.34000002,
+    "cum_vol_hm3": 39.10747934000002,
+    "cum_vol_L": 39107479340.000015
+  },
+  {
+    "elevation": 919,
+    "slice_area_m2": 10202.68,
+    "surface_area_m2": 755204.0800000005,
+    "partial_vol_m3": 750102.7400000005,
+    "cum_vol_m3": 39857582.08000002,
+    "cum_vol_hm3": 39.85758208000002,
+    "cum_vol_L": 39857582080.00002
+  },
+  {
+    "elevation": 920,
+    "slice_area_m2": 9394.06,
+    "surface_area_m2": 764598.1400000006,
+    "partial_vol_m3": 759901.1100000006,
+    "cum_vol_m3": 40617483.19000002,
+    "cum_vol_hm3": 40.61748319000002,
+    "cum_vol_L": 40617483190.00002
+  },
+  {
+    "elevation": 921,
+    "slice_area_m2": 9792.2,
+    "surface_area_m2": 774390.3400000005,
+    "partial_vol_m3": 769494.2400000006,
+    "cum_vol_m3": 41386977.43000002,
+    "cum_vol_hm3": 41.38697743000002,
+    "cum_vol_L": 41386977430.00002
+  },
+  {
+    "elevation": 922,
+    "slice_area_m2": 9719.29,
+    "surface_area_m2": 784109.6300000006,
+    "partial_vol_m3": 779249.9850000006,
+    "cum_vol_m3": 42166227.41500002,
+    "cum_vol_hm3": 42.16622741500002,
+    "cum_vol_L": 42166227415.00002
+  },
+  {
+    "elevation": 923,
+    "slice_area_m2": 9719.07,
+    "surface_area_m2": 793828.7000000005,
+    "partial_vol_m3": 788969.1650000005,
+    "cum_vol_m3": 42955196.58000002,
+    "cum_vol_hm3": 42.95519658000002,
+    "cum_vol_L": 42955196580.00002
+  },
+  {
+    "elevation": 924,
+    "slice_area_m2": 9750.12,
+    "surface_area_m2": 803578.8200000005,
+    "partial_vol_m3": 798703.7600000005,
+    "cum_vol_m3": 43753900.34000002,
+    "cum_vol_hm3": 43.753900340000015,
+    "cum_vol_L": 43753900340.000015
+  },
+  {
+    "elevation": 925,
+    "slice_area_m2": 9316.35,
+    "surface_area_m2": 812895.1700000005,
+    "partial_vol_m3": 808236.9950000006,
+    "cum_vol_m3": 44562137.335000016,
+    "cum_vol_hm3": 44.56213733500002,
+    "cum_vol_L": 44562137335.000015
+  },
+  {
+    "elevation": 926,
+    "slice_area_m2": 9309.41,
+    "surface_area_m2": 822204.5800000005,
+    "partial_vol_m3": 817549.8750000005,
+    "cum_vol_m3": 45379687.210000016,
+    "cum_vol_hm3": 45.379687210000014,
+    "cum_vol_L": 45379687210.000015
+  },
+  {
+    "elevation": 927,
+    "slice_area_m2": 9544.33,
+    "surface_area_m2": 831748.9100000005,
+    "partial_vol_m3": 826976.7450000006,
+    "cum_vol_m3": 46206663.95500001,
+    "cum_vol_hm3": 46.20666395500001,
+    "cum_vol_L": 46206663955.000015
+  },
+  {
+    "elevation": 928,
+    "slice_area_m2": 9927.15,
+    "surface_area_m2": 841676.0600000005,
+    "partial_vol_m3": 836712.4850000006,
+    "cum_vol_m3": 47043376.44000001,
+    "cum_vol_hm3": 47.04337644000001,
+    "cum_vol_L": 47043376440.000015
+  },
+  {
+    "elevation": 929,
+    "slice_area_m2": 10035.48,
+    "surface_area_m2": 851711.5400000005,
+    "partial_vol_m3": 846693.8000000005,
+    "cum_vol_m3": 47890070.24000001,
+    "cum_vol_hm3": 47.89007024000001,
+    "cum_vol_L": 47890070240.00001
+  },
+  {
+    "elevation": 930,
+    "slice_area_m2": 10031.38,
+    "surface_area_m2": 861742.9200000005,
+    "partial_vol_m3": 856727.2300000004,
+    "cum_vol_m3": 48746797.47000001,
+    "cum_vol_hm3": 48.74679747000001,
+    "cum_vol_L": 48746797470.000015
+  },
+  {
+    "elevation": 931,
+    "slice_area_m2": 10278.29,
+    "surface_area_m2": 872021.2100000005,
+    "partial_vol_m3": 866882.0650000005,
+    "cum_vol_m3": 49613679.53500001,
+    "cum_vol_hm3": 49.61367953500001,
+    "cum_vol_L": 49613679535.00001
+  },
+  {
+    "elevation": 932,
+    "slice_area_m2": 10650.24,
+    "surface_area_m2": 882671.4500000005,
+    "partial_vol_m3": 877346.3300000005,
+    "cum_vol_m3": 50491025.86500001,
+    "cum_vol_hm3": 50.49102586500001,
+    "cum_vol_L": 50491025865.00001
+  },
+  {
+    "elevation": 933,
+    "slice_area_m2": 9903.57,
+    "surface_area_m2": 892575.0200000005,
+    "partial_vol_m3": 887623.2350000006,
+    "cum_vol_m3": 51378649.10000001,
+    "cum_vol_hm3": 51.37864910000001,
+    "cum_vol_L": 51378649100.00001
+  },
+  {
+    "elevation": 934,
+    "slice_area_m2": 10295.16,
+    "surface_area_m2": 902870.1800000005,
+    "partial_vol_m3": 897722.6000000006,
+    "cum_vol_m3": 52276371.70000001,
+    "cum_vol_hm3": 52.27637170000001,
+    "cum_vol_L": 52276371700.00001
+  },
+  {
+    "elevation": 935,
+    "slice_area_m2": 10416.93,
+    "surface_area_m2": 913287.1100000006,
+    "partial_vol_m3": 908078.6450000005,
+    "cum_vol_m3": 53184450.34500001,
+    "cum_vol_hm3": 53.184450345000016,
+    "cum_vol_L": 53184450345.000015
+  },
+  {
+    "elevation": 936,
+    "slice_area_m2": 10453.25,
+    "surface_area_m2": 923740.3600000006,
+    "partial_vol_m3": 918513.7350000006,
+    "cum_vol_m3": 54102964.08000001,
+    "cum_vol_hm3": 54.102964080000014,
+    "cum_vol_L": 54102964080.000015
+  },
+  {
+    "elevation": 937,
+    "slice_area_m2": 10033.93,
+    "surface_area_m2": 933774.2900000006,
+    "partial_vol_m3": 928757.3250000007,
+    "cum_vol_m3": 55031721.405000016,
+    "cum_vol_hm3": 55.03172140500001,
+    "cum_vol_L": 55031721405.000015
+  },
+  {
+    "elevation": 938,
+    "slice_area_m2": 9502.7,
+    "surface_area_m2": 943276.9900000006,
+    "partial_vol_m3": 938525.6400000006,
+    "cum_vol_m3": 55970247.04500002,
+    "cum_vol_hm3": 55.970247045000015,
+    "cum_vol_L": 55970247045.000015
+  },
+  {
+    "elevation": 939,
+    "slice_area_m2": 9760.82,
+    "surface_area_m2": 953037.8100000005,
+    "partial_vol_m3": 948157.4000000006,
+    "cum_vol_m3": 56918404.445000015,
+    "cum_vol_hm3": 56.918404445000014,
+    "cum_vol_L": 56918404445.000015
+  },
+  {
+    "elevation": 940,
+    "slice_area_m2": 9719.16,
+    "surface_area_m2": 962756.9700000006,
+    "partial_vol_m3": 957897.3900000006,
+    "cum_vol_m3": 57876301.835000016,
+    "cum_vol_hm3": 57.876301835000014,
+    "cum_vol_L": 57876301835.000015
+  },
+  {
+    "elevation": 941,
+    "slice_area_m2": 10119.31,
+    "surface_area_m2": 972876.2800000006,
+    "partial_vol_m3": 967816.6250000006,
+    "cum_vol_m3": 58844118.460000016,
+    "cum_vol_hm3": 58.84411846000002,
+    "cum_vol_L": 58844118460.000015
+  },
+  {
+    "elevation": 942,
+    "slice_area_m2": 10585.47,
+    "surface_area_m2": 983461.7500000006,
+    "partial_vol_m3": 978169.0150000006,
+    "cum_vol_m3": 59822287.47500002,
+    "cum_vol_hm3": 59.82228747500002,
+    "cum_vol_L": 59822287475.000015
+  },
+  {
+    "elevation": 943,
+    "slice_area_m2": 10399.21,
+    "surface_area_m2": 993860.9600000005,
+    "partial_vol_m3": 988661.3550000006,
+    "cum_vol_m3": 60810948.83000002,
+    "cum_vol_hm3": 60.81094883000002,
+    "cum_vol_L": 60810948830.00002
+  },
+  {
+    "elevation": 944,
+    "slice_area_m2": 10526.47,
+    "surface_area_m2": 1004387.4300000005,
+    "partial_vol_m3": 999124.1950000005,
+    "cum_vol_m3": 61810073.02500002,
+    "cum_vol_hm3": 61.81007302500002,
+    "cum_vol_L": 61810073025.00002
+  },
+  {
+    "elevation": 945,
+    "slice_area_m2": 10909.49,
+    "surface_area_m2": 1015296.9200000005,
+    "partial_vol_m3": 1009842.1750000005,
+    "cum_vol_m3": 62819915.20000002,
+    "cum_vol_hm3": 62.81991520000002,
+    "cum_vol_L": 62819915200.000015
+  },
+  {
+    "elevation": 946,
+    "slice_area_m2": 11276.36,
+    "surface_area_m2": 1026573.2800000005,
+    "partial_vol_m3": 1020935.1000000006,
+    "cum_vol_m3": 63840850.30000002,
+    "cum_vol_hm3": 63.84085030000002,
+    "cum_vol_L": 63840850300.00002
+  },
+  {
+    "elevation": 947,
+    "slice_area_m2": 11612.17,
+    "surface_area_m2": 1038185.4500000005,
+    "partial_vol_m3": 1032379.3650000005,
+    "cum_vol_m3": 64873229.66500002,
+    "cum_vol_hm3": 64.87322966500003,
+    "cum_vol_L": 64873229665.00002
+  },
+  {
+    "elevation": 948,
+    "slice_area_m2": 12093.24,
+    "surface_area_m2": 1050278.6900000006,
+    "partial_vol_m3": 1044232.0700000005,
+    "cum_vol_m3": 65917461.73500002,
+    "cum_vol_hm3": 65.91746173500002,
+    "cum_vol_L": 65917461735.00002
+  },
+  {
+    "elevation": 949,
+    "slice_area_m2": 12243.32,
+    "surface_area_m2": 1062522.0100000007,
+    "partial_vol_m3": 1056400.3500000006,
+    "cum_vol_m3": 66973862.08500002,
+    "cum_vol_hm3": 66.97386208500002,
+    "cum_vol_L": 66973862085.00002
+  },
+  {
+    "elevation": 950,
+    "slice_area_m2": 12647.5,
+    "surface_area_m2": 1075169.5100000007,
+    "partial_vol_m3": 1068845.7600000007,
+    "cum_vol_m3": 68042707.84500003,
+    "cum_vol_hm3": 68.04270784500002,
+    "cum_vol_L": 68042707845.00003
+  },
+  {
+    "elevation": 951,
+    "slice_area_m2": 12968.43,
+    "surface_area_m2": 1088137.9400000006,
+    "partial_vol_m3": 1081653.7250000006,
+    "cum_vol_m3": 69124361.57000002,
+    "cum_vol_hm3": 69.12436157000002,
+    "cum_vol_L": 69124361570.00002
+  },
+  {
+    "elevation": 952,
+    "slice_area_m2": 12763.55,
+    "surface_area_m2": 1100901.4900000007,
+    "partial_vol_m3": 1094519.7150000008,
+    "cum_vol_m3": 70218881.28500003,
+    "cum_vol_hm3": 70.21888128500002,
+    "cum_vol_L": 70218881285.00003
+  },
+  {
+    "elevation": 953,
+    "slice_area_m2": 12906.64,
+    "surface_area_m2": 1113808.1300000006,
+    "partial_vol_m3": 1107354.8100000005,
+    "cum_vol_m3": 71326236.09500003,
+    "cum_vol_hm3": 71.32623609500003,
+    "cum_vol_L": 71326236095.00003
+  },
+  {
+    "elevation": 954,
+    "slice_area_m2": 13033.37,
+    "surface_area_m2": 1126841.5000000007,
+    "partial_vol_m3": 1120324.8150000006,
+    "cum_vol_m3": 72446560.91000003,
+    "cum_vol_hm3": 72.44656091000003,
+    "cum_vol_L": 72446560910.00003
+  },
+  {
+    "elevation": 955,
+    "slice_area_m2": 13419.21,
+    "surface_area_m2": 1140260.7100000007,
+    "partial_vol_m3": 1133551.1050000007,
+    "cum_vol_m3": 73580112.01500003,
+    "cum_vol_hm3": 73.58011201500003,
+    "cum_vol_L": 73580112015.00003
+  },
+  {
+    "elevation": 956,
+    "slice_area_m2": 13437.28,
+    "surface_area_m2": 1153697.9900000007,
+    "partial_vol_m3": 1146979.3500000006,
+    "cum_vol_m3": 74727091.36500002,
+    "cum_vol_hm3": 74.72709136500002,
+    "cum_vol_L": 74727091365.00003
+  },
+  {
+    "elevation": 957,
+    "slice_area_m2": 13704.64,
+    "surface_area_m2": 1167402.6300000006,
+    "partial_vol_m3": 1160550.3100000005,
+    "cum_vol_m3": 75887641.67500003,
+    "cum_vol_hm3": 75.88764167500003,
+    "cum_vol_L": 75887641675.00003
+  },
+  {
+    "elevation": 958,
+    "slice_area_m2": 14023.14,
+    "surface_area_m2": 1181425.7700000005,
+    "partial_vol_m3": 1174414.2000000007,
+    "cum_vol_m3": 77062055.87500003,
+    "cum_vol_hm3": 77.06205587500003,
+    "cum_vol_L": 77062055875.00003
+  },
+  {
+    "elevation": 959,
+    "slice_area_m2": 15066.57,
+    "surface_area_m2": 1196492.3400000005,
+    "partial_vol_m3": 1188959.0550000006,
+    "cum_vol_m3": 78251014.93000004,
+    "cum_vol_hm3": 78.25101493000004,
+    "cum_vol_L": 78251014930.00003
+  },
+  {
+    "elevation": 960,
+    "slice_area_m2": 15342.86,
+    "surface_area_m2": 1211835.2000000007,
+    "partial_vol_m3": 1204163.7700000005,
+    "cum_vol_m3": 79455178.70000003,
+    "cum_vol_hm3": 79.45517870000003,
+    "cum_vol_L": 79455178700.00003
+  },
+  {
+    "elevation": 961,
+    "slice_area_m2": 14482.71,
+    "surface_area_m2": 1226317.9100000006,
+    "partial_vol_m3": 1219076.5550000006,
+    "cum_vol_m3": 80674255.25500004,
+    "cum_vol_hm3": 80.67425525500003,
+    "cum_vol_L": 80674255255.00005
+  },
+  {
+    "elevation": 962,
+    "slice_area_m2": 14472.28,
+    "surface_area_m2": 1240790.1900000006,
+    "partial_vol_m3": 1233554.0500000007,
+    "cum_vol_m3": 81907809.30500004,
+    "cum_vol_hm3": 81.90780930500004,
+    "cum_vol_L": 81907809305.00003
+  },
+  {
+    "elevation": 963,
+    "slice_area_m2": 15322.98,
+    "surface_area_m2": 1256113.1700000006,
+    "partial_vol_m3": 1248451.6800000006,
+    "cum_vol_m3": 83156260.98500004,
+    "cum_vol_hm3": 83.15626098500005,
+    "cum_vol_L": 83156260985.00005
+  },
+  {
+    "elevation": 964,
+    "slice_area_m2": 15519.95,
+    "surface_area_m2": 1271633.1200000006,
+    "partial_vol_m3": 1263873.1450000005,
+    "cum_vol_m3": 84420134.13000004,
+    "cum_vol_hm3": 84.42013413000004,
+    "cum_vol_L": 84420134130.00005
+  },
+  {
+    "elevation": 965,
+    "slice_area_m2": 15649.61,
+    "surface_area_m2": 1287282.7300000007,
+    "partial_vol_m3": 1279457.9250000007,
+    "cum_vol_m3": 85699592.05500004,
+    "cum_vol_hm3": 85.69959205500004,
+    "cum_vol_L": 85699592055.00003
+  },
+  {
+    "elevation": 966,
+    "slice_area_m2": 16990.82,
+    "surface_area_m2": 1304273.5500000007,
+    "partial_vol_m3": 1295778.1400000006,
+    "cum_vol_m3": 86995370.19500004,
+    "cum_vol_hm3": 86.99537019500004,
+    "cum_vol_L": 86995370195.00003
+  },
+  {
+    "elevation": 967,
+    "slice_area_m2": 17147.85,
+    "surface_area_m2": 1321421.4000000008,
+    "partial_vol_m3": 1312847.4750000008,
+    "cum_vol_m3": 88308217.67000003,
+    "cum_vol_hm3": 88.30821767000003,
+    "cum_vol_L": 88308217670.00003
+  },
+  {
+    "elevation": 968,
+    "slice_area_m2": 18054.88,
+    "surface_area_m2": 1339476.2800000007,
+    "partial_vol_m3": 1330448.8400000008,
+    "cum_vol_m3": 89638666.51000004,
+    "cum_vol_hm3": 89.63866651000004,
+    "cum_vol_L": 89638666510.00003
+  },
+  {
+    "elevation": 969,
+    "slice_area_m2": 17886.5,
+    "surface_area_m2": 1357362.7800000007,
+    "partial_vol_m3": 1348419.5300000007,
+    "cum_vol_m3": 90987086.04000004,
+    "cum_vol_hm3": 90.98708604000004,
+    "cum_vol_L": 90987086040.00003
+  },
+  {
+    "elevation": 970,
+    "slice_area_m2": 18222.12,
+    "surface_area_m2": 1375584.9000000008,
+    "partial_vol_m3": 1366473.8400000008,
+    "cum_vol_m3": 92353559.88000004,
+    "cum_vol_hm3": 92.35355988000003,
+    "cum_vol_L": 92353559880.00005
+  },
+  {
+    "elevation": 971,
+    "slice_area_m2": 18443.39,
+    "surface_area_m2": 1394028.2900000007,
+    "partial_vol_m3": 1384806.5950000007,
+    "cum_vol_m3": 93738366.47500004,
+    "cum_vol_hm3": 93.73836647500003,
+    "cum_vol_L": 93738366475.00005
+  },
+  {
+    "elevation": 972,
+    "slice_area_m2": 18902.93,
+    "surface_area_m2": 1412931.2200000007,
+    "partial_vol_m3": 1403479.7550000008,
+    "cum_vol_m3": 95141846.23000003,
+    "cum_vol_hm3": 95.14184623000003,
+    "cum_vol_L": 95141846230.00003
+  },
+  {
+    "elevation": 973,
+    "slice_area_m2": 18566.54,
+    "surface_area_m2": 1431497.7600000007,
+    "partial_vol_m3": 1422214.4900000007,
+    "cum_vol_m3": 96564060.72000003,
+    "cum_vol_hm3": 96.56406072000003,
+    "cum_vol_L": 96564060720.00003
+  },
+  {
+    "elevation": 974,
+    "slice_area_m2": 19010.4,
+    "surface_area_m2": 1450508.1600000006,
+    "partial_vol_m3": 1441002.9600000007,
+    "cum_vol_m3": 98005063.68000002,
+    "cum_vol_hm3": 98.00506368000002,
+    "cum_vol_L": 98005063680.00002
+  },
+  {
+    "elevation": 975,
+    "slice_area_m2": 19045.99,
+    "surface_area_m2": 1469554.1500000006,
+    "partial_vol_m3": 1460031.1550000007,
+    "cum_vol_m3": 99465094.83500002,
+    "cum_vol_hm3": 99.46509483500002,
+    "cum_vol_L": 99465094835.00003
+  },
+  {
+    "elevation": 976,
+    "slice_area_m2": 19225.75,
+    "surface_area_m2": 1488779.9000000006,
+    "partial_vol_m3": 1479167.0250000006,
+    "cum_vol_m3": 100944261.86000003,
+    "cum_vol_hm3": 100.94426186000003,
+    "cum_vol_L": 100944261860.00003
+  },
+  {
+    "elevation": 977,
+    "slice_area_m2": 19905.42,
+    "surface_area_m2": 1508685.3200000005,
+    "partial_vol_m3": 1498732.6100000006,
+    "cum_vol_m3": 102442994.47000003,
+    "cum_vol_hm3": 102.44299447000003,
+    "cum_vol_L": 102442994470.00003
+  },
+  {
+    "elevation": 978,
+    "slice_area_m2": 19800.97,
+    "surface_area_m2": 1528486.2900000005,
+    "partial_vol_m3": 1518585.8050000006,
+    "cum_vol_m3": 103961580.27500004,
+    "cum_vol_hm3": 103.96158027500003,
+    "cum_vol_L": 103961580275.00003
+  },
+  {
+    "elevation": 979,
+    "slice_area_m2": 20300.91,
+    "surface_area_m2": 1548787.2000000004,
+    "partial_vol_m3": 1538636.7450000006,
+    "cum_vol_m3": 105500217.02000004,
+    "cum_vol_hm3": 105.50021702000004,
+    "cum_vol_L": 105500217020.00005
+  },
+  {
+    "elevation": 980,
+    "slice_area_m2": 20962.2,
+    "surface_area_m2": 1569749.4000000004,
+    "partial_vol_m3": 1559268.3000000003,
+    "cum_vol_m3": 107059485.32000004,
+    "cum_vol_hm3": 107.05948532000004,
+    "cum_vol_L": 107059485320.00003
+  },
+  {
+    "elevation": 981,
+    "slice_area_m2": 21309.56,
+    "surface_area_m2": 1591058.9600000004,
+    "partial_vol_m3": 1580404.1800000004,
+    "cum_vol_m3": 108639889.50000004,
+    "cum_vol_hm3": 108.63988950000004,
+    "cum_vol_L": 108639889500.00005
+  },
+  {
+    "elevation": 982,
+    "slice_area_m2": 22286.71,
+    "surface_area_m2": 1613345.6700000004,
+    "partial_vol_m3": 1602202.3150000004,
+    "cum_vol_m3": 110242091.81500004,
+    "cum_vol_hm3": 110.24209181500004,
+    "cum_vol_L": 110242091815.00005
+  },
+  {
+    "elevation": 983,
+    "slice_area_m2": 23090.8,
+    "surface_area_m2": 1636436.4700000004,
+    "partial_vol_m3": 1624891.0700000003,
+    "cum_vol_m3": 111866982.88500005,
+    "cum_vol_hm3": 111.86698288500006,
+    "cum_vol_L": 111866982885.00005
+  },
+  {
+    "elevation": 984,
+    "slice_area_m2": 23425.21,
+    "surface_area_m2": 1659861.6800000004,
+    "partial_vol_m3": 1648149.0750000004,
+    "cum_vol_m3": 113515131.96000005,
+    "cum_vol_hm3": 113.51513196000005,
+    "cum_vol_L": 113515131960.00005
+  },
+  {
+    "elevation": 985,
+    "slice_area_m2": 24761.49,
+    "surface_area_m2": 1684623.1700000004,
+    "partial_vol_m3": 1672242.4250000003,
+    "cum_vol_m3": 115187374.38500005,
+    "cum_vol_hm3": 115.18737438500006,
+    "cum_vol_L": 115187374385.00005
+  },
+  {
+    "elevation": 986,
+    "slice_area_m2": 24572.66,
+    "surface_area_m2": 1709195.8300000003,
+    "partial_vol_m3": 1696909.5000000005,
+    "cum_vol_m3": 116884283.88500005,
+    "cum_vol_hm3": 116.88428388500004,
+    "cum_vol_L": 116884283885.00005
+  },
+  {
+    "elevation": 987,
+    "slice_area_m2": 24241.82,
+    "surface_area_m2": 1733437.6500000004,
+    "partial_vol_m3": 1721316.7400000002,
+    "cum_vol_m3": 118605600.62500004,
+    "cum_vol_hm3": 118.60560062500005,
+    "cum_vol_L": 118605600625.00005
+  },
+  {
+    "elevation": 988,
+    "slice_area_m2": 24377.16,
+    "surface_area_m2": 1757814.8100000003,
+    "partial_vol_m3": 1745626.2300000004,
+    "cum_vol_m3": 120351226.85500005,
+    "cum_vol_hm3": 120.35122685500005,
+    "cum_vol_L": 120351226855.00005
+  },
+  {
+    "elevation": 989,
+    "slice_area_m2": 24539.51,
+    "surface_area_m2": 1782354.3200000003,
+    "partial_vol_m3": 1770084.5650000004,
+    "cum_vol_m3": 122121311.42000005,
+    "cum_vol_hm3": 122.12131142000004,
+    "cum_vol_L": 122121311420.00005
+  },
+  {
+    "elevation": 990,
+    "slice_area_m2": 24143.97,
+    "surface_area_m2": 1806498.2900000003,
+    "partial_vol_m3": 1794426.3050000002,
+    "cum_vol_m3": 123915737.72500005,
+    "cum_vol_hm3": 123.91573772500006,
+    "cum_vol_L": 123915737725.00006
+  },
+  {
+    "elevation": 991,
+    "slice_area_m2": 25340.92,
+    "surface_area_m2": 1831839.2100000002,
+    "partial_vol_m3": 1819168.7500000002,
+    "cum_vol_m3": 125734906.47500005,
+    "cum_vol_hm3": 125.73490647500006,
+    "cum_vol_L": 125734906475.00006
+  },
+  {
+    "elevation": 992,
+    "slice_area_m2": 26182.49,
+    "surface_area_m2": 1858021.7000000002,
+    "partial_vol_m3": 1844930.455,
+    "cum_vol_m3": 127579836.93000005,
+    "cum_vol_hm3": 127.57983693000006,
+    "cum_vol_L": 127579836930.00005
+  },
+  {
+    "elevation": 993,
+    "slice_area_m2": 25781.83,
+    "surface_area_m2": 1883803.5300000003,
+    "partial_vol_m3": 1870912.6150000002,
+    "cum_vol_m3": 129450749.54500005,
+    "cum_vol_hm3": 129.45074954500004,
+    "cum_vol_L": 129450749545.00005
+  },
+  {
+    "elevation": 994,
+    "slice_area_m2": 24830.33,
+    "surface_area_m2": 1908633.8600000003,
+    "partial_vol_m3": 1896218.6950000003,
+    "cum_vol_m3": 131346968.24000004,
+    "cum_vol_hm3": 131.34696824000005,
+    "cum_vol_L": 131346968240.00005
+  },
+  {
+    "elevation": 995,
+    "slice_area_m2": 25184.1,
+    "surface_area_m2": 1933817.9600000004,
+    "partial_vol_m3": 1921225.9100000004,
+    "cum_vol_m3": 133268194.15000004,
+    "cum_vol_hm3": 133.26819415000003,
+    "cum_vol_L": 133268194150.00003
+  },
+  {
+    "elevation": 996,
+    "slice_area_m2": 25062.65,
+    "surface_area_m2": 1958880.6100000003,
+    "partial_vol_m3": 1946349.2850000004,
+    "cum_vol_m3": 135214543.43500003,
+    "cum_vol_hm3": 135.21454343500002,
+    "cum_vol_L": 135214543435.00003
+  },
+  {
+    "elevation": 997,
+    "slice_area_m2": 25373.26,
+    "surface_area_m2": 1984253.8700000003,
+    "partial_vol_m3": 1971567.2400000002,
+    "cum_vol_m3": 137186110.67500004,
+    "cum_vol_hm3": 137.18611067500004,
+    "cum_vol_L": 137186110675.00005
+  },
+  {
+    "elevation": 998,
+    "slice_area_m2": 24834.73,
+    "surface_area_m2": 2009088.6000000003,
+    "partial_vol_m3": 1996671.2350000003,
+    "cum_vol_m3": 139182781.91000006,
+    "cum_vol_hm3": 139.18278191000005,
+    "cum_vol_L": 139182781910.00006
+  },
+  {
+    "elevation": 999,
+    "slice_area_m2": 25603.36,
+    "surface_area_m2": 2034691.9600000004,
+    "partial_vol_m3": 2021890.2800000003,
+    "cum_vol_m3": 141204672.19000006,
+    "cum_vol_hm3": 141.20467219000005,
+    "cum_vol_L": 141204672190.00006
+  },
+  {
+    "elevation": 1000,
+    "slice_area_m2": 25672.11,
+    "surface_area_m2": 2060364.0700000005,
+    "partial_vol_m3": 2047528.0150000006,
+    "cum_vol_m3": 143252200.20500004,
+    "cum_vol_hm3": 143.25220020500004,
+    "cum_vol_L": 143252200205.00003
+  },
+  {
+    "elevation": 1001,
+    "slice_area_m2": 25728.99,
+    "surface_area_m2": 2086093.0600000005,
+    "partial_vol_m3": 2073228.5650000004,
+    "cum_vol_m3": 145325428.77000004,
+    "cum_vol_hm3": 145.32542877000003,
+    "cum_vol_L": 145325428770.00003
+  },
+  {
+    "elevation": 1002,
+    "slice_area_m2": 25812.67,
+    "surface_area_m2": 2111905.7300000004,
+    "partial_vol_m3": 2098999.3950000005,
+    "cum_vol_m3": 147424428.16500005,
+    "cum_vol_hm3": 147.42442816500005,
+    "cum_vol_L": 147424428165.00006
+  },
+  {
+    "elevation": 1003,
+    "slice_area_m2": 26888.03,
+    "surface_area_m2": 2138793.7600000002,
+    "partial_vol_m3": 2125349.745,
+    "cum_vol_m3": 149549777.91000006,
+    "cum_vol_hm3": 149.54977791000005,
+    "cum_vol_L": 149549777910.00006
+  },
+  {
+    "elevation": 1004,
+    "slice_area_m2": 25738.14,
+    "surface_area_m2": 2164531.9000000004,
+    "partial_vol_m3": 2151662.83,
+    "cum_vol_m3": 151701440.74000007,
+    "cum_vol_hm3": 151.70144074000007,
+    "cum_vol_L": 151701440740.00006
+  },
+  {
+    "elevation": 1005,
+    "slice_area_m2": 24818.55,
+    "surface_area_m2": 2189350.45,
+    "partial_vol_m3": 2176941.1750000003,
+    "cum_vol_m3": 153878381.91500008,
+    "cum_vol_hm3": 153.8783819150001,
+    "cum_vol_L": 153878381915.0001
+  },
+  {
+    "elevation": 1006,
+    "slice_area_m2": 25439.9,
+    "surface_area_m2": 2214790.35,
+    "partial_vol_m3": 2202070.4000000004,
+    "cum_vol_m3": 156080452.3150001,
+    "cum_vol_hm3": 156.0804523150001,
+    "cum_vol_L": 156080452315.0001
+  },
+  {
+    "elevation": 1007,
+    "slice_area_m2": 25024.05,
+    "surface_area_m2": 2239814.4,
+    "partial_vol_m3": 2227302.375,
+    "cum_vol_m3": 158307754.6900001,
+    "cum_vol_hm3": 158.30775469000008,
+    "cum_vol_L": 158307754690.0001
+  },
+  {
+    "elevation": 1008,
+    "slice_area_m2": 24193.77,
+    "surface_area_m2": 2264008.17,
+    "partial_vol_m3": 2251911.285,
+    "cum_vol_m3": 160559665.97500008,
+    "cum_vol_hm3": 160.5596659750001,
+    "cum_vol_L": 160559665975.0001
+  },
+  {
+    "elevation": 1009,
+    "slice_area_m2": 24167.0,
+    "surface_area_m2": 2288175.17,
+    "partial_vol_m3": 2276091.67,
+    "cum_vol_m3": 162835757.64500007,
+    "cum_vol_hm3": 162.83575764500006,
+    "cum_vol_L": 162835757645.00006
+  },
+  {
+    "elevation": 1010,
+    "slice_area_m2": 23730.04,
+    "surface_area_m2": 2311905.21,
+    "partial_vol_m3": 2300040.19,
+    "cum_vol_m3": 165135797.83500007,
+    "cum_vol_hm3": 165.13579783500006,
+    "cum_vol_L": 165135797835.00006
+  },
+  {
+    "elevation": 1011,
+    "slice_area_m2": 24145.64,
+    "surface_area_m2": 2336050.85,
+    "partial_vol_m3": 2323978.0300000003,
+    "cum_vol_m3": 167459775.86500007,
+    "cum_vol_hm3": 167.45977586500007,
+    "cum_vol_L": 167459775865.00006
+  },
+  {
+    "elevation": 1012,
+    "slice_area_m2": 24310.41,
+    "surface_area_m2": 2360361.2600000002,
+    "partial_vol_m3": 2348206.055,
+    "cum_vol_m3": 169807981.92000008,
+    "cum_vol_hm3": 169.8079819200001,
+    "cum_vol_L": 169807981920.00006
+  },
+  {
+    "elevation": 1013,
+    "slice_area_m2": 23800.9,
+    "surface_area_m2": 2384162.16,
+    "partial_vol_m3": 2372261.71,
+    "cum_vol_m3": 172180243.63000008,
+    "cum_vol_hm3": 172.1802436300001,
+    "cum_vol_L": 172180243630.0001
+  },
+  {
+    "elevation": 1014,
+    "slice_area_m2": 24365.25,
+    "surface_area_m2": 2408527.41,
+    "partial_vol_m3": 2396344.785,
+    "cum_vol_m3": 174576588.41500008,
+    "cum_vol_hm3": 174.5765884150001,
+    "cum_vol_L": 174576588415.0001
+  },
+  {
+    "elevation": 1015,
+    "slice_area_m2": 24176.24,
+    "surface_area_m2": 2432703.6500000004,
+    "partial_vol_m3": 2420615.5300000003,
+    "cum_vol_m3": 176997203.94500008,
+    "cum_vol_hm3": 176.99720394500008,
+    "cum_vol_L": 176997203945.0001
+  },
+  {
+    "elevation": 1016,
+    "slice_area_m2": 24545.44,
+    "surface_area_m2": 2457249.0900000003,
+    "partial_vol_m3": 2444976.37,
+    "cum_vol_m3": 179442180.3150001,
+    "cum_vol_hm3": 179.4421803150001,
+    "cum_vol_L": 179442180315.0001
+  },
+  {
+    "elevation": 1017,
+    "slice_area_m2": 24314.36,
+    "surface_area_m2": 2481563.45,
+    "partial_vol_m3": 2469406.2700000005,
+    "cum_vol_m3": 181911586.5850001,
+    "cum_vol_hm3": 181.9115865850001,
+    "cum_vol_L": 181911586585.0001
+  },
+  {
+    "elevation": 1018,
+    "slice_area_m2": 23963.15,
+    "surface_area_m2": 2505526.6,
+    "partial_vol_m3": 2493545.0250000004,
+    "cum_vol_m3": 184405131.6100001,
+    "cum_vol_hm3": 184.4051316100001,
+    "cum_vol_L": 184405131610.0001
+  },
+  {
+    "elevation": 1019,
+    "slice_area_m2": 24193.87,
+    "surface_area_m2": 2529720.47,
+    "partial_vol_m3": 2517623.535,
+    "cum_vol_m3": 186922755.1450001,
+    "cum_vol_hm3": 186.9227551450001,
+    "cum_vol_L": 186922755145.0001
+  },
+  {
+    "elevation": 1020,
+    "slice_area_m2": 24112.99,
+    "surface_area_m2": 2553833.4600000004,
+    "partial_vol_m3": 2541776.9650000003,
+    "cum_vol_m3": 189464532.1100001,
+    "cum_vol_hm3": 189.4645321100001,
+    "cum_vol_L": 189464532110.0001
+  },
+  {
+    "elevation": 1021,
+    "slice_area_m2": 24474.96,
+    "surface_area_m2": 2578308.4200000004,
+    "partial_vol_m3": 2566070.9400000004,
+    "cum_vol_m3": 192030603.0500001,
+    "cum_vol_hm3": 192.0306030500001,
+    "cum_vol_L": 192030603050.0001
+  },
+  {
+    "elevation": 1022,
+    "slice_area_m2": 23536.5,
+    "surface_area_m2": 2601844.9200000004,
+    "partial_vol_m3": 2590076.6700000004,
+    "cum_vol_m3": 194620679.7200001,
+    "cum_vol_hm3": 194.62067972000008,
+    "cum_vol_L": 194620679720.0001
+  },
+  {
+    "elevation": 1023,
+    "slice_area_m2": 23707.4,
+    "surface_area_m2": 2625552.3200000003,
+    "partial_vol_m3": 2613698.62,
+    "cum_vol_m3": 197234378.3400001,
+    "cum_vol_hm3": 197.2343783400001,
+    "cum_vol_L": 197234378340.0001
+  },
+  {
+    "elevation": 1024,
+    "slice_area_m2": 24751.64,
+    "surface_area_m2": 2650303.9600000004,
+    "partial_vol_m3": 2637928.1400000006,
+    "cum_vol_m3": 199872306.48000008,
+    "cum_vol_hm3": 199.87230648000008,
+    "cum_vol_L": 199872306480.0001
+  },
+  {
+    "elevation": 1025,
+    "slice_area_m2": 24149.36,
+    "surface_area_m2": 2674453.3200000003,
+    "partial_vol_m3": 2662378.6400000006,
+    "cum_vol_m3": 202534685.12000006,
+    "cum_vol_hm3": 202.53468512000006,
+    "cum_vol_L": 202534685120.00006
+  },
+  {
+    "elevation": 1026,
+    "slice_area_m2": 24120.53,
+    "surface_area_m2": 2698573.85,
+    "partial_vol_m3": 2686513.585,
+    "cum_vol_m3": 205221198.70500007,
+    "cum_vol_hm3": 205.22119870500006,
+    "cum_vol_L": 205221198705.00006
+  },
+  {
+    "elevation": 1027,
+    "slice_area_m2": 24244.62,
+    "surface_area_m2": 2722818.47,
+    "partial_vol_m3": 2710696.16,
+    "cum_vol_m3": 207931894.86500007,
+    "cum_vol_hm3": 207.93189486500006,
+    "cum_vol_L": 207931894865.00006
+  },
+  {
+    "elevation": 1028,
+    "slice_area_m2": 23933.53,
+    "surface_area_m2": 2746752.0,
+    "partial_vol_m3": 2734785.2350000003,
+    "cum_vol_m3": 210666680.10000008,
+    "cum_vol_hm3": 210.6666801000001,
+    "cum_vol_L": 210666680100.0001
+  },
+  {
+    "elevation": 1029,
+    "slice_area_m2": 23631.45,
+    "surface_area_m2": 2770383.45,
+    "partial_vol_m3": 2758567.725,
+    "cum_vol_m3": 213425247.82500008,
+    "cum_vol_hm3": 213.42524782500007,
+    "cum_vol_L": 213425247825.0001
+  },
+  {
+    "elevation": 1030,
+    "slice_area_m2": 23604.34,
+    "surface_area_m2": 2793987.79,
+    "partial_vol_m3": 2782185.62,
+    "cum_vol_m3": 216207433.44500008,
+    "cum_vol_hm3": 216.20743344500008,
+    "cum_vol_L": 216207433445.0001
+  },
+  {
+    "elevation": 1031,
+    "slice_area_m2": 23028.35,
+    "surface_area_m2": 2817016.14,
+    "partial_vol_m3": 2805501.965,
+    "cum_vol_m3": 219012935.4100001,
+    "cum_vol_hm3": 219.0129354100001,
+    "cum_vol_L": 219012935410.0001
+  },
+  {
+    "elevation": 1032,
+    "slice_area_m2": 23630.87,
+    "surface_area_m2": 2840647.0100000002,
+    "partial_vol_m3": 2828831.575,
+    "cum_vol_m3": 221841766.98500007,
+    "cum_vol_hm3": 221.84176698500008,
+    "cum_vol_L": 221841766985.00006
+  },
+  {
+    "elevation": 1033,
+    "slice_area_m2": 23252.24,
+    "surface_area_m2": 2863899.2500000005,
+    "partial_vol_m3": 2852273.1300000004,
+    "cum_vol_m3": 224694040.11500007,
+    "cum_vol_hm3": 224.69404011500006,
+    "cum_vol_L": 224694040115.00006
+  },
+  {
+    "elevation": 1034,
+    "slice_area_m2": 22236.67,
+    "surface_area_m2": 2886135.9200000004,
+    "partial_vol_m3": 2875017.5850000004,
+    "cum_vol_m3": 227569057.70000008,
+    "cum_vol_hm3": 227.5690577000001,
+    "cum_vol_L": 227569057700.0001
+  },
+  {
+    "elevation": 1035,
+    "slice_area_m2": 21631.52,
+    "surface_area_m2": 2907767.4400000004,
+    "partial_vol_m3": 2896951.6800000006,
+    "cum_vol_m3": 230466009.38000008,
+    "cum_vol_hm3": 230.4660093800001,
+    "cum_vol_L": 230466009380.0001
+  },
+  {
+    "elevation": 1036,
+    "slice_area_m2": 21107.38,
+    "surface_area_m2": 2928874.8200000003,
+    "partial_vol_m3": 2918321.1300000004,
+    "cum_vol_m3": 233384330.51000008,
+    "cum_vol_hm3": 233.38433051000007,
+    "cum_vol_L": 233384330510.0001
+  },
+  {
+    "elevation": 1037,
+    "slice_area_m2": 20054.58,
+    "surface_area_m2": 2948929.4000000004,
+    "partial_vol_m3": 2938902.1100000003,
+    "cum_vol_m3": 236323232.6200001,
+    "cum_vol_hm3": 236.32323262000008,
+    "cum_vol_L": 236323232620.0001
+  },
+  {
+    "elevation": 1038,
+    "slice_area_m2": 19291.9,
+    "surface_area_m2": 2968221.3000000003,
+    "partial_vol_m3": 2958575.3500000006,
+    "cum_vol_m3": 239281807.9700001,
+    "cum_vol_hm3": 239.2818079700001,
+    "cum_vol_L": 239281807970.0001
+  },
+  {
+    "elevation": 1039,
+    "slice_area_m2": 19355.65,
+    "surface_area_m2": 2987576.95,
+    "partial_vol_m3": 2977899.125,
+    "cum_vol_m3": 242259707.0950001,
+    "cum_vol_hm3": 242.2597070950001,
+    "cum_vol_L": 242259707095.0001
+  },
+  {
+    "elevation": 1040,
+    "slice_area_m2": 19596.74,
+    "surface_area_m2": 3007173.6900000004,
+    "partial_vol_m3": 2997375.3200000003,
+    "cum_vol_m3": 245257082.41500008,
+    "cum_vol_hm3": 245.25708241500007,
+    "cum_vol_L": 245257082415.0001
+  },
+  {
+    "elevation": 1041,
+    "slice_area_m2": 20357.88,
+    "surface_area_m2": 3027531.5700000003,
+    "partial_vol_m3": 3017352.6300000004,
+    "cum_vol_m3": 248274435.04500008,
+    "cum_vol_hm3": 248.27443504500008,
+    "cum_vol_L": 248274435045.00006
+  },
+  {
+    "elevation": 1042,
+    "slice_area_m2": 21445.89,
+    "surface_area_m2": 3048977.4600000004,
+    "partial_vol_m3": 3038254.5150000006,
+    "cum_vol_m3": 251312689.56000006,
+    "cum_vol_hm3": 251.31268956000005,
+    "cum_vol_L": 251312689560.00006
+  },
+  {
+    "elevation": 1043,
+    "slice_area_m2": 21608.47,
+    "surface_area_m2": 3070585.9300000006,
+    "partial_vol_m3": 3059781.6950000003,
+    "cum_vol_m3": 254372471.25500005,
+    "cum_vol_hm3": 254.37247125500005,
+    "cum_vol_L": 254372471255.00006
+  },
+  {
+    "elevation": 1044,
+    "slice_area_m2": 21901.07,
+    "surface_area_m2": 3092487.0000000005,
+    "partial_vol_m3": 3081536.465000001,
+    "cum_vol_m3": 257454007.72000006,
+    "cum_vol_hm3": 257.45400772000005,
+    "cum_vol_L": 257454007720.00006
+  },
+  {
+    "elevation": 1045,
+    "slice_area_m2": 20957.87,
+    "surface_area_m2": 3113444.8700000006,
+    "partial_vol_m3": 3102965.9350000005,
+    "cum_vol_m3": 260556973.65500006,
+    "cum_vol_hm3": 260.55697365500004,
+    "cum_vol_L": 260556973655.00006
+  },
+  {
+    "elevation": 1046,
+    "slice_area_m2": 20335.68,
+    "surface_area_m2": 3133780.5500000007,
+    "partial_vol_m3": 3123612.710000001,
+    "cum_vol_m3": 263680586.36500007,
+    "cum_vol_hm3": 263.68058636500007,
+    "cum_vol_L": 263680586365.00006
+  },
+  {
+    "elevation": 1047,
+    "slice_area_m2": 19988.75,
+    "surface_area_m2": 3153769.3000000007,
+    "partial_vol_m3": 3143774.9250000007,
+    "cum_vol_m3": 266824361.29000008,
+    "cum_vol_hm3": 266.82436129000007,
+    "cum_vol_L": 266824361290.0001
+  },
+  {
+    "elevation": 1048,
+    "slice_area_m2": 19306.36,
+    "surface_area_m2": 3173075.6600000006,
+    "partial_vol_m3": 3163422.4800000004,
+    "cum_vol_m3": 269987783.7700001,
+    "cum_vol_hm3": 269.9877837700001,
+    "cum_vol_L": 269987783770.0001
+  },
+  {
+    "elevation": 1049,
+    "slice_area_m2": 19863.2,
+    "surface_area_m2": 3192938.860000001,
+    "partial_vol_m3": 3183007.2600000007,
+    "cum_vol_m3": 273170791.0300001,
+    "cum_vol_hm3": 273.1707910300001,
+    "cum_vol_L": 273170791030.0001
+  },
+  {
+    "elevation": 1050,
+    "slice_area_m2": 19703.69,
+    "surface_area_m2": 3212642.5500000007,
+    "partial_vol_m3": 3202790.705000001,
+    "cum_vol_m3": 276373581.7350001,
+    "cum_vol_hm3": 276.3735817350001,
+    "cum_vol_L": 276373581735.00006
+  },
+  {
+    "elevation": 1051,
+    "slice_area_m2": 19368.76,
+    "surface_area_m2": 3232011.3100000005,
+    "partial_vol_m3": 3222326.9300000006,
+    "cum_vol_m3": 279595908.6650001,
+    "cum_vol_hm3": 279.5959086650001,
+    "cum_vol_L": 279595908665.00006
+  },
+  {
+    "elevation": 1052,
+    "slice_area_m2": 19605.93,
+    "surface_area_m2": 3251617.2400000007,
+    "partial_vol_m3": 3241814.2750000004,
+    "cum_vol_m3": 282837722.94000006,
+    "cum_vol_hm3": 282.83772294000005,
+    "cum_vol_L": 282837722940.00006
+  },
+  {
+    "elevation": 1053,
+    "slice_area_m2": 19458.36,
+    "surface_area_m2": 3271075.6000000006,
+    "partial_vol_m3": 3261346.420000001,
+    "cum_vol_m3": 286099069.3600001,
+    "cum_vol_hm3": 286.0990693600001,
+    "cum_vol_L": 286099069360.00006
+  },
+  {
+    "elevation": 1054,
+    "slice_area_m2": 19585.47,
+    "surface_area_m2": 3290661.0700000008,
+    "partial_vol_m3": 3280868.335000001,
+    "cum_vol_m3": 289379937.69500005,
+    "cum_vol_hm3": 289.3799376950001,
+    "cum_vol_L": 289379937695.00006
+  },
+  {
+    "elevation": 1055,
+    "slice_area_m2": 19032.1,
+    "surface_area_m2": 3309693.170000001,
+    "partial_vol_m3": 3300177.120000001,
+    "cum_vol_m3": 292680114.81500006,
+    "cum_vol_hm3": 292.6801148150001,
+    "cum_vol_L": 292680114815.00006
+  },
+  {
+    "elevation": 1056,
+    "slice_area_m2": 18958.85,
+    "surface_area_m2": 3328652.020000001,
+    "partial_vol_m3": 3319172.5950000007,
+    "cum_vol_m3": 295999287.4100001,
+    "cum_vol_hm3": 295.9992874100001,
+    "cum_vol_L": 295999287410.00006
+  },
+  {
+    "elevation": 1057,
+    "slice_area_m2": 19580.54,
+    "surface_area_m2": 3348232.560000001,
+    "partial_vol_m3": 3338442.290000001,
+    "cum_vol_m3": 299337729.7000001,
+    "cum_vol_hm3": 299.3377297000001,
+    "cum_vol_L": 299337729700.0001
+  },
+  {
+    "elevation": 1058,
+    "slice_area_m2": 19134.55,
+    "surface_area_m2": 3367367.110000001,
+    "partial_vol_m3": 3357799.835000001,
+    "cum_vol_m3": 302695529.5350001,
+    "cum_vol_hm3": 302.6955295350001,
+    "cum_vol_L": 302695529535.00006
+  },
+  {
+    "elevation": 1059,
+    "slice_area_m2": 19365.5,
+    "surface_area_m2": 3386732.610000001,
+    "partial_vol_m3": 3377049.860000001,
+    "cum_vol_m3": 306072579.3950001,
+    "cum_vol_hm3": 306.0725793950001,
+    "cum_vol_L": 306072579395.0001
+  },
+  {
+    "elevation": 1060,
+    "slice_area_m2": 18795.87,
+    "surface_area_m2": 3405528.480000001,
+    "partial_vol_m3": 3396130.545000001,
+    "cum_vol_m3": 309468709.9400001,
+    "cum_vol_hm3": 309.4687099400001,
+    "cum_vol_L": 309468709940.0001
+  },
+  {
+    "elevation": 1061,
+    "slice_area_m2": 18344.38,
+    "surface_area_m2": 3423872.860000001,
+    "partial_vol_m3": 3414700.670000001,
+    "cum_vol_m3": 312883410.61000013,
+    "cum_vol_hm3": 312.8834106100001,
+    "cum_vol_L": 312883410610.0001
+  },
+  {
+    "elevation": 1062,
+    "slice_area_m2": 18568.51,
+    "surface_area_m2": 3442441.3700000006,
+    "partial_vol_m3": 3433157.1150000007,
+    "cum_vol_m3": 316316567.72500014,
+    "cum_vol_hm3": 316.31656772500014,
+    "cum_vol_L": 316316567725.0001
+  },
+  {
+    "elevation": 1063,
+    "slice_area_m2": 18465.15,
+    "surface_area_m2": 3460906.5200000005,
+    "partial_vol_m3": 3451673.9450000003,
+    "cum_vol_m3": 319768241.67000014,
+    "cum_vol_hm3": 319.7682416700001,
+    "cum_vol_L": 319768241670.0001
+  },
+  {
+    "elevation": 1064,
+    "slice_area_m2": 18792.06,
+    "surface_area_m2": 3479698.5800000005,
+    "partial_vol_m3": 3470302.5500000007,
+    "cum_vol_m3": 323238544.22000015,
+    "cum_vol_hm3": 323.23854422000016,
+    "cum_vol_L": 323238544220.0001
+  },
+  {
+    "elevation": 1065,
+    "slice_area_m2": 19047.09,
+    "surface_area_m2": 3498745.6700000004,
+    "partial_vol_m3": 3489222.1250000005,
+    "cum_vol_m3": 326727766.34500015,
+    "cum_vol_hm3": 326.72776634500013,
+    "cum_vol_L": 326727766345.0001
+  },
+  {
+    "elevation": 1066,
+    "slice_area_m2": 19355.82,
+    "surface_area_m2": 3518101.49,
+    "partial_vol_m3": 3508423.58,
+    "cum_vol_m3": 330236189.92500013,
+    "cum_vol_hm3": 330.23618992500013,
+    "cum_vol_L": 330236189925.0001
+  },
+  {
+    "elevation": 1067,
+    "slice_area_m2": 19960.66,
+    "surface_area_m2": 3538062.1500000004,
+    "partial_vol_m3": 3528081.8200000003,
+    "cum_vol_m3": 333764271.7450001,
+    "cum_vol_hm3": 333.76427174500014,
+    "cum_vol_L": 333764271745.0001
+  },
+  {
+    "elevation": 1068,
+    "slice_area_m2": 20396.27,
+    "surface_area_m2": 3558458.4200000004,
+    "partial_vol_m3": 3548260.285,
+    "cum_vol_m3": 337312532.03000015,
+    "cum_vol_hm3": 337.31253203000017,
+    "cum_vol_L": 337312532030.0001
+  },
+  {
+    "elevation": 1069,
+    "slice_area_m2": 20271.03,
+    "surface_area_m2": 3578729.45,
+    "partial_vol_m3": 3568593.9350000005,
+    "cum_vol_m3": 340881125.96500015,
+    "cum_vol_hm3": 340.88112596500014,
+    "cum_vol_L": 340881125965.0001
+  },
+  {
+    "elevation": 1070,
+    "slice_area_m2": 19988.31,
+    "surface_area_m2": 3598717.7600000002,
+    "partial_vol_m3": 3588723.6050000004,
+    "cum_vol_m3": 344469849.5700002,
+    "cum_vol_hm3": 344.4698495700002,
+    "cum_vol_L": 344469849570.0002
+  },
+  {
+    "elevation": 1071,
+    "slice_area_m2": 19442.17,
+    "surface_area_m2": 3618159.93,
+    "partial_vol_m3": 3608438.845,
+    "cum_vol_m3": 348078288.4150002,
+    "cum_vol_hm3": 348.0782884150002,
+    "cum_vol_L": 348078288415.0002
+  },
+  {
+    "elevation": 1072,
+    "slice_area_m2": 19267.0,
+    "surface_area_m2": 3637426.93,
+    "partial_vol_m3": 3627793.43,
+    "cum_vol_m3": 351706081.8450002,
+    "cum_vol_hm3": 351.7060818450002,
+    "cum_vol_L": 351706081845.0002
+  },
+  {
+    "elevation": 1073,
+    "slice_area_m2": 20567.14,
+    "surface_area_m2": 3657994.0700000003,
+    "partial_vol_m3": 3647710.5,
+    "cum_vol_m3": 355353792.3450002,
+    "cum_vol_hm3": 355.3537923450002,
+    "cum_vol_L": 355353792345.0002
+  },
+  {
+    "elevation": 1074,
+    "slice_area_m2": 20956.73,
+    "surface_area_m2": 3678950.8000000003,
+    "partial_vol_m3": 3668472.4350000005,
+    "cum_vol_m3": 359022264.7800002,
+    "cum_vol_hm3": 359.0222647800002,
+    "cum_vol_L": 359022264780.0002
+  },
+  {
+    "elevation": 1075,
+    "slice_area_m2": 20799.5,
+    "surface_area_m2": 3699750.3000000003,
+    "partial_vol_m3": 3689350.5500000003,
+    "cum_vol_m3": 362711615.3300002,
+    "cum_vol_hm3": 362.7116153300002,
+    "cum_vol_L": 362711615330.00024
+  },
+  {
+    "elevation": 1076,
+    "slice_area_m2": 20486.75,
+    "surface_area_m2": 3720237.0500000003,
+    "partial_vol_m3": 3709993.6750000003,
+    "cum_vol_m3": 366421609.00500023,
+    "cum_vol_hm3": 366.4216090050002,
+    "cum_vol_L": 366421609005.00024
+  },
+  {
+    "elevation": 1077,
+    "slice_area_m2": 19212.2,
+    "surface_area_m2": 3739449.2500000005,
+    "partial_vol_m3": 3729843.1500000004,
+    "cum_vol_m3": 370151452.1550002,
+    "cum_vol_hm3": 370.1514521550002,
+    "cum_vol_L": 370151452155.0002
+  },
+  {
+    "elevation": 1078,
+    "slice_area_m2": 19206.22,
+    "surface_area_m2": 3758655.4700000007,
+    "partial_vol_m3": 3749052.3600000003,
+    "cum_vol_m3": 373900504.5150002,
+    "cum_vol_hm3": 373.90050451500025,
+    "cum_vol_L": 373900504515.00024
+  },
+  {
+    "elevation": 1079,
+    "slice_area_m2": 19247.88,
+    "surface_area_m2": 3777903.3500000006,
+    "partial_vol_m3": 3768279.4100000006,
+    "cum_vol_m3": 377668783.92500025,
+    "cum_vol_hm3": 377.66878392500024,
+    "cum_vol_L": 377668783925.00024
+  },
+  {
+    "elevation": 1080,
+    "slice_area_m2": 18936.39,
+    "surface_area_m2": 3796839.7400000007,
+    "partial_vol_m3": 3787371.545000001,
+    "cum_vol_m3": 381456155.47000027,
+    "cum_vol_hm3": 381.4561554700003,
+    "cum_vol_L": 381456155470.00024
+  },
+  {
+    "elevation": 1081,
+    "slice_area_m2": 18953.77,
+    "surface_area_m2": 3815793.5100000007,
+    "partial_vol_m3": 3806316.625000001,
+    "cum_vol_m3": 385262472.09500027,
+    "cum_vol_hm3": 385.26247209500025,
+    "cum_vol_L": 385262472095.00024
+  },
+  {
+    "elevation": 1082,
+    "slice_area_m2": 19247.91,
+    "surface_area_m2": 3835041.420000001,
+    "partial_vol_m3": 3825417.465000001,
+    "cum_vol_m3": 389087889.56000024,
+    "cum_vol_hm3": 389.08788956000024,
+    "cum_vol_L": 389087889560.00024
+  },
+  {
+    "elevation": 1083,
+    "slice_area_m2": 19491.96,
+    "surface_area_m2": 3854533.380000001,
+    "partial_vol_m3": 3844787.400000001,
+    "cum_vol_m3": 392932676.9600002,
+    "cum_vol_hm3": 392.9326769600002,
+    "cum_vol_L": 392932676960.00024
+  },
+  {
+    "elevation": 1084,
+    "slice_area_m2": 19798.52,
+    "surface_area_m2": 3874331.900000001,
+    "partial_vol_m3": 3864432.6400000006,
+    "cum_vol_m3": 396797109.6000002,
+    "cum_vol_hm3": 396.7971096000002,
+    "cum_vol_L": 396797109600.0002
+  },
+  {
+    "elevation": 1085,
+    "slice_area_m2": 19592.42,
+    "surface_area_m2": 3893924.3200000008,
+    "partial_vol_m3": 3884128.110000001,
+    "cum_vol_m3": 400681237.7100002,
+    "cum_vol_hm3": 400.68123771000023,
+    "cum_vol_L": 400681237710.00024
+  },
+  {
+    "elevation": 1086,
+    "slice_area_m2": 19142.84,
+    "surface_area_m2": 3913067.1600000006,
+    "partial_vol_m3": 3903495.7400000007,
+    "cum_vol_m3": 404584733.4500002,
+    "cum_vol_hm3": 404.5847334500002,
+    "cum_vol_L": 404584733450.00024
+  },
+  {
+    "elevation": 1087,
+    "slice_area_m2": 18526.79,
+    "surface_area_m2": 3931593.9500000007,
+    "partial_vol_m3": 3922330.5550000006,
+    "cum_vol_m3": 408507064.00500023,
+    "cum_vol_hm3": 408.50706400500025,
+    "cum_vol_L": 408507064005.00024
+  },
+  {
+    "elevation": 1088,
+    "slice_area_m2": 18582.47,
+    "surface_area_m2": 3950176.420000001,
+    "partial_vol_m3": 3940885.1850000005,
+    "cum_vol_m3": 412447949.19000024,
+    "cum_vol_hm3": 412.44794919000026,
+    "cum_vol_L": 412447949190.00024
+  },
+  {
+    "elevation": 1089,
+    "slice_area_m2": 18372.24,
+    "surface_area_m2": 3968548.660000001,
+    "partial_vol_m3": 3959362.540000001,
+    "cum_vol_m3": 416407311.73000026,
+    "cum_vol_hm3": 416.40731173000023,
+    "cum_vol_L": 416407311730.00024
+  },
+  {
+    "elevation": 1090,
+    "slice_area_m2": 18480.64,
+    "surface_area_m2": 3987029.300000001,
+    "partial_vol_m3": 3977788.9800000014,
+    "cum_vol_m3": 420385100.7100003,
+    "cum_vol_hm3": 420.3851007100003,
+    "cum_vol_L": 420385100710.0003
+  },
+  {
+    "elevation": 1091,
+    "slice_area_m2": 19048.16,
+    "surface_area_m2": 4006077.4600000014,
+    "partial_vol_m3": 3996553.3800000013,
+    "cum_vol_m3": 424381654.0900003,
+    "cum_vol_hm3": 424.38165409000027,
+    "cum_vol_L": 424381654090.00024
+  },
+  {
+    "elevation": 1092,
+    "slice_area_m2": 20185.74,
+    "surface_area_m2": 4026263.2000000016,
+    "partial_vol_m3": 4016170.3300000015,
+    "cum_vol_m3": 428397824.42000026,
+    "cum_vol_hm3": 428.39782442000023,
+    "cum_vol_L": 428397824420.00024
+  },
+  {
+    "elevation": 1093,
+    "slice_area_m2": 19820.64,
+    "surface_area_m2": 4046083.8400000017,
+    "partial_vol_m3": 4036173.5200000014,
+    "cum_vol_m3": 432433997.94000024,
+    "cum_vol_hm3": 432.4339979400002,
+    "cum_vol_L": 432433997940.00024
+  },
+  {
+    "elevation": 1094,
+    "slice_area_m2": 19872.54,
+    "surface_area_m2": 4065956.3800000018,
+    "partial_vol_m3": 4056020.1100000017,
+    "cum_vol_m3": 436490018.05000025,
+    "cum_vol_hm3": 436.49001805000023,
+    "cum_vol_L": 436490018050.00024
+  },
+  {
+    "elevation": 1095,
+    "slice_area_m2": 19448.82,
+    "surface_area_m2": 4085405.2000000016,
+    "partial_vol_m3": 4075680.790000002,
+    "cum_vol_m3": 440565698.8400003,
+    "cum_vol_hm3": 440.56569884000027,
+    "cum_vol_L": 440565698840.00024
+  },
+  {
+    "elevation": 1096,
+    "slice_area_m2": 19949.32,
+    "surface_area_m2": 4105354.5200000014,
+    "partial_vol_m3": 4095379.8600000013,
+    "cum_vol_m3": 444661078.7000003,
+    "cum_vol_hm3": 444.6610787000003,
+    "cum_vol_L": 444661078700.0003
+  },
+  {
+    "elevation": 1097,
+    "slice_area_m2": 21231.87,
+    "surface_area_m2": 4126586.3900000015,
+    "partial_vol_m3": 4115970.4550000015,
+    "cum_vol_m3": 448777049.15500027,
+    "cum_vol_hm3": 448.77704915500027,
+    "cum_vol_L": 448777049155.00024
+  },
+  {
+    "elevation": 1098,
+    "slice_area_m2": 21324.68,
+    "surface_area_m2": 4147911.0700000017,
+    "partial_vol_m3": 4137248.7300000014,
+    "cum_vol_m3": 452914297.8850003,
+    "cum_vol_hm3": 452.9142978850003,
+    "cum_vol_L": 452914297885.0003
+  },
+  {
+    "elevation": 1099,
+    "slice_area_m2": 22086.98,
+    "surface_area_m2": 4169998.0500000017,
+    "partial_vol_m3": 4158954.5600000015,
+    "cum_vol_m3": 457073252.4450003,
+    "cum_vol_hm3": 457.07325244500026,
+    "cum_vol_L": 457073252445.0003
+  },
+  {
+    "elevation": 1100,
+    "slice_area_m2": 22517.03,
+    "surface_area_m2": 4192515.0800000015,
+    "partial_vol_m3": 4181256.5650000013,
+    "cum_vol_m3": 461254509.0100003,
+    "cum_vol_hm3": 461.2545090100003,
+    "cum_vol_L": 461254509010.0003
+  },
+  {
+    "elevation": 1101,
+    "slice_area_m2": 22263.88,
+    "surface_area_m2": 4214778.960000002,
+    "partial_vol_m3": 4203647.020000001,
+    "cum_vol_m3": 465458156.03000027,
+    "cum_vol_hm3": 465.4581560300003,
+    "cum_vol_L": 465458156030.00024
+  },
+  {
+    "elevation": 1102,
+    "slice_area_m2": 22023.0,
+    "surface_area_m2": 4236801.960000002,
+    "partial_vol_m3": 4225790.460000002,
+    "cum_vol_m3": 469683946.49000025,
+    "cum_vol_hm3": 469.68394649000027,
+    "cum_vol_L": 469683946490.00024
+  },
+  {
+    "elevation": 1103,
+    "slice_area_m2": 22543.32,
+    "surface_area_m2": 4259345.280000002,
+    "partial_vol_m3": 4248073.620000002,
+    "cum_vol_m3": 473932020.11000025,
+    "cum_vol_hm3": 473.9320201100003,
+    "cum_vol_L": 473932020110.00024
+  },
+  {
+    "elevation": 1104,
+    "slice_area_m2": 23200.76,
+    "surface_area_m2": 4282546.040000002,
+    "partial_vol_m3": 4270945.660000002,
+    "cum_vol_m3": 478202965.7700003,
+    "cum_vol_hm3": 478.2029657700003,
+    "cum_vol_L": 478202965770.0003
+  },
+  {
+    "elevation": 1105,
+    "slice_area_m2": 23755.58,
+    "surface_area_m2": 4306301.620000002,
+    "partial_vol_m3": 4294423.830000002,
+    "cum_vol_m3": 482497389.60000026,
+    "cum_vol_hm3": 482.49738960000025,
+    "cum_vol_L": 482497389600.00024
+  },
+  {
+    "elevation": 1106,
+    "slice_area_m2": 23093.64,
+    "surface_area_m2": 4329395.260000002,
+    "partial_vol_m3": 4317848.440000001,
+    "cum_vol_m3": 486815238.04000026,
+    "cum_vol_hm3": 486.8152380400003,
+    "cum_vol_L": 486815238040.00024
+  },
+  {
+    "elevation": 1107,
+    "slice_area_m2": 23345.45,
+    "surface_area_m2": 4352740.710000002,
+    "partial_vol_m3": 4341067.985000001,
+    "cum_vol_m3": 491156306.0250003,
+    "cum_vol_hm3": 491.1563060250003,
+    "cum_vol_L": 491156306025.00024
+  },
+  {
+    "elevation": 1108,
+    "slice_area_m2": 23948.97,
+    "surface_area_m2": 4376689.680000002,
+    "partial_vol_m3": 4364715.195000002,
+    "cum_vol_m3": 495521021.22000027,
+    "cum_vol_hm3": 495.52102122000025,
+    "cum_vol_L": 495521021220.00024
+  },
+  {
+    "elevation": 1109,
+    "slice_area_m2": 24006.82,
+    "surface_area_m2": 4400696.500000002,
+    "partial_vol_m3": 4388693.090000002,
+    "cum_vol_m3": 499909714.31000024,
+    "cum_vol_hm3": 499.90971431000025,
+    "cum_vol_L": 499909714310.00024
+  },
+  {
+    "elevation": 1110,
+    "slice_area_m2": 23973.9,
+    "surface_area_m2": 4424670.400000002,
+    "partial_vol_m3": 4412683.450000002,
+    "cum_vol_m3": 504322397.7600002,
+    "cum_vol_hm3": 504.32239776000023,
+    "cum_vol_L": 504322397760.00024
+  },
+  {
+    "elevation": 1111,
+    "slice_area_m2": 24503.9,
+    "surface_area_m2": 4449174.300000003,
+    "partial_vol_m3": 4436922.350000002,
+    "cum_vol_m3": 508759320.11000025,
+    "cum_vol_hm3": 508.75932011000026,
+    "cum_vol_L": 508759320110.00024
+  },
+  {
+    "elevation": 1112,
+    "slice_area_m2": 25039.39,
+    "surface_area_m2": 4474213.690000002,
+    "partial_vol_m3": 4461693.995000003,
+    "cum_vol_m3": 513221014.10500026,
+    "cum_vol_hm3": 513.2210141050002,
+    "cum_vol_L": 513221014105.00024
+  },
+  {
+    "elevation": 1113,
+    "slice_area_m2": 26227.51,
+    "surface_area_m2": 4500441.200000002,
+    "partial_vol_m3": 4487327.445000002,
+    "cum_vol_m3": 517708341.55000025,
+    "cum_vol_hm3": 517.7083415500002,
+    "cum_vol_L": 517708341550.00024
+  },
+  {
+    "elevation": 1114,
+    "slice_area_m2": 26507.81,
+    "surface_area_m2": 4526949.010000002,
+    "partial_vol_m3": 4513695.105000002,
+    "cum_vol_m3": 522222036.65500027,
+    "cum_vol_hm3": 522.2220366550002,
+    "cum_vol_L": 522222036655.00024
+  },
+  {
+    "elevation": 1115,
+    "slice_area_m2": 25834.68,
+    "surface_area_m2": 4552783.690000001,
+    "partial_vol_m3": 4539866.3500000015,
+    "cum_vol_m3": 526761903.0050003,
+    "cum_vol_hm3": 526.7619030050002,
+    "cum_vol_L": 526761903005.0003
+  },
+  {
+    "elevation": 1116,
+    "slice_area_m2": 25548.67,
+    "surface_area_m2": 4578332.360000001,
+    "partial_vol_m3": 4565558.025000001,
+    "cum_vol_m3": 531327461.03000027,
+    "cum_vol_hm3": 531.3274610300002,
+    "cum_vol_L": 531327461030.00024
+  },
+  {
+    "elevation": 1117,
+    "slice_area_m2": 25908.78,
+    "surface_area_m2": 4604241.1400000015,
+    "partial_vol_m3": 4591286.750000002,
+    "cum_vol_m3": 535918747.78000027,
+    "cum_vol_hm3": 535.9187477800002,
+    "cum_vol_L": 535918747780.00024
+  },
+  {
+    "elevation": 1118,
+    "slice_area_m2": 25534.51,
+    "surface_area_m2": 4629775.650000001,
+    "partial_vol_m3": 4617008.395000001,
+    "cum_vol_m3": 540535756.1750003,
+    "cum_vol_hm3": 540.5357561750003,
+    "cum_vol_L": 540535756175.0003
+  },
+  {
+    "elevation": 1119,
+    "slice_area_m2": 25634.72,
+    "surface_area_m2": 4655410.370000001,
+    "partial_vol_m3": 4642593.010000002,
+    "cum_vol_m3": 545178349.1850003,
+    "cum_vol_hm3": 545.1783491850003,
+    "cum_vol_L": 545178349185.0003
+  },
+  {
+    "elevation": 1120,
+    "slice_area_m2": 26387.52,
+    "surface_area_m2": 4681797.890000001,
+    "partial_vol_m3": 4668604.130000001,
+    "cum_vol_m3": 549846953.3150003,
+    "cum_vol_hm3": 549.8469533150003,
+    "cum_vol_L": 549846953315.0002
+  },
+  {
+    "elevation": 1121,
+    "slice_area_m2": 27181.81,
+    "surface_area_m2": 4708979.7,
+    "partial_vol_m3": 4695388.795,
+    "cum_vol_m3": 554542342.1100003,
+    "cum_vol_hm3": 554.5423421100003,
+    "cum_vol_L": 554542342110.0002
+  },
+  {
+    "elevation": 1122,
+    "slice_area_m2": 28354.59,
+    "surface_area_m2": 4737334.29,
+    "partial_vol_m3": 4723156.995,
+    "cum_vol_m3": 559265499.1050003,
+    "cum_vol_hm3": 559.2654991050002,
+    "cum_vol_L": 559265499105.0002
+  },
+  {
+    "elevation": 1123,
+    "slice_area_m2": 30708.85,
+    "surface_area_m2": 4768043.14,
+    "partial_vol_m3": 4752688.715,
+    "cum_vol_m3": 564018187.8200003,
+    "cum_vol_hm3": 564.0181878200003,
+    "cum_vol_L": 564018187820.0002
+  },
+  {
+    "elevation": 1124,
+    "slice_area_m2": 30868.67,
+    "surface_area_m2": 4798911.81,
+    "partial_vol_m3": 4783477.475,
+    "cum_vol_m3": 568801665.2950003,
+    "cum_vol_hm3": 568.8016652950004,
+    "cum_vol_L": 568801665295.0004
+  },
+  {
+    "elevation": 1125,
+    "slice_area_m2": 29456.51,
+    "surface_area_m2": 4828368.319999999,
+    "partial_vol_m3": 4813640.0649999995,
+    "cum_vol_m3": 573615305.3600004,
+    "cum_vol_hm3": 573.6153053600003,
+    "cum_vol_L": 573615305360.0004
+  },
+  {
+    "elevation": 1126,
+    "slice_area_m2": 29598.11,
+    "surface_area_m2": 4857966.43,
+    "partial_vol_m3": 4843167.375,
+    "cum_vol_m3": 578458472.7350004,
+    "cum_vol_hm3": 578.4584727350003,
+    "cum_vol_L": 578458472735.0004
+  },
+  {
+    "elevation": 1127,
+    "slice_area_m2": 30464.12,
+    "surface_area_m2": 4888430.55,
+    "partial_vol_m3": 4873198.49,
+    "cum_vol_m3": 583331671.2250004,
+    "cum_vol_hm3": 583.3316712250004,
+    "cum_vol_L": 583331671225.0004
+  },
+  {
+    "elevation": 1128,
+    "slice_area_m2": 31831.94,
+    "surface_area_m2": 4920262.49,
+    "partial_vol_m3": 4904346.52,
+    "cum_vol_m3": 588236017.7450004,
+    "cum_vol_hm3": 588.2360177450004,
+    "cum_vol_L": 588236017745.0004
+  },
+  {
+    "elevation": 1129,
+    "slice_area_m2": 33283.7,
+    "surface_area_m2": 4953546.19,
+    "partial_vol_m3": 4936904.34,
+    "cum_vol_m3": 593172922.0850004,
+    "cum_vol_hm3": 593.1729220850004,
+    "cum_vol_L": 593172922085.0004
+  },
+  {
+    "elevation": 1130,
+    "slice_area_m2": 34624.01,
+    "surface_area_m2": 4988170.2,
+    "partial_vol_m3": 4970858.195,
+    "cum_vol_m3": 598143780.2800004,
+    "cum_vol_hm3": 598.1437802800004,
+    "cum_vol_L": 598143780280.0005
+  },
+  {
+    "elevation": 1131,
+    "slice_area_m2": 35245.78,
+    "surface_area_m2": 5023415.98,
+    "partial_vol_m3": 5005793.09,
+    "cum_vol_m3": 603149573.3700005,
+    "cum_vol_hm3": 603.1495733700004,
+    "cum_vol_L": 603149573370.0005
+  },
+  {
+    "elevation": 1132,
+    "slice_area_m2": 36836.12,
+    "surface_area_m2": 5060252.100000001,
+    "partial_vol_m3": 5041834.040000001,
+    "cum_vol_m3": 608191407.4100004,
+    "cum_vol_hm3": 608.1914074100005,
+    "cum_vol_L": 608191407410.0005
+  },
+  {
+    "elevation": 1133,
+    "slice_area_m2": 37471.64,
+    "surface_area_m2": 5097723.74,
+    "partial_vol_m3": 5078987.92,
+    "cum_vol_m3": 613270395.3300004,
+    "cum_vol_hm3": 613.2703953300004,
+    "cum_vol_L": 613270395330.0004
+  },
+  {
+    "elevation": 1134,
+    "slice_area_m2": 37511.61,
+    "surface_area_m2": 5135235.350000001,
+    "partial_vol_m3": 5116479.545,
+    "cum_vol_m3": 618386874.8750004,
+    "cum_vol_hm3": 618.3868748750003,
+    "cum_vol_L": 618386874875.0004
+  },
+  {
+    "elevation": 1135,
+    "slice_area_m2": 37864.25,
+    "surface_area_m2": 5173099.600000001,
+    "partial_vol_m3": 5154167.475000001,
+    "cum_vol_m3": 623541042.3500004,
+    "cum_vol_hm3": 623.5410423500003,
+    "cum_vol_L": 623541042350.0004
+  },
+  {
+    "elevation": 1136,
+    "slice_area_m2": 38603.37,
+    "surface_area_m2": 5211702.970000001,
+    "partial_vol_m3": 5192401.285,
+    "cum_vol_m3": 628733443.6350003,
+    "cum_vol_hm3": 628.7334436350003,
+    "cum_vol_L": 628733443635.0004
+  },
+  {
+    "elevation": 1137,
+    "slice_area_m2": 38442.46,
+    "surface_area_m2": 5250145.430000001,
+    "partial_vol_m3": 5230924.200000001,
+    "cum_vol_m3": 633964367.8350004,
+    "cum_vol_hm3": 633.9643678350004,
+    "cum_vol_L": 633964367835.0004
+  },
+  {
+    "elevation": 1138,
+    "slice_area_m2": 37937.85,
+    "surface_area_m2": 5288083.28,
+    "partial_vol_m3": 5269114.355,
+    "cum_vol_m3": 639233482.1900004,
+    "cum_vol_hm3": 639.2334821900004,
+    "cum_vol_L": 639233482190.0004
+  },
+  {
+    "elevation": 1139,
+    "slice_area_m2": 37421.81,
+    "surface_area_m2": 5325505.09,
+    "partial_vol_m3": 5306794.1850000005,
+    "cum_vol_m3": 644540276.3750004,
+    "cum_vol_hm3": 644.5402763750003,
+    "cum_vol_L": 644540276375.0004
+  },
+  {
+    "elevation": 1140,
+    "slice_area_m2": 36966.21,
+    "surface_area_m2": 5362471.3,
+    "partial_vol_m3": 5343988.195,
+    "cum_vol_m3": 649884264.5700004,
+    "cum_vol_hm3": 649.8842645700004,
+    "cum_vol_L": 649884264570.0004
+  },
+  {
+    "elevation": 1141,
+    "slice_area_m2": 36759.45,
+    "surface_area_m2": 5399230.75,
+    "partial_vol_m3": 5380851.025,
+    "cum_vol_m3": 655265115.5950004,
+    "cum_vol_hm3": 655.2651155950003,
+    "cum_vol_L": 655265115595.0004
+  },
+  {
+    "elevation": 1142,
+    "slice_area_m2": 38226.54,
+    "surface_area_m2": 5437457.29,
+    "partial_vol_m3": 5418344.02,
+    "cum_vol_m3": 660683459.6150004,
+    "cum_vol_hm3": 660.6834596150004,
+    "cum_vol_L": 660683459615.0004
+  },
+  {
+    "elevation": 1143,
+    "slice_area_m2": 39646.74,
+    "surface_area_m2": 5477104.03,
+    "partial_vol_m3": 5457280.66,
+    "cum_vol_m3": 666140740.2750003,
+    "cum_vol_hm3": 666.1407402750003,
+    "cum_vol_L": 666140740275.0004
+  },
+  {
+    "elevation": 1144,
+    "slice_area_m2": 39502.39,
+    "surface_area_m2": 5516606.42,
+    "partial_vol_m3": 5496855.225,
+    "cum_vol_m3": 671637595.5000004,
+    "cum_vol_hm3": 671.6375955000003,
+    "cum_vol_L": 671637595500.0004
+  },
+  {
+    "elevation": 1145,
+    "slice_area_m2": 39834.55,
+    "surface_area_m2": 5556440.97,
+    "partial_vol_m3": 5536523.695,
+    "cum_vol_m3": 677174119.1950004,
+    "cum_vol_hm3": 677.1741191950005,
+    "cum_vol_L": 677174119195.0004
+  },
+  {
+    "elevation": 1146,
+    "slice_area_m2": 40009.5,
+    "surface_area_m2": 5596450.47,
+    "partial_vol_m3": 5576445.72,
+    "cum_vol_m3": 682750564.9150004,
+    "cum_vol_hm3": 682.7505649150004,
+    "cum_vol_L": 682750564915.0005
+  },
+  {
+    "elevation": 1147,
+    "slice_area_m2": 40726.35,
+    "surface_area_m2": 5637176.819999999,
+    "partial_vol_m3": 5616813.645,
+    "cum_vol_m3": 688367378.5600004,
+    "cum_vol_hm3": 688.3673785600005,
+    "cum_vol_L": 688367378560.0004
+  },
+  {
+    "elevation": 1148,
+    "slice_area_m2": 42411.88,
+    "surface_area_m2": 5679588.699999999,
+    "partial_vol_m3": 5658382.76,
+    "cum_vol_m3": 694025761.3200004,
+    "cum_vol_hm3": 694.0257613200004,
+    "cum_vol_L": 694025761320.0004
+  },
+  {
+    "elevation": 1149,
+    "slice_area_m2": 41543.03,
+    "surface_area_m2": 5721131.7299999995,
+    "partial_vol_m3": 5700360.215,
+    "cum_vol_m3": 699726121.5350004,
+    "cum_vol_hm3": 699.7261215350004,
+    "cum_vol_L": 699726121535.0005
+  },
+  {
+    "elevation": 1150,
+    "slice_area_m2": 40052.68,
+    "surface_area_m2": 5761184.409999999,
+    "partial_vol_m3": 5741158.069999999,
+    "cum_vol_m3": 705467279.6050005,
+    "cum_vol_hm3": 705.4672796050005,
+    "cum_vol_L": 705467279605.0005
+  },
+  {
+    "elevation": 1151,
+    "slice_area_m2": 39935.16,
+    "surface_area_m2": 5801119.569999999,
+    "partial_vol_m3": 5781151.989999999,
+    "cum_vol_m3": 711248431.5950005,
+    "cum_vol_hm3": 711.2484315950005,
+    "cum_vol_L": 711248431595.0005
+  },
+  {
+    "elevation": 1152,
+    "slice_area_m2": 40050.59,
+    "surface_area_m2": 5841170.159999999,
+    "partial_vol_m3": 5821144.864999999,
+    "cum_vol_m3": 717069576.4600005,
+    "cum_vol_hm3": 717.0695764600005,
+    "cum_vol_L": 717069576460.0005
+  },
+  {
+    "elevation": 1153,
+    "slice_area_m2": 41034.06,
+    "surface_area_m2": 5882204.219999999,
+    "partial_vol_m3": 5861687.1899999995,
+    "cum_vol_m3": 722931263.6500006,
+    "cum_vol_hm3": 722.9312636500006,
+    "cum_vol_L": 722931263650.0006
+  },
+  {
+    "elevation": 1154,
+    "slice_area_m2": 41867.99,
+    "surface_area_m2": 5924072.209999999,
+    "partial_vol_m3": 5903138.214999999,
+    "cum_vol_m3": 728834401.8650006,
+    "cum_vol_hm3": 728.8344018650006,
+    "cum_vol_L": 728834401865.0006
+  },
+  {
+    "elevation": 1155,
+    "slice_area_m2": 42286.74,
+    "surface_area_m2": 5966358.949999999,
+    "partial_vol_m3": 5945215.579999999,
+    "cum_vol_m3": 734779617.4450006,
+    "cum_vol_hm3": 734.7796174450007,
+    "cum_vol_L": 734779617445.0006
+  },
+  {
+    "elevation": 1156,
+    "slice_area_m2": 42638.27,
+    "surface_area_m2": 6008997.219999999,
+    "partial_vol_m3": 5987678.084999999,
+    "cum_vol_m3": 740767295.5300007,
+    "cum_vol_hm3": 740.7672955300006,
+    "cum_vol_L": 740767295530.0007
+  },
+  {
+    "elevation": 1157,
+    "slice_area_m2": 43454.11,
+    "surface_area_m2": 6052451.329999999,
+    "partial_vol_m3": 6030724.2749999985,
+    "cum_vol_m3": 746798019.8050007,
+    "cum_vol_hm3": 746.7980198050006,
+    "cum_vol_L": 746798019805.0006
+  },
+  {
+    "elevation": 1158,
+    "slice_area_m2": 43256.2,
+    "surface_area_m2": 6095707.529999999,
+    "partial_vol_m3": 6074079.43,
+    "cum_vol_m3": 752872099.2350006,
+    "cum_vol_hm3": 752.8720992350006,
+    "cum_vol_L": 752872099235.0006
+  },
+  {
+    "elevation": 1159,
+    "slice_area_m2": 44084.45,
+    "surface_area_m2": 6139791.9799999995,
+    "partial_vol_m3": 6117749.754999999,
+    "cum_vol_m3": 758989848.9900006,
+    "cum_vol_hm3": 758.9898489900006,
+    "cum_vol_L": 758989848990.0006
+  },
+  {
+    "elevation": 1160,
+    "slice_area_m2": 44459.59,
+    "surface_area_m2": 6184251.569999999,
+    "partial_vol_m3": 6162021.774999999,
+    "cum_vol_m3": 765151870.7650006,
+    "cum_vol_hm3": 765.1518707650006,
+    "cum_vol_L": 765151870765.0006
+  },
+  {
+    "elevation": 1161,
+    "slice_area_m2": 45309.09,
+    "surface_area_m2": 6229560.659999999,
+    "partial_vol_m3": 6206906.114999999,
+    "cum_vol_m3": 771358776.8800006,
+    "cum_vol_hm3": 771.3587768800006,
+    "cum_vol_L": 771358776880.0006
+  },
+  {
+    "elevation": 1162,
+    "slice_area_m2": 45461.28,
+    "surface_area_m2": 6275021.9399999995,
+    "partial_vol_m3": 6252291.299999999,
+    "cum_vol_m3": 777611068.1800005,
+    "cum_vol_hm3": 777.6110681800005,
+    "cum_vol_L": 777611068180.0005
+  },
+  {
+    "elevation": 1163,
+    "slice_area_m2": 46976.3,
+    "surface_area_m2": 6321998.239999999,
+    "partial_vol_m3": 6298510.09,
+    "cum_vol_m3": 783909578.2700006,
+    "cum_vol_hm3": 783.9095782700006,
+    "cum_vol_L": 783909578270.0006
+  },
+  {
+    "elevation": 1164,
+    "slice_area_m2": 47402.95,
+    "surface_area_m2": 6369401.1899999995,
+    "partial_vol_m3": 6345699.715,
+    "cum_vol_m3": 790255277.9850006,
+    "cum_vol_hm3": 790.2552779850006,
+    "cum_vol_L": 790255277985.0006
+  },
+  {
+    "elevation": 1165,
+    "slice_area_m2": 47045.56,
+    "surface_area_m2": 6416446.749999999,
+    "partial_vol_m3": 6392923.969999999,
+    "cum_vol_m3": 796648201.9550006,
+    "cum_vol_hm3": 796.6482019550007,
+    "cum_vol_L": 796648201955.0006
+  },
+  {
+    "elevation": 1166,
+    "slice_area_m2": 47500.19,
+    "surface_area_m2": 6463946.9399999995,
+    "partial_vol_m3": 6440196.844999999,
+    "cum_vol_m3": 803088398.8000007,
+    "cum_vol_hm3": 803.0883988000006,
+    "cum_vol_L": 803088398800.0006
+  },
+  {
+    "elevation": 1167,
+    "slice_area_m2": 48167.17,
+    "surface_area_m2": 6512114.109999999,
+    "partial_vol_m3": 6488030.524999999,
+    "cum_vol_m3": 809576429.3250006,
+    "cum_vol_hm3": 809.5764293250006,
+    "cum_vol_L": 809576429325.0006
+  },
+  {
+    "elevation": 1168,
+    "slice_area_m2": 49402.75,
+    "surface_area_m2": 6561516.859999999,
+    "partial_vol_m3": 6536815.484999999,
+    "cum_vol_m3": 816113244.8100007,
+    "cum_vol_hm3": 816.1132448100007,
+    "cum_vol_L": 816113244810.0006
+  },
+  {
+    "elevation": 1169,
+    "slice_area_m2": 48779.11,
+    "surface_area_m2": 6610295.97,
+    "partial_vol_m3": 6585906.414999999,
+    "cum_vol_m3": 822699151.2250006,
+    "cum_vol_hm3": 822.6991512250006,
+    "cum_vol_L": 822699151225.0006
+  },
+  {
+    "elevation": 1170,
+    "slice_area_m2": 47597.09,
+    "surface_area_m2": 6657893.06,
+    "partial_vol_m3": 6634094.515,
+    "cum_vol_m3": 829333245.7400006,
+    "cum_vol_hm3": 829.3332457400006,
+    "cum_vol_L": 829333245740.0006
+  },
+  {
+    "elevation": 1171,
+    "slice_area_m2": 47571.23,
+    "surface_area_m2": 6705464.29,
+    "partial_vol_m3": 6681678.675,
+    "cum_vol_m3": 836014924.4150006,
+    "cum_vol_hm3": 836.0149244150006,
+    "cum_vol_L": 836014924415.0006
+  },
+  {
+    "elevation": 1172,
+    "slice_area_m2": 47729.67,
+    "surface_area_m2": 6753193.96,
+    "partial_vol_m3": 6729329.125,
+    "cum_vol_m3": 842744253.5400006,
+    "cum_vol_hm3": 842.7442535400006,
+    "cum_vol_L": 842744253540.0006
+  },
+  {
+    "elevation": 1173,
+    "slice_area_m2": 47958.03,
+    "surface_area_m2": 6801151.99,
+    "partial_vol_m3": 6777172.975,
+    "cum_vol_m3": 849521426.5150006,
+    "cum_vol_hm3": 849.5214265150006,
+    "cum_vol_L": 849521426515.0006
+  },
+  {
+    "elevation": 1174,
+    "slice_area_m2": 46739.92,
+    "surface_area_m2": 6847891.91,
+    "partial_vol_m3": 6824521.95,
+    "cum_vol_m3": 856345948.4650006,
+    "cum_vol_hm3": 856.3459484650007,
+    "cum_vol_L": 856345948465.0006
+  },
+  {
+    "elevation": 1175,
+    "slice_area_m2": 46437.99,
+    "surface_area_m2": 6894329.9,
+    "partial_vol_m3": 6871110.905,
+    "cum_vol_m3": 863217059.3700006,
+    "cum_vol_hm3": 863.2170593700006,
+    "cum_vol_L": 863217059370.0006
+  },
+  {
+    "elevation": 1176,
+    "slice_area_m2": 46740.05,
+    "surface_area_m2": 6941069.95,
+    "partial_vol_m3": 6917699.925000001,
+    "cum_vol_m3": 870134759.2950006,
+    "cum_vol_hm3": 870.1347592950005,
+    "cum_vol_L": 870134759295.0006
+  },
+  {
+    "elevation": 1177,
+    "slice_area_m2": 46898.52,
+    "surface_area_m2": 6987968.47,
+    "partial_vol_m3": 6964519.21,
+    "cum_vol_m3": 877099278.5050006,
+    "cum_vol_hm3": 877.0992785050006,
+    "cum_vol_L": 877099278505.0006
+  },
+  {
+    "elevation": 1178,
+    "slice_area_m2": 47893.61,
+    "surface_area_m2": 7035862.08,
+    "partial_vol_m3": 7011915.275,
+    "cum_vol_m3": 884111193.7800006,
+    "cum_vol_hm3": 884.1111937800006,
+    "cum_vol_L": 884111193780.0006
+  },
+  {
+    "elevation": 1179,
+    "slice_area_m2": 47609.26,
+    "surface_area_m2": 7083471.34,
+    "partial_vol_m3": 7059666.71,
+    "cum_vol_m3": 891170860.4900006,
+    "cum_vol_hm3": 891.1708604900006,
+    "cum_vol_L": 891170860490.0006
+  },
+  {
+    "elevation": 1180,
+    "slice_area_m2": 47911.0,
+    "surface_area_m2": 7131382.34,
+    "partial_vol_m3": 7107426.84,
+    "cum_vol_m3": 898278287.3300006,
+    "cum_vol_hm3": 898.2782873300007,
+    "cum_vol_L": 898278287330.0006
+  },
+  {
+    "elevation": 1181,
+    "slice_area_m2": 47697.38,
+    "surface_area_m2": 7179079.72,
+    "partial_vol_m3": 7155231.029999999,
+    "cum_vol_m3": 905433518.3600006,
+    "cum_vol_hm3": 905.4335183600006,
+    "cum_vol_L": 905433518360.0006
+  },
+  {
+    "elevation": 1182,
+    "slice_area_m2": 47487.96,
+    "surface_area_m2": 7226567.68,
+    "partial_vol_m3": 7202823.699999999,
+    "cum_vol_m3": 912636342.0600007,
+    "cum_vol_hm3": 912.6363420600006,
+    "cum_vol_L": 912636342060.0006
+  },
+  {
+    "elevation": 1183,
+    "slice_area_m2": 48176.23,
+    "surface_area_m2": 7274743.91,
+    "partial_vol_m3": 7250655.795,
+    "cum_vol_m3": 919886997.8550006,
+    "cum_vol_hm3": 919.8869978550006,
+    "cum_vol_L": 919886997855.0006
+  },
+  {
+    "elevation": 1184,
+    "slice_area_m2": 48668.15,
+    "surface_area_m2": 7323412.0600000005,
+    "partial_vol_m3": 7299077.985,
+    "cum_vol_m3": 927186075.8400006,
+    "cum_vol_hm3": 927.1860758400006,
+    "cum_vol_L": 927186075840.0006
+  },
+  {
+    "elevation": 1185,
+    "slice_area_m2": 46638.08,
+    "surface_area_m2": 7370050.140000001,
+    "partial_vol_m3": 7346731.100000001,
+    "cum_vol_m3": 934532806.9400007,
+    "cum_vol_hm3": 934.5328069400007,
+    "cum_vol_L": 934532806940.0006
+  },
+  {
+    "elevation": 1186,
+    "slice_area_m2": 46373.17,
+    "surface_area_m2": 7416423.3100000005,
+    "partial_vol_m3": 7393236.725000001,
+    "cum_vol_m3": 941926043.6650007,
+    "cum_vol_hm3": 941.9260436650006,
+    "cum_vol_L": 941926043665.0007
+  },
+  {
+    "elevation": 1187,
+    "slice_area_m2": 48107.33,
+    "surface_area_m2": 7464530.640000001,
+    "partial_vol_m3": 7440476.975000001,
+    "cum_vol_m3": 949366520.6400007,
+    "cum_vol_hm3": 949.3665206400007,
+    "cum_vol_L": 949366520640.0007
+  },
+  {
+    "elevation": 1188,
+    "slice_area_m2": 46944.47,
+    "surface_area_m2": 7511475.11,
+    "partial_vol_m3": 7488002.875,
+    "cum_vol_m3": 956854523.5150007,
+    "cum_vol_hm3": 956.8545235150007,
+    "cum_vol_L": 956854523515.0007
+  },
+  {
+    "elevation": 1189,
+    "slice_area_m2": 45302.63,
+    "surface_area_m2": 7556777.74,
+    "partial_vol_m3": 7534126.425000001,
+    "cum_vol_m3": 964388649.9400007,
+    "cum_vol_hm3": 964.3886499400006,
+    "cum_vol_L": 964388649940.0006
+  },
+  {
+    "elevation": 1190,
+    "slice_area_m2": 45940.76,
+    "surface_area_m2": 7602718.5,
+    "partial_vol_m3": 7579748.12,
+    "cum_vol_m3": 971968398.0600007,
+    "cum_vol_hm3": 971.9683980600007,
+    "cum_vol_L": 971968398060.0006
+  },
+  {
+    "elevation": 1191,
+    "slice_area_m2": 44722.91,
+    "surface_area_m2": 7647441.41,
+    "partial_vol_m3": 7625079.955,
+    "cum_vol_m3": 979593478.0150007,
+    "cum_vol_hm3": 979.5934780150008,
+    "cum_vol_L": 979593478015.0007
+  },
+  {
+    "elevation": 1192,
+    "slice_area_m2": 43460.79,
+    "surface_area_m2": 7690902.2,
+    "partial_vol_m3": 7669171.805,
+    "cum_vol_m3": 987262649.8200006,
+    "cum_vol_hm3": 987.2626498200007,
+    "cum_vol_L": 987262649820.0006
+  },
+  {
+    "elevation": 1193,
+    "slice_area_m2": 43828.07,
+    "surface_area_m2": 7734730.2700000005,
+    "partial_vol_m3": 7712816.235,
+    "cum_vol_m3": 994975466.0550007,
+    "cum_vol_hm3": 994.9754660550007,
+    "cum_vol_L": 994975466055.0006
+  },
+  {
+    "elevation": 1194,
+    "slice_area_m2": 42944.07,
+    "surface_area_m2": 7777674.340000001,
+    "partial_vol_m3": 7756202.305000001,
+    "cum_vol_m3": 1002731668.3600006,
+    "cum_vol_hm3": 1002.7316683600006,
+    "cum_vol_L": 1002731668360.0006
+  },
+  {
+    "elevation": 1195,
+    "slice_area_m2": 41083.62,
+    "surface_area_m2": 7818757.960000001,
+    "partial_vol_m3": 7798216.15,
+    "cum_vol_m3": 1010529884.5100006,
+    "cum_vol_hm3": 1010.5298845100006,
+    "cum_vol_L": 1010529884510.0006
+  },
+  {
+    "elevation": 1196,
+    "slice_area_m2": 39904.43,
+    "surface_area_m2": 7858662.390000001,
+    "partial_vol_m3": 7838710.175000001,
+    "cum_vol_m3": 1018368594.6850005,
+    "cum_vol_hm3": 1018.3685946850005,
+    "cum_vol_L": 1018368594685.0005
+  },
+  {
+    "elevation": 1197,
+    "slice_area_m2": 39793.7,
+    "surface_area_m2": 7898456.090000001,
+    "partial_vol_m3": 7878559.24,
+    "cum_vol_m3": 1026247153.9250005,
+    "cum_vol_hm3": 1026.2471539250005,
+    "cum_vol_L": 1026247153925.0005
+  },
+  {
+    "elevation": 1198,
+    "slice_area_m2": 39527.44,
+    "surface_area_m2": 7937983.530000001,
+    "partial_vol_m3": 7918219.8100000005,
+    "cum_vol_m3": 1034165373.7350005,
+    "cum_vol_hm3": 1034.1653737350005,
+    "cum_vol_L": 1034165373735.0005
+  },
+  {
+    "elevation": 1199,
+    "slice_area_m2": 37743.12,
+    "surface_area_m2": 7975726.650000001,
+    "partial_vol_m3": 7956855.090000002,
+    "cum_vol_m3": 1042122228.8250005,
+    "cum_vol_hm3": 1042.1222288250005,
+    "cum_vol_L": 1042122228825.0005
+  },
+  {
+    "elevation": 1200,
+    "slice_area_m2": 38011.75,
+    "surface_area_m2": 8013738.400000001,
+    "partial_vol_m3": 7994732.525000001,
+    "cum_vol_m3": 1050116961.3500005,
+    "cum_vol_hm3": 1050.1169613500006,
+    "cum_vol_L": 1050116961350.0005
+  },
+  {
+    "elevation": 1201,
+    "slice_area_m2": 37300.81,
+    "surface_area_m2": 8051039.210000001,
+    "partial_vol_m3": 8032388.805000002,
+    "cum_vol_m3": 1058149350.1550004,
+    "cum_vol_hm3": 1058.1493501550005,
+    "cum_vol_L": 1058149350155.0005
+  },
+  {
+    "elevation": 1202,
+    "slice_area_m2": 37754.07,
+    "surface_area_m2": 8088793.280000001,
+    "partial_vol_m3": 8069916.245000001,
+    "cum_vol_m3": 1066219266.4000005,
+    "cum_vol_hm3": 1066.2192664000004,
+    "cum_vol_L": 1066219266400.0005
+  },
+  {
+    "elevation": 1203,
+    "slice_area_m2": 37768.68,
+    "surface_area_m2": 8126561.960000001,
+    "partial_vol_m3": 8107677.620000001,
+    "cum_vol_m3": 1074326944.0200005,
+    "cum_vol_hm3": 1074.3269440200004,
+    "cum_vol_L": 1074326944020.0005
+  },
+  {
+    "elevation": 1204,
+    "slice_area_m2": 35722.78,
+    "surface_area_m2": 8162284.740000001,
+    "partial_vol_m3": 8144423.3500000015,
+    "cum_vol_m3": 1082471367.3700004,
+    "cum_vol_hm3": 1082.4713673700003,
+    "cum_vol_L": 1082471367370.0004
+  },
+  {
+    "elevation": 1205,
+    "slice_area_m2": 36726.02,
+    "surface_area_m2": 8199010.760000001,
+    "partial_vol_m3": 8180647.750000001,
+    "cum_vol_m3": 1090652015.1200004,
+    "cum_vol_hm3": 1090.6520151200004,
+    "cum_vol_L": 1090652015120.0004
+  },
+  {
+    "elevation": 1206,
+    "slice_area_m2": 37891.48,
+    "surface_area_m2": 8236902.240000001,
+    "partial_vol_m3": 8217956.500000001,
+    "cum_vol_m3": 1098869971.6200004,
+    "cum_vol_hm3": 1098.8699716200003,
+    "cum_vol_L": 1098869971620.0004
+  },
+  {
+    "elevation": 1207,
+    "slice_area_m2": 40504.88,
+    "surface_area_m2": 8277407.120000001,
+    "partial_vol_m3": 8257154.680000002,
+    "cum_vol_m3": 1107127126.3000004,
+    "cum_vol_hm3": 1107.1271263000003,
+    "cum_vol_L": 1107127126300.0005
+  },
+  {
+    "elevation": 1208,
+    "slice_area_m2": 40329.24,
+    "surface_area_m2": 8317736.360000001,
+    "partial_vol_m3": 8297571.740000001,
+    "cum_vol_m3": 1115424698.0400004,
+    "cum_vol_hm3": 1115.4246980400005,
+    "cum_vol_L": 1115424698040.0005
+  },
+  {
+    "elevation": 1209,
+    "slice_area_m2": 38200.32,
+    "surface_area_m2": 8355936.680000002,
+    "partial_vol_m3": 8336836.520000001,
+    "cum_vol_m3": 1123761534.5600004,
+    "cum_vol_hm3": 1123.7615345600004,
+    "cum_vol_L": 1123761534560.0005
+  },
+  {
+    "elevation": 1210,
+    "slice_area_m2": 38174.72,
+    "surface_area_m2": 8394111.400000002,
+    "partial_vol_m3": 8375024.040000002,
+    "cum_vol_m3": 1132136558.6000004,
+    "cum_vol_hm3": 1132.1365586000004,
+    "cum_vol_L": 1132136558600.0005
+  },
+  {
+    "elevation": 1211,
+    "slice_area_m2": 38974.57,
+    "surface_area_m2": 8433085.970000003,
+    "partial_vol_m3": 8413598.685000002,
+    "cum_vol_m3": 1140550157.2850003,
+    "cum_vol_hm3": 1140.5501572850003,
+    "cum_vol_L": 1140550157285.0002
+  },
+  {
+    "elevation": 1212,
+    "slice_area_m2": 37062.47,
+    "surface_area_m2": 8470148.440000003,
+    "partial_vol_m3": 8451617.205000002,
+    "cum_vol_m3": 1149001774.4900002,
+    "cum_vol_hm3": 1149.0017744900003,
+    "cum_vol_L": 1149001774490.0002
+  },
+  {
+    "elevation": 1213,
+    "slice_area_m2": 34442.55,
+    "surface_area_m2": 8504590.990000004,
+    "partial_vol_m3": 8487369.715000004,
+    "cum_vol_m3": 1157489144.2050002,
+    "cum_vol_hm3": 1157.4891442050002,
+    "cum_vol_L": 1157489144205.0002
+  },
+  {
+    "elevation": 1214,
+    "slice_area_m2": 33360.27,
+    "surface_area_m2": 8537951.260000004,
+    "partial_vol_m3": 8521271.125000004,
+    "cum_vol_m3": 1166010415.3300002,
+    "cum_vol_hm3": 1166.0104153300001,
+    "cum_vol_L": 1166010415330.0002
+  },
+  {
+    "elevation": 1215,
+    "slice_area_m2": 32855.6,
+    "surface_area_m2": 8570806.860000003,
+    "partial_vol_m3": 8554379.060000002,
+    "cum_vol_m3": 1174564794.39,
+    "cum_vol_hm3": 1174.56479439,
+    "cum_vol_L": 1174564794390.0
+  },
+  {
+    "elevation": 1216,
+    "slice_area_m2": 31985.64,
+    "surface_area_m2": 8602792.500000004,
+    "partial_vol_m3": 8586799.680000003,
+    "cum_vol_m3": 1183151594.0700002,
+    "cum_vol_hm3": 1183.15159407,
+    "cum_vol_L": 1183151594070.0002
+  },
+  {
+    "elevation": 1217,
+    "slice_area_m2": 30642.03,
+    "surface_area_m2": 8633434.530000003,
+    "partial_vol_m3": 8618113.515000004,
+    "cum_vol_m3": 1191769707.5850003,
+    "cum_vol_hm3": 1191.7697075850003,
+    "cum_vol_L": 1191769707585.0002
+  },
+  {
+    "elevation": 1218,
+    "slice_area_m2": 30648.84,
+    "surface_area_m2": 8664083.370000003,
+    "partial_vol_m3": 8648758.950000003,
+    "cum_vol_m3": 1200418466.5350003,
+    "cum_vol_hm3": 1200.4184665350003,
+    "cum_vol_L": 1200418466535.0002
+  },
+  {
+    "elevation": 1219,
+    "slice_area_m2": 29588.9,
+    "surface_area_m2": 8693672.270000003,
+    "partial_vol_m3": 8678877.820000004,
+    "cum_vol_m3": 1209097344.3550003,
+    "cum_vol_hm3": 1209.0973443550004,
+    "cum_vol_L": 1209097344355.0002
+  },
+  {
+    "elevation": 1220,
+    "slice_area_m2": 28738.71,
+    "surface_area_m2": 8722410.980000004,
+    "partial_vol_m3": 8708041.625000004,
+    "cum_vol_m3": 1217805385.9800003,
+    "cum_vol_hm3": 1217.8053859800002,
+    "cum_vol_L": 1217805385980.0002
+  },
+  {
+    "elevation": 1221,
+    "slice_area_m2": 28472.66,
+    "surface_area_m2": 8750883.640000004,
+    "partial_vol_m3": 8736647.310000004,
+    "cum_vol_m3": 1226542033.2900002,
+    "cum_vol_hm3": 1226.5420332900003,
+    "cum_vol_L": 1226542033290.0002
+  },
+  {
+    "elevation": 1222,
+    "slice_area_m2": 29155.47,
+    "surface_area_m2": 8780039.110000005,
+    "partial_vol_m3": 8765461.375000004,
+    "cum_vol_m3": 1235307494.6650002,
+    "cum_vol_hm3": 1235.3074946650001,
+    "cum_vol_L": 1235307494665.0002
+  },
+  {
+    "elevation": 1223,
+    "slice_area_m2": 28491.56,
+    "surface_area_m2": 8808530.670000006,
+    "partial_vol_m3": 8794284.890000004,
+    "cum_vol_m3": 1244101779.5550003,
+    "cum_vol_hm3": 1244.1017795550003,
+    "cum_vol_L": 1244101779555.0002
+  },
+  {
+    "elevation": 1224,
+    "slice_area_m2": 28245.69,
+    "surface_area_m2": 8836776.360000005,
+    "partial_vol_m3": 8822653.515000004,
+    "cum_vol_m3": 1252924433.0700004,
+    "cum_vol_hm3": 1252.9244330700003,
+    "cum_vol_L": 1252924433070.0005
+  },
+  {
+    "elevation": 1225,
+    "slice_area_m2": 27996.14,
+    "surface_area_m2": 8864772.500000006,
+    "partial_vol_m3": 8850774.430000005,
+    "cum_vol_m3": 1261775207.5000005,
+    "cum_vol_hm3": 1261.7752075000005,
+    "cum_vol_L": 1261775207500.0005
+  },
+  {
+    "elevation": 1226,
+    "slice_area_m2": 27586.33,
+    "surface_area_m2": 8892358.830000006,
+    "partial_vol_m3": 8878565.665000007,
+    "cum_vol_m3": 1270653773.1650004,
+    "cum_vol_hm3": 1270.6537731650005,
+    "cum_vol_L": 1270653773165.0005
+  },
+  {
+    "elevation": 1227,
+    "slice_area_m2": 27064.78,
+    "surface_area_m2": 8919423.610000005,
+    "partial_vol_m3": 8905891.220000006,
+    "cum_vol_m3": 1279559664.3850005,
+    "cum_vol_hm3": 1279.5596643850004,
+    "cum_vol_L": 1279559664385.0005
+  },
+  {
+    "elevation": 1228,
+    "slice_area_m2": 27305.02,
+    "surface_area_m2": 8946728.630000005,
+    "partial_vol_m3": 8933076.120000005,
+    "cum_vol_m3": 1288492740.5050006,
+    "cum_vol_hm3": 1288.4927405050005,
+    "cum_vol_L": 1288492740505.0005
+  },
+  {
+    "elevation": 1229,
+    "slice_area_m2": 25879.98,
+    "surface_area_m2": 8972608.610000005,
+    "partial_vol_m3": 8959668.620000005,
+    "cum_vol_m3": 1297452409.1250005,
+    "cum_vol_hm3": 1297.4524091250005,
+    "cum_vol_L": 1297452409125.0005
+  },
+  {
+    "elevation": 1230,
+    "slice_area_m2": 25698.66,
+    "surface_area_m2": 8998307.270000005,
+    "partial_vol_m3": 8985457.940000005,
+    "cum_vol_m3": 1306437867.0650005,
+    "cum_vol_hm3": 1306.4378670650005,
+    "cum_vol_L": 1306437867065.0005
+  },
+  {
+    "elevation": 1231,
+    "slice_area_m2": 24930.44,
+    "surface_area_m2": 9023237.710000005,
+    "partial_vol_m3": 9010772.490000006,
+    "cum_vol_m3": 1315448639.5550005,
+    "cum_vol_hm3": 1315.4486395550005,
+    "cum_vol_L": 1315448639555.0005
+  },
+  {
+    "elevation": 1232,
+    "slice_area_m2": 24151.93,
+    "surface_area_m2": 9047389.640000004,
+    "partial_vol_m3": 9035313.675000004,
+    "cum_vol_m3": 1324483953.2300005,
+    "cum_vol_hm3": 1324.4839532300005,
+    "cum_vol_L": 1324483953230.0005
+  },
+  {
+    "elevation": 1233,
+    "slice_area_m2": 24343.86,
+    "surface_area_m2": 9071733.500000004,
+    "partial_vol_m3": 9059561.570000004,
+    "cum_vol_m3": 1333543514.8000004,
+    "cum_vol_hm3": 1333.5435148000004,
+    "cum_vol_L": 1333543514800.0005
+  },
+  {
+    "elevation": 1234,
+    "slice_area_m2": 24414.4,
+    "surface_area_m2": 9096147.900000004,
+    "partial_vol_m3": 9083940.700000003,
+    "cum_vol_m3": 1342627455.5000005,
+    "cum_vol_hm3": 1342.6274555000005,
+    "cum_vol_L": 1342627455500.0005
+  },
+  {
+    "elevation": 1235,
+    "slice_area_m2": 24639.98,
+    "surface_area_m2": 9120787.880000005,
+    "partial_vol_m3": 9108467.890000004,
+    "cum_vol_m3": 1351735923.3900006,
+    "cum_vol_hm3": 1351.7359233900006,
+    "cum_vol_L": 1351735923390.0005
+  },
+  {
+    "elevation": 1236,
+    "slice_area_m2": 25157.79,
+    "surface_area_m2": 9145945.670000004,
+    "partial_vol_m3": 9133366.775000004,
+    "cum_vol_m3": 1360869290.1650007,
+    "cum_vol_hm3": 1360.8692901650006,
+    "cum_vol_L": 1360869290165.0007
+  },
+  {
+    "elevation": 1237,
+    "slice_area_m2": 25089.64,
+    "surface_area_m2": 9171035.310000004,
+    "partial_vol_m3": 9158490.490000004,
+    "cum_vol_m3": 1370027780.6550007,
+    "cum_vol_hm3": 1370.0277806550007,
+    "cum_vol_L": 1370027780655.0007
+  },
+  {
+    "elevation": 1238,
+    "slice_area_m2": 25887.19,
+    "surface_area_m2": 9196922.500000004,
+    "partial_vol_m3": 9183978.905000005,
+    "cum_vol_m3": 1379211759.5600007,
+    "cum_vol_hm3": 1379.2117595600007,
+    "cum_vol_L": 1379211759560.0007
+  },
+  {
+    "elevation": 1239,
+    "slice_area_m2": 23389.08,
+    "surface_area_m2": 9220311.580000004,
+    "partial_vol_m3": 9208617.040000003,
+    "cum_vol_m3": 1388420376.6000006,
+    "cum_vol_hm3": 1388.4203766000005,
+    "cum_vol_L": 1388420376600.0007
+  },
+  {
+    "elevation": 1240,
+    "slice_area_m2": 23217.78,
+    "surface_area_m2": 9243529.360000003,
+    "partial_vol_m3": 9231920.470000003,
+    "cum_vol_m3": 1397652297.0700006,
+    "cum_vol_hm3": 1397.6522970700007,
+    "cum_vol_L": 1397652297070.0007
+  },
+  {
+    "elevation": 1241,
+    "slice_area_m2": 22291.42,
+    "surface_area_m2": 9265820.780000003,
+    "partial_vol_m3": 9254675.070000004,
+    "cum_vol_m3": 1406906972.1400006,
+    "cum_vol_hm3": 1406.9069721400006,
+    "cum_vol_L": 1406906972140.0005
+  },
+  {
+    "elevation": 1242,
+    "slice_area_m2": 21002.79,
+    "surface_area_m2": 9286823.570000002,
+    "partial_vol_m3": 9276322.175000003,
+    "cum_vol_m3": 1416183294.3150005,
+    "cum_vol_hm3": 1416.1832943150005,
+    "cum_vol_L": 1416183294315.0005
+  },
+  {
+    "elevation": 1243,
+    "slice_area_m2": 19938.23,
+    "surface_area_m2": 9306761.800000003,
+    "partial_vol_m3": 9296792.685000002,
+    "cum_vol_m3": 1425480087.0000005,
+    "cum_vol_hm3": 1425.4800870000004,
+    "cum_vol_L": 1425480087000.0005
+  },
+  {
+    "elevation": 1244,
+    "slice_area_m2": 21639.51,
+    "surface_area_m2": 9328401.310000002,
+    "partial_vol_m3": 9317581.555000003,
+    "cum_vol_m3": 1434797668.5550005,
+    "cum_vol_hm3": 1434.7976685550007,
+    "cum_vol_L": 1434797668555.0005
+  },
+  {
+    "elevation": 1245,
+    "slice_area_m2": 21791.53,
+    "surface_area_m2": 9350192.840000002,
+    "partial_vol_m3": 9339297.075000003,
+    "cum_vol_m3": 1444136965.6300006,
+    "cum_vol_hm3": 1444.1369656300005,
+    "cum_vol_L": 1444136965630.0005
+  },
+  {
+    "elevation": 1246,
+    "slice_area_m2": 20333.7,
+    "surface_area_m2": 9370526.540000001,
+    "partial_vol_m3": 9360359.690000001,
+    "cum_vol_m3": 1453497325.3200006,
+    "cum_vol_hm3": 1453.4973253200008,
+    "cum_vol_L": 1453497325320.0007
+  },
+  {
+    "elevation": 1247,
+    "slice_area_m2": 19880.0,
+    "surface_area_m2": 9390406.540000001,
+    "partial_vol_m3": 9380466.540000001,
+    "cum_vol_m3": 1462877791.8600006,
+    "cum_vol_hm3": 1462.8777918600006,
+    "cum_vol_L": 1462877791860.0005
+  },
+  {
+    "elevation": 1248,
+    "slice_area_m2": 19570.74,
+    "surface_area_m2": 9409977.280000001,
+    "partial_vol_m3": 9400191.91,
+    "cum_vol_m3": 1472277983.7700007,
+    "cum_vol_hm3": 1472.2779837700007,
+    "cum_vol_L": 1472277983770.0007
+  },
+  {
+    "elevation": 1249,
+    "slice_area_m2": 19744.91,
+    "surface_area_m2": 9429722.190000001,
+    "partial_vol_m3": 9419849.735000001,
+    "cum_vol_m3": 1481697833.5050006,
+    "cum_vol_hm3": 1481.6978335050005,
+    "cum_vol_L": 1481697833505.0005
+  },
+  {
+    "elevation": 1250,
+    "slice_area_m2": 20410.55,
+    "surface_area_m2": 9450132.740000002,
+    "partial_vol_m3": 9439927.465000002,
+    "cum_vol_m3": 1491137760.9700005,
+    "cum_vol_hm3": 1491.1377609700005,
+    "cum_vol_L": 1491137760970.0005
+  },
+  {
+    "elevation": 1251,
+    "slice_area_m2": 20571.49,
+    "surface_area_m2": 9470704.230000002,
+    "partial_vol_m3": 9460418.485000003,
+    "cum_vol_m3": 1500598179.4550004,
+    "cum_vol_hm3": 1500.5981794550005,
+    "cum_vol_L": 1500598179455.0005
+  },
+  {
+    "elevation": 1252,
+    "slice_area_m2": 21060.19,
+    "surface_area_m2": 9491764.420000002,
+    "partial_vol_m3": 9481234.325000003,
+    "cum_vol_m3": 1510079413.7800004,
+    "cum_vol_hm3": 1510.0794137800006,
+    "cum_vol_L": 1510079413780.0005
+  },
+  {
+    "elevation": 1253,
+    "slice_area_m2": 20355.03,
+    "surface_area_m2": 9512119.450000001,
+    "partial_vol_m3": 9501941.935000002,
+    "cum_vol_m3": 1519581355.7150004,
+    "cum_vol_hm3": 1519.5813557150004,
+    "cum_vol_L": 1519581355715.0005
+  },
+  {
+    "elevation": 1254,
+    "slice_area_m2": 20167.16,
+    "surface_area_m2": 9532286.610000001,
+    "partial_vol_m3": 9522203.030000001,
+    "cum_vol_m3": 1529103558.7450004,
+    "cum_vol_hm3": 1529.1035587450003,
+    "cum_vol_L": 1529103558745.0002
+  },
+  {
+    "elevation": 1255,
+    "slice_area_m2": 19643.58,
+    "surface_area_m2": 9551930.190000001,
+    "partial_vol_m3": 9542108.400000002,
+    "cum_vol_m3": 1538645667.1450005,
+    "cum_vol_hm3": 1538.6456671450005,
+    "cum_vol_L": 1538645667145.0005
+  },
+  {
+    "elevation": 1256,
+    "slice_area_m2": 19713.6,
+    "surface_area_m2": 9571643.790000001,
+    "partial_vol_m3": 9561786.990000002,
+    "cum_vol_m3": 1548207454.1350005,
+    "cum_vol_hm3": 1548.2074541350005,
+    "cum_vol_L": 1548207454135.0005
+  },
+  {
+    "elevation": 1257,
+    "slice_area_m2": 20537.82,
+    "surface_area_m2": 9592181.610000001,
+    "partial_vol_m3": 9581912.700000001,
+    "cum_vol_m3": 1557789366.8350005,
+    "cum_vol_hm3": 1557.7893668350005,
+    "cum_vol_L": 1557789366835.0005
+  },
+  {
+    "elevation": 1258,
+    "slice_area_m2": 20929.19,
+    "surface_area_m2": 9613110.8,
+    "partial_vol_m3": 9602646.205000002,
+    "cum_vol_m3": 1567392013.0400004,
+    "cum_vol_hm3": 1567.3920130400004,
+    "cum_vol_L": 1567392013040.0005
+  },
+  {
+    "elevation": 1259,
+    "slice_area_m2": 22091.9,
+    "surface_area_m2": 9635202.700000001,
+    "partial_vol_m3": 9624156.75,
+    "cum_vol_m3": 1577016169.7900004,
+    "cum_vol_hm3": 1577.0161697900005,
+    "cum_vol_L": 1577016169790.0005
+  },
+  {
+    "elevation": 1260,
+    "slice_area_m2": 22517.28,
+    "surface_area_m2": 9657719.98,
+    "partial_vol_m3": 9646461.34,
+    "cum_vol_m3": 1586662631.1300004,
+    "cum_vol_hm3": 1586.6626311300004,
+    "cum_vol_L": 1586662631130.0002
+  },
+  {
+    "elevation": 1261,
+    "slice_area_m2": 22908.06,
+    "surface_area_m2": 9680628.040000001,
+    "partial_vol_m3": 9669174.010000002,
+    "cum_vol_m3": 1596331805.1400003,
+    "cum_vol_hm3": 1596.3318051400004,
+    "cum_vol_L": 1596331805140.0002
+  },
+  {
+    "elevation": 1262,
+    "slice_area_m2": 21709.69,
+    "surface_area_m2": 9702337.73,
+    "partial_vol_m3": 9691482.885000002,
+    "cum_vol_m3": 1606023288.0250003,
+    "cum_vol_hm3": 1606.0232880250003,
+    "cum_vol_L": 1606023288025.0002
+  },
+  {
+    "elevation": 1263,
+    "slice_area_m2": 19751.68,
+    "surface_area_m2": 9722089.41,
+    "partial_vol_m3": 9712213.57,
+    "cum_vol_m3": 1615735501.5950003,
+    "cum_vol_hm3": 1615.7355015950002,
+    "cum_vol_L": 1615735501595.0002
+  },
+  {
+    "elevation": 1264,
+    "slice_area_m2": 18650.57,
+    "surface_area_m2": 9740739.98,
+    "partial_vol_m3": 9731414.695,
+    "cum_vol_m3": 1625466916.2900002,
+    "cum_vol_hm3": 1625.4669162900002,
+    "cum_vol_L": 1625466916290.0002
+  },
+  {
+    "elevation": 1265,
+    "slice_area_m2": 17132.06,
+    "surface_area_m2": 9757872.040000001,
+    "partial_vol_m3": 9749306.010000002,
+    "cum_vol_m3": 1635216222.3000002,
+    "cum_vol_hm3": 1635.2162223000003,
+    "cum_vol_L": 1635216222300.0002
+  },
+  {
+    "elevation": 1266,
+    "slice_area_m2": 17169.9,
+    "surface_area_m2": 9775041.940000001,
+    "partial_vol_m3": 9766456.990000002,
+    "cum_vol_m3": 1644982679.2900002,
+    "cum_vol_hm3": 1644.9826792900003,
+    "cum_vol_L": 1644982679290.0002
+  },
+  {
+    "elevation": 1267,
+    "slice_area_m2": 17227.46,
+    "surface_area_m2": 9792269.400000002,
+    "partial_vol_m3": 9783655.670000002,
+    "cum_vol_m3": 1654766334.9600003,
+    "cum_vol_hm3": 1654.7663349600002,
+    "cum_vol_L": 1654766334960.0002
+  },
+  {
+    "elevation": 1268,
+    "slice_area_m2": 17278.05,
+    "surface_area_m2": 9809547.450000003,
+    "partial_vol_m3": 9800908.425000003,
+    "cum_vol_m3": 1664567243.3850002,
+    "cum_vol_hm3": 1664.5672433850002,
+    "cum_vol_L": 1664567243385.0002
+  },
+  {
+    "elevation": 1269,
+    "slice_area_m2": 17603.0,
+    "surface_area_m2": 9827150.450000003,
+    "partial_vol_m3": 9818348.950000003,
+    "cum_vol_m3": 1674385592.3350003,
+    "cum_vol_hm3": 1674.3855923350002,
+    "cum_vol_L": 1674385592335.0002
+  },
+  {
+    "elevation": 1270,
+    "slice_area_m2": 14584.46,
+    "surface_area_m2": 9841734.910000004,
+    "partial_vol_m3": 9834442.680000003,
+    "cum_vol_m3": 1684220035.0150003,
+    "cum_vol_hm3": 1684.2200350150003,
+    "cum_vol_L": 1684220035015.0002
+  },
+  {
+    "elevation": 1271,
+    "slice_area_m2": 14119.14,
+    "surface_area_m2": 9855854.050000004,
+    "partial_vol_m3": 9848794.480000004,
+    "cum_vol_m3": 1694068829.4950004,
+    "cum_vol_hm3": 1694.0688294950003,
+    "cum_vol_L": 1694068829495.0002
+  },
+  {
+    "elevation": 1272,
+    "slice_area_m2": 13335.07,
+    "surface_area_m2": 9869189.120000005,
+    "partial_vol_m3": 9862521.585000005,
+    "cum_vol_m3": 1703931351.0800004,
+    "cum_vol_hm3": 1703.9313510800005,
+    "cum_vol_L": 1703931351080.0005
+  },
+  {
+    "elevation": 1273,
+    "slice_area_m2": 11571.11,
+    "surface_area_m2": 9880760.230000004,
+    "partial_vol_m3": 9874974.675000004,
+    "cum_vol_m3": 1713806325.7550004,
+    "cum_vol_hm3": 1713.8063257550004,
+    "cum_vol_L": 1713806325755.0002
+  },
+  {
+    "elevation": 1274,
+    "slice_area_m2": 10667.29,
+    "surface_area_m2": 9891427.520000003,
+    "partial_vol_m3": 9886093.875000004,
+    "cum_vol_m3": 1723692419.6300004,
+    "cum_vol_hm3": 1723.6924196300004,
+    "cum_vol_L": 1723692419630.0002
+  },
+  {
+    "elevation": 1275,
+    "slice_area_m2": 10532.14,
+    "surface_area_m2": 9901959.660000004,
+    "partial_vol_m3": 9896693.590000004,
+    "cum_vol_m3": 1733589113.2200003,
+    "cum_vol_hm3": 1733.5891132200002,
+    "cum_vol_L": 1733589113220.0002
+  },
+  {
+    "elevation": 1276,
+    "slice_area_m2": 10303.02,
+    "surface_area_m2": 9912262.680000003,
+    "partial_vol_m3": 9907111.170000004,
+    "cum_vol_m3": 1743496224.3900003,
+    "cum_vol_hm3": 1743.4962243900004,
+    "cum_vol_L": 1743496224390.0002
+  },
+  {
+    "elevation": 1277,
+    "slice_area_m2": 10756.03,
+    "surface_area_m2": 9923018.710000003,
+    "partial_vol_m3": 9917640.695000004,
+    "cum_vol_m3": 1753413865.0850003,
+    "cum_vol_hm3": 1753.4138650850002,
+    "cum_vol_L": 1753413865085.0002
+  },
+  {
+    "elevation": 1278,
+    "slice_area_m2": 10852.77,
+    "surface_area_m2": 9933871.480000002,
+    "partial_vol_m3": 9928445.095000003,
+    "cum_vol_m3": 1763342310.1800003,
+    "cum_vol_hm3": 1763.3423101800004,
+    "cum_vol_L": 1763342310180.0002
+  },
+  {
+    "elevation": 1279,
+    "slice_area_m2": 8859.06,
+    "surface_area_m2": 9942730.540000003,
+    "partial_vol_m3": 9938301.010000002,
+    "cum_vol_m3": 1773280611.1900003,
+    "cum_vol_hm3": 1773.2806111900004,
+    "cum_vol_L": 1773280611190.0002
+  },
+  {
+    "elevation": 1280,
+    "slice_area_m2": 8638.83,
+    "surface_area_m2": 9951369.370000003,
+    "partial_vol_m3": 9947049.955000002,
+    "cum_vol_m3": 1783227661.1450002,
+    "cum_vol_hm3": 1783.2276611450002,
+    "cum_vol_L": 1783227661145.0002
+  },
+  {
+    "elevation": 1281,
+    "slice_area_m2": 8366.3,
+    "surface_area_m2": 9959735.670000004,
+    "partial_vol_m3": 9955552.520000003,
+    "cum_vol_m3": 1793183213.6650002,
+    "cum_vol_hm3": 1793.1832136650003,
+    "cum_vol_L": 1793183213665.0002
+  },
+  {
+    "elevation": 1282,
+    "slice_area_m2": 7563.44,
+    "surface_area_m2": 9967299.110000003,
+    "partial_vol_m3": 9963517.390000004,
+    "cum_vol_m3": 1803146731.0550003,
+    "cum_vol_hm3": 1803.1467310550004,
+    "cum_vol_L": 1803146731055.0002
+  },
+  {
+    "elevation": 1283,
+    "slice_area_m2": 7690.64,
+    "surface_area_m2": 9974989.750000004,
+    "partial_vol_m3": 9971144.430000003,
+    "cum_vol_m3": 1813117875.4850004,
+    "cum_vol_hm3": 1813.1178754850005,
+    "cum_vol_L": 1813117875485.0005
+  },
+  {
+    "elevation": 1284,
+    "slice_area_m2": 6755.06,
+    "surface_area_m2": 9981744.810000004,
+    "partial_vol_m3": 9978367.280000005,
+    "cum_vol_m3": 1823096242.7650003,
+    "cum_vol_hm3": 1823.0962427650004,
+    "cum_vol_L": 1823096242765.0002
+  },
+  {
+    "elevation": 1285,
+    "slice_area_m2": 5371.04,
+    "surface_area_m2": 9987115.850000003,
+    "partial_vol_m3": 9984430.330000004,
+    "cum_vol_m3": 1833080673.0950003,
+    "cum_vol_hm3": 1833.0806730950003,
+    "cum_vol_L": 1833080673095.0002
+  },
+  {
+    "elevation": 1286,
+    "slice_area_m2": 6081.86,
+    "surface_area_m2": 9993197.710000003,
+    "partial_vol_m3": 9990156.780000003,
+    "cum_vol_m3": 1843070829.8750002,
+    "cum_vol_hm3": 1843.0708298750003,
+    "cum_vol_L": 1843070829875.0002
+  },
+  {
+    "elevation": 1287,
+    "slice_area_m2": 6522.72,
+    "surface_area_m2": 9999720.430000003,
+    "partial_vol_m3": 9996459.070000004,
+    "cum_vol_m3": 1853067288.9450002,
+    "cum_vol_hm3": 1853.0672889450002,
+    "cum_vol_L": 1853067288945.0002
+  },
+  {
+    "elevation": 1288,
+    "slice_area_m2": 4482.12,
+    "surface_area_m2": 10004202.550000003,
+    "partial_vol_m3": 10001961.490000002,
+    "cum_vol_m3": 1863069250.4350002,
+    "cum_vol_hm3": 1863.0692504350002,
+    "cum_vol_L": 1863069250435.0002
+  },
+  {
+    "elevation": 1289,
+    "slice_area_m2": 4192.6,
+    "surface_area_m2": 10008395.150000002,
+    "partial_vol_m3": 10006298.850000001,
+    "cum_vol_m3": 1873075549.285,
+    "cum_vol_hm3": 1873.075549285,
+    "cum_vol_L": 1873075549285.0
+  },
+  {
+    "elevation": 1290,
+    "slice_area_m2": 3156.97,
+    "surface_area_m2": 10011552.120000003,
+    "partial_vol_m3": 10009973.635000002,
+    "cum_vol_m3": 1883085522.92,
+    "cum_vol_hm3": 1883.0855229200001,
+    "cum_vol_L": 1883085522920.0
+  },
+  {
+    "elevation": 1291,
+    "slice_area_m2": 2273.99,
+    "surface_area_m2": 10013826.110000003,
+    "partial_vol_m3": 10012689.115000002,
+    "cum_vol_m3": 1893098212.035,
+    "cum_vol_hm3": 1893.0982120350002,
+    "cum_vol_L": 1893098212035.0
+  },
+  {
+    "elevation": 1292,
+    "slice_area_m2": 1717.68,
+    "surface_area_m2": 10015543.790000003,
+    "partial_vol_m3": 10014684.950000003,
+    "cum_vol_m3": 1903112896.9850001,
+    "cum_vol_hm3": 1903.1128969850001,
+    "cum_vol_L": 1903112896985.0002
+  },
+  {
+    "elevation": 1293,
+    "slice_area_m2": 1639.62,
+    "surface_area_m2": 10017183.410000002,
+    "partial_vol_m3": 10016363.600000001,
+    "cum_vol_m3": 1913129260.585,
+    "cum_vol_hm3": 1913.129260585,
+    "cum_vol_L": 1913129260585.0
+  },
+  {
+    "elevation": 1294,
+    "slice_area_m2": 1319.89,
+    "surface_area_m2": 10018503.300000003,
+    "partial_vol_m3": 10017843.355000002,
+    "cum_vol_m3": 1923147103.94,
+    "cum_vol_hm3": 1923.14710394,
+    "cum_vol_L": 1923147103940.0
+  },
+  {
+    "elevation": 1295,
+    "slice_area_m2": 955.88,
+    "surface_area_m2": 10019459.180000003,
+    "partial_vol_m3": 10018981.240000002,
+    "cum_vol_m3": 1933166085.18,
+    "cum_vol_hm3": 1933.16608518,
+    "cum_vol_L": 1933166085180.0
+  },
+  {
+    "elevation": 1296,
+    "slice_area_m2": 1010.5,
+    "surface_area_m2": 10020469.680000003,
+    "partial_vol_m3": 10019964.430000003,
+    "cum_vol_m3": 1943186049.6100001,
+    "cum_vol_hm3": 1943.18604961,
+    "cum_vol_L": 1943186049610.0002
+  },
+  {
+    "elevation": 1297,
+    "slice_area_m2": 1380.18,
+    "surface_area_m2": 10021849.860000003,
+    "partial_vol_m3": 10021159.770000003,
+    "cum_vol_m3": 1953207209.38,
+    "cum_vol_hm3": 1953.2072093800002,
+    "cum_vol_L": 1953207209380.0
+  },
+  {
+    "elevation": 1298,
+    "slice_area_m2": 1619.56,
+    "surface_area_m2": 10023469.420000004,
+    "partial_vol_m3": 10022659.640000004,
+    "cum_vol_m3": 1963229869.0200002,
+    "cum_vol_hm3": 1963.2298690200003,
+    "cum_vol_L": 1963229869020.0002
+  },
+  {
+    "elevation": 1299,
+    "slice_area_m2": 2199.46,
+    "surface_area_m2": 10025668.880000005,
+    "partial_vol_m3": 10024569.150000004,
+    "cum_vol_m3": 1973254438.1700003,
+    "cum_vol_hm3": 1973.2544381700004,
+    "cum_vol_L": 1973254438170.0002
+  },
+  {
+    "elevation": 1300,
+    "slice_area_m2": 2257.92,
+    "surface_area_m2": 10027926.800000004,
+    "partial_vol_m3": 10026797.840000004,
+    "cum_vol_m3": 1983281236.0100002,
+    "cum_vol_hm3": 1983.2812360100002,
+    "cum_vol_L": 1983281236010.0002
+  },
+  {
+    "elevation": 1301,
+    "slice_area_m2": 1900.35,
+    "surface_area_m2": 10029827.150000004,
+    "partial_vol_m3": 10028876.975000005,
+    "cum_vol_m3": 1993310112.9850001,
+    "cum_vol_hm3": 1993.3101129850002,
+    "cum_vol_L": 1993310112985.0002
+  }
+]
